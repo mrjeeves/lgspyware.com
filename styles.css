@@ -239,6 +239,10 @@ h2 { font-family: var(--font-cond); font-size: clamp(1.5rem, 4vw, 2.05rem); text
 h3 { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: 0.02em; font-size: 1.15rem; margin: 20px 0 8px; }
 p { margin: 0 0 14px; }
 code { font-family: var(--mono); font-size: 0.85em; background: #0d0e16; border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px; color: var(--accent-ink); }
+pre { background: #0c0d15; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 10px 0 14px; }
+pre code { background: none; border: none; padding: 0; color: #d8dbe6; font-size: 0.84rem; line-height: 1.55; white-space: pre; }
+.callout-fix pre { background: #0a1310; border-color: rgba(55,201,127,0.28); }
+.callout-fix pre code { color: #d6efe1; }
 
 ul.ticks { list-style: none; padding-left: 0; margin: 0 0 14px; }
 ul.ticks li { position: relative; padding-left: 28px; margin: 10px 0; }
@@ -270,6 +274,11 @@ ol.steps > li::before {
 .perm-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0; }
 @media (max-width: 640px) { .perm-grid { grid-template-columns: repeat(2, 1fr); } }
 .perm-grid span { background: var(--surface); border: 1px solid rgba(255,48,64,0.26); border-radius: 8px; padding: 12px 10px; text-align: center; font-size: 0.85rem; font-weight: 600; color: #ffd4d8; }
+.modelgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 8px; margin: 14px 0; }
+.modelgrid span { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 8px 6px; text-align: center; font-family: var(--mono); font-size: 0.82rem; color: var(--ink-soft); }
+.redact { background: #2a2c3a; color: #2a2c3a; border-radius: 3px; padding: 0 6px; user-select: none; }
+.backlink { display: inline-block; margin: 18px 0 0; font-family: var(--mono); font-size: 0.85rem; color: var(--ink-soft); }
+.evidence-note { background: var(--surface); border: 1px solid var(--border-strong); border-left: 3px solid var(--accent); border-radius: 8px; padding: 14px 16px; margin: 16px 0; font-size: 0.95rem; color: var(--ink-soft); }
 .fine { font-size: 0.92rem; color: var(--ink-faint); }
 .fine strong { color: var(--ink); }
 .note-dim { color: var(--ink-faint); font-size: 0.92rem; }
