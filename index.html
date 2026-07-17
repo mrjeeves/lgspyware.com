@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LGSpyware.com — LG Monitors Are Auto-Installing Adware on Windows PCs</title>
+  <meta name="description" content="Plugging an affected LG monitor into a Windows PC silently auto-installs the LG Monitor App, which serves McAfee pop-up ads. It stays after the monitor is unplugged. What's confirmed, what we tested, and how to remove it.">
+  <meta name="robots" content="index,follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LG Monitors Are Auto-Installing Adware on Windows PCs">
+  <meta property="og:description" content="Plug in an affected LG monitor and Windows silently installs an app that serves McAfee ads — and it stays after you unplug. Here's how to check and remove it.">
+  <meta property="og:url" content="https://lgspyware.com/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%E2%9A%A0%EF%B8%8F</text></svg>">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">⚠ ACTIVE ISSUE — Affected LG monitors auto-install adware on Windows. No official fix from LG or Microsoft as of July 17, 2026.</div>
+
+  <header class="site">
+    <div class="wrap">
+      <div class="brand"><span class="dot">●</span>LGSpyware<span class="dot">.com</span></div>
+      <div class="tagline">Tracking the LG monitor auto-install adware issue — and how to get it off your PC.</div>
+      <div class="updated">Last updated: <b>July 17, 2026</b> · Independent consumer-information project</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <div class="hero">
+      <div class="kicker">Our finding</div>
+      <h1>Plug in an affected LG monitor once, and the adware stays on your PC — even after the monitor is gone.</h1>
+      <p class="lede">When an affected LG display is connected to a Windows PC, Windows silently installs the <span class="hl">LG Monitor App</span> with no prompt and no consent. It starts serving <span class="hl">McAfee pop-up ads</span>. And here's the part everyone misses: <strong>unplugging the monitor does not remove it.</strong> The software is a normal installed program — it stays until you take it off yourself.</p>
+    </div>
+
+    <!-- OUR TESTED FINDING -->
+    <section id="finding">
+      <span class="badge tested">What we tested</span>
+      <h2><span class="num">01</span>It affects machines that have <em>ever</em> had an affected display attached</h2>
+      <div class="card tested">
+        <p><strong>We tested this ourselves.</strong> A Windows PC that had an affected LG monitor connected as far back as <strong>October of last year</strong> — and hasn't had it attached since — still had the LG Monitor App installed and still surfaced McAfee ads. The display was long gone. The adware wasn't.</p>
+        <p>The takeaway from our testing: it is not about whether the monitor is plugged in <em>right now</em>. If an affected LG display was ever connected to a Windows machine and the app installed, that machine carries it forward until someone removes it. Disconnecting, swapping, or returning the monitor does not undo it.</p>
+        <p class="note-dim">This is a firsthand finding from our own testing. We're documenting methodology and additional machines as we go, and posting updates below.</p>
+      </div>
+    </section>
+
+    <!-- OUR RECOMMENDED FIX -->
+    <section id="fix">
+      <span class="badge tested">Our recommended fix</span>
+      <h2><span class="num">02</span>Let it install, then uninstall it</h2>
+      <div class="card fix">
+        <p>Based on what we've tested so far, the cleanest fix is the simplest one: let the app install, then remove it through Windows. In our testing, once removed this way it has <strong>stayed gone — it has not popped back up or reinstalled</strong> at this time.</p>
+        <ol class="steps">
+          <li>Open <strong>Settings</strong> → <strong>Apps</strong> → <strong>Installed apps</strong> (on Windows 10: <strong>Apps &amp; features</strong>).</li>
+          <li>Search for <code>LG Monitor</code>. If you see the <strong>LG Monitor App</strong> (or "LG Monitor App Installer") and you never installed it yourself, that's the culprit.</li>
+          <li>Click the <strong>⋯</strong> menu next to it → <strong>Uninstall</strong> → confirm.</li>
+          <li>Search for <code>McAfee</code> in the same list. If there's a McAfee entry you didn't install, uninstall it too.</li>
+          <li>Reboot. In our testing so far, it does not come back.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>What we do <em>not</em> recommend right now</h3>
+        <p>You'll see other guides suggesting a <strong>registry edit</strong> or a <strong>Group Policy / Windows device-metadata change</strong> to block the auto-install. <strong>We don't recommend those.</strong> They can break how other devices on the system receive their drivers and companion utilities, and they're the kind of change that causes new problems on shared or managed machines. Our current guidance is the uninstall method above.</p>
+      </div>
+    </section>
+
+    <!-- HOW TO CHECK -->
+    <section id="check">
+      <h2><span class="num">03</span>How to check if your PC is affected</h2>
+      <p>You don't need the monitor connected to check. If an affected LG display was ever attached, look for the leftovers:</p>
+      <ul>
+        <li>Go to <strong>Settings → Apps → Installed apps</strong> and search <code>LG Monitor</code> and <code>McAfee</code>.</li>
+        <li>Seeing an <strong>LG Monitor App</strong> or an unexpected <strong>McAfee</strong> entry you never installed is the tell.</li>
+        <li>If McAfee ad pop-ups have started appearing out of nowhere, this is a likely source.</li>
+      </ul>
+      <p>If you find them, use the <a href="#fix">uninstall steps above</a>.</p>
+    </section>
+
+    <!-- WHAT'S HAPPENING (press-confirmed) -->
+    <section id="background">
+      <span class="badge press">Confirmed by the press</span>
+      <h2><span class="num">04</span>What's happening, and how it gets on your PC</h2>
+      <p>This isn't only us. The behavior was documented publicly in mid-July 2026 by <strong>Gamers Nexus</strong> and picked up by <strong>Tom's Hardware</strong>, <strong>TechSpot</strong>, and <strong>PC Gamer</strong>, among others.</p>
+      <p>The mechanism is a Windows feature called <strong>Device Setup Manager</strong>. When hardware is connected, Windows reads the device's metadata, matches it to a companion app listing in the Microsoft Store, and downloads that app automatically — under the system account, <strong>with no consent prompt</strong>. It's marketed as a convenience feature for delivering manufacturer utilities. Here it's being used to push an app that shows ads.</p>
+      <ul>
+        <li>Gamers Nexus reported the McAfee offer appeared on <strong>31 of 32 consecutive boots</strong> in testing.</li>
+        <li>The app installed has been identified as the <strong>LG Monitor App</strong> (<code>LGElectronics.LGMonitorApp</code>).</li>
+        <li>As of <strong>July 17, 2026</strong>, neither <strong>LG</strong> nor <strong>Microsoft</strong> has publicly commented.</li>
+      </ul>
+    </section>
+
+    <!-- AFFECTED HARDWARE -->
+    <section id="hardware">
+      <h2><span class="num">05</span>Affected hardware</h2>
+      <p>Models named in public reporting so far:</p>
+      <ul>
+        <li><strong>LG UltraGear 27GP83B</strong></li>
+        <li><strong>LG UltraGear 27GN800</strong></li>
+        <li>Other LG monitors that ship the same Store companion-app metadata are likely to behave the same way. If you've seen it on another model, <a href="#tips">send us the details</a>.</li>
+      </ul>
+      <div class="card">
+        <span class="badge open">Not confirmed</span>
+        <p>Some outlets have mentioned other brands. <strong>We are not claiming Dell or Alienware are affected</strong> — we haven't confirmed it, so we're keeping this to what we can stand behind: LG. If that changes, it goes in the <a href="#updates">updates</a> with the receipts.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <h2><span class="num">06</span>FAQ</h2>
+
+      <details open>
+        <summary>I unplugged the monitor — am I safe now?</summary>
+        <div class="body">No. The app is installed software; disconnecting the monitor doesn't remove it. That's the whole point of our finding. Check <strong>Installed apps</strong> and uninstall it.</div>
+      </details>
+
+      <details>
+        <summary>My LG monitor was only connected months ago. Could I still have this?</summary>
+        <div class="body">Yes. In our testing, a machine that had an affected display attached last October still had the app and the McAfee ads today. If it installed back then, it's still there until you remove it.</div>
+      </details>
+
+      <details>
+        <summary>Is it "spyware" or "adware"?</summary>
+        <div class="body">The behavior that's been documented is <strong>adware</strong>: software installed on your PC without your consent that then shows McAfee advertisements. We have not published proof that it steals or exfiltrates personal data, and we're not going to claim that until we can show it. But installing software on your machine without asking is a serious consent and security problem on its own — which is exactly what this site is tracking.</div>
+      </details>
+
+      <details>
+        <summary>Does this affect Mac or Linux?</summary>
+        <div class="body">No. This runs through the Windows Store / device-metadata auto-install feature. macOS and Linux don't have that mechanism.</div>
+      </details>
+
+      <details>
+        <summary>Should I do the registry or Group Policy fix I saw elsewhere?</summary>
+        <div class="body">We don't recommend it right now. Those changes can interfere with how other devices get their drivers and utilities and can cause new issues, especially on shared or managed PCs. Our recommended fix is to <a href="#fix">uninstall the app</a>.</div>
+      </details>
+
+      <details>
+        <summary>Have LG or Microsoft responded?</summary>
+        <div class="body">Not publicly, as of July 17, 2026. No statement, no patch, no list of affected models. We'll post any official response here.</div>
+      </details>
+    </section>
+
+    <!-- UPDATES -->
+    <section id="updates">
+      <h2><span class="num">07</span>Updates</h2>
+      <p>We're tracking this closely and posting as we learn more.</p>
+      <ul class="log">
+        <li><time>2026-07-17</time><span><strong>LGSpyware.com launches.</strong> Publishing our finding that the adware persists on any Windows PC that has ever had an affected LG display attached, plus our recommended uninstall fix.</span></li>
+        <li><time>2026-07-13</time><span><strong>Story breaks.</strong> Gamers Nexus documents the LG Monitor App auto-installing via Windows device metadata and surfacing McAfee ads on 31 of 32 boots. Picked up by Tom's Hardware, TechSpot, and PC Gamer.</span></li>
+      </ul>
+    </section>
+
+    <!-- SOURCES -->
+    <section id="sources">
+      <h2><span class="num">08</span>Sources &amp; further reading</h2>
+      <ul class="sources">
+        <li><a href="https://www.tomshardware.com/software/windows/companies-are-now-using-automatic-windows-installers-to-display-adware-through-the-microsoft-store-when-you-install-new-hardware-customer-immediately-gets-mcafee-ads-on-their-pc-after-connecting-new-lg-monitor-heres-how-to-block-the-new-ads" rel="noopener" target="_blank">Tom's Hardware — Companies are using automatic Windows installers to display adware through the Microsoft Store</a></li>
+        <li><a href="https://www.techspot.com/news/113031-lg-alienware-monitors-caught-auto-installing-windows-adware.html" rel="noopener" target="_blank">TechSpot — LG and Alienware monitors caught auto-installing Windows adware</a></li>
+        <li><a href="https://www.pcgamer.com/hardware/gaming-monitors/it-looks-like-monitor-manufacturers-can-download-bloatware-without-consent-that-will-serve-you-pop-up-ads/" rel="noopener" target="_blank">PC Gamer — Monitor manufacturers can download bloatware without consent</a></li>
+        <li><a href="https://cybersecuritynews.com/windows-update-installs-lg-monitor-app-pushes-mcafee-ads/" rel="noopener" target="_blank">Cyber Security News — Windows silently installs LG Monitor App that pushes McAfee ads</a></li>
+        <li><a href="https://www.thefpsreview.com/2026/07/13/plug-in-an-lg-monitor-get-mcafee-ads-windows-is-auto-installing-manufacturer-bloatware/" rel="noopener" target="_blank">The FPS Review — Plug in an LG monitor, get McAfee ads</a></li>
+      </ul>
+      <p class="note-dim">Coverage originated with Gamers Nexus's testing. External reporting is linked for verification; this site summarizes and adds our own findings.</p>
+    </section>
+
+    <!-- TIPS -->
+    <section id="tips">
+      <h2><span class="num">09</span>Seen it yourself? Send a tip.</h2>
+      <div class="tip">
+        <p>If you've hit this on an LG monitor — or any other display — tell us the model, your Windows version, and what installed. Screenshots of <strong>Installed apps</strong> help.</p>
+        <p><a class="mail" href="mailto:lgspyware.com@gmail.com?subject=LG%20monitor%20adware%20tip">lgspyware.com@gmail.com</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <p><strong>LGSpyware.com</strong> — independent consumer-information project tracking the LG monitor auto-install adware issue.</p>
+      <p class="disclaimer">Not affiliated with, endorsed by, or associated with LG Electronics, Microsoft Corporation, McAfee, Dell, or Alienware. All product names, logos, and trademarks are the property of their respective owners, referenced here for identification and commentary only. Findings labeled "what we tested" are our own firsthand observations; items labeled "confirmed by the press" link to third-party reporting for verification. Information is provided in good faith for consumer awareness — verify against the linked primary sources before acting. Contact: lgspyware.com@gmail.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>
