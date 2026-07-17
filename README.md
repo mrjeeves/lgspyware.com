@@ -1,6 +1,8 @@
 # lgspyware.com
 
-A developing-story news portal tracking the LG monitor auto-install adware issue on Windows.
+A developing-story consumer alert tracking the LG monitor auto-install adware
+issue on Windows. **Published by [Critical Error Computing](https://www.criticalerrorcomputing.com/)**
+(CEC), a custom PC builder in Humble, TX — themed to the CEC house style.
 
 ## The story
 
@@ -21,26 +23,31 @@ No official response from LG or Microsoft as of 2026-07-17.
 Let the app install, then uninstall it via **Settings → Apps → Installed apps**
 (remove **LG Monitor App Installer** and any unexpected **McAfee** entry), then
 reboot. In our testing, once uninstalled it does not come back. We do **not**
-recommend registry or Group Policy device-metadata edits — they can break
+recommend registry or Group Policy device-metadata edits — they can affect
 driver/utility delivery for other devices.
 
 ## Editorial standard
 
+- **Not independent, and disclosed as such:** published by CEC, a PC builder; not
+  affiliated with LG/Microsoft/McAfee, and not a competitor in the monitor/TV market.
 - Firsthand observations are labeled as **our findings**.
-- Third-party reporting is linked inline and in **Sources** for verification.
 - Contested characterizations (e.g. “spyware”) are attributed to the outlets that
-  made them; where evidence is limited (Gamers Nexus reported no evidence of screen
-  capture), the page says so.
-- Unverified items (e.g. Dell/Alienware) are marked **not confirmed** rather than
-  stated as fact.
+  made them; limits of evidence (no screen-capture evidence) are stated.
+- Unverified items (Dell/Alienware) are marked **not confirmed** rather than fact.
+
+## Theme
+
+Styled to the Critical Error Computing brand: Saira / Saira Condensed type, the
+magenta `#ed2398` accent, dark surfaces, a faint grid backdrop, and a subtle glitch
+on accent words. **Red is reserved for the breaking banner and warning callouts.**
 
 ## Tech
 
 Static site served from the repository root via **GitHub Pages**.
 
-- `index.html` — breaking-news portal (embedded Gamers Nexus video, outlet strip,
-  by-the-numbers, "am I affected?", uninstall fix, developing-story timeline, sources)
-- `styles.css` — responsive dark news theme
+- `index.html` — the alert (embedded Gamers Nexus video, outlet strip, by-the-numbers,
+  "am I affected?", uninstall fix, developing-story timeline, sources, CEC credit)
+- `styles.css` — CEC-themed responsive dark stylesheet
 - `CNAME` — custom domain (`lgspyware.com`)
 - `.nojekyll` — serve files as-is
 
