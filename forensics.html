@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forensic Install Report — LG Monitor App | LGSpyware.com · Critical Error Computing</title>
+  <meta name="description" content="The minute-by-minute install chain of the LG Monitor App, recovered from one of our own Windows machines: two no-driver LG packages delivered by Windows Update, a SYSTEM install with no consent, and nine months of active maintenance after the monitor was gone.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="LGSpyware.com · Critical Error Computing">
+  <meta property="og:title" content="Forensic Install Report — LG Monitor App">
+  <meta property="og:description" content="Two WHQL-signed LG 'driver' packages with no driver code, a SYSTEM install in seconds with no consent, still self-updating nine months after the monitor left. Recovered from LG's own files.">
+  <meta property="og:url" content="https://lgspyware.com/forensics">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%F0%9F%94%AC</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600&family=Saira+Condensed:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="breaking" role="alert">
+    <span class="pulse">● FORENSICS</span>
+    <marquee-fallback>Install chain recovered from one of our own machines. Evidence only; removal was not performed, so the machine remains available for verification.</marquee-fallback>
+  </div>
+
+  <header class="masthead">
+    <div class="grid-bg"></div>
+    <div class="wrap masthead-in">
+      <div class="brandblock">
+        <a class="brand" href="/">LG<span class="err">Spyware</span></a>
+        <span class="brand-by">Forensic report · <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">Critical Error Computing</a></span>
+      </div>
+      <nav class="topnav">
+        <a href="/">← Back to the alert</a>
+        <a href="/#fix">The fix</a>
+        <a href="/#tips">Send a tip</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="lead">
+      <div class="grid-bg"></div>
+      <div class="wrap lead-in">
+        <div class="eyebrow-row"><span class="tag-red">FORENSIC REPORT</span> <span class="eyebrow">LG Monitor App · Windows</span></div>
+        <h1>The silent install, documented to the <span class="gw" data-alt="sec0nd">second</span>.</h1>
+        <p class="dek">We recovered the complete install chain of the <strong>LG Monitor App</strong> from one of our own Windows machines: two LG packages signed as drivers but carrying no driver code, delivered by <strong>Windows Update</strong>, that install LG's app under <strong>SYSTEM</strong> with no consent and keep it maintained for months after the monitor is gone. This is the evidence behind the <a href="/">main alert</a>.</p>
+        <div class="byline">
+          <span>By <strong>Critical Error Computing</strong></span>
+          <span class="sep">·</span>
+          <span><time datetime="2026-07-17">July 17, 2026</time></span>
+        </div>
+      </div>
+    </article>
+
+    <div class="wrap body">
+
+      <section id="summary">
+        <div class="evidence-note">
+          <strong>Handling note.</strong> This report is redacted for the machine owner's privacy: hostname, OS baseline date, and the LG panel's serial descriptor are withheld. Manufacturer and product IDs and the model mapping are kept, because they prove the identification without fingerprinting the unit. Removal was <strong>not</strong> performed on this machine; it is preserved as evidence and remains available for verification.
+        </div>
+        <h2>Summary of findings</h2>
+        <ul class="ticks">
+          <li>On <strong>September 30, 2025</strong>, with an <strong>LG UltraGear 27GR83Q</strong> connected, Windows Update delivered two LG packages of class <em>Extension</em> and <em>SoftwareComponent</em>. Neither contains driver code.</li>
+          <li>The packages install <code>LGElectronics.LGMonitorApp</code> from the Microsoft Store under <strong>SYSTEM</strong>, about <strong>32 seconds</strong> after delivery. No prompt, no EULA, no entry in the classic programs list.</li>
+          <li>The monitor was disconnected in <strong>mid-October 2025</strong>. The app remained, and <strong>self-updated as SYSTEM on July 9, 2026</strong>, nine months later.</li>
+          <li>Both LG packages remain in the Windows driver store, wired to <strong>51 hardware IDs across 19 monitor models</strong>. Uninstalling the app alone leaves the machine armed.</li>
+          <li>Both packages are signed "<strong>Microsoft Windows Hardware Compatibility Publisher</strong>." The machine was on stock default policy. This is the out-of-box Windows experience.</li>
+        </ul>
+      </section>
+
+      <section id="machine">
+        <h2>The machine</h2>
+        <ul class="ticks">
+          <li><strong>Host:</strong> <span class="redact">REDACTED</span> (Windows 11, stock default device-installation policy)</li>
+          <li><strong>OS baseline:</strong> <span class="redact">REDACTED</span></li>
+          <li><strong>Trigger device:</strong> LG UltraGear <strong>27GR83Q</strong> (manufacturer and product IDs retained in evidence; serial descriptor and numeric serial withheld)</li>
+          <li><strong>Other displays present:</strong> seven other panels from three brands were recorded on this install; none triggered any software delivery.</li>
+        </ul>
+      </section>
+
+      <section id="chain">
+        <h2>The install chain, to the second</h2>
+        <p>Reconstructed from Windows Update, CBS/servicing, Store install-service, and Reliability Monitor logs. A small clock offset between log sources was measured and accounted for; the ordering below is unaffected.</p>
+        <ul class="ticks">
+          <li><strong>9:52 PM</strong> — Windows Update delivers two LG packages for the connected UltraGear: an <em>Extension</em> INF and a <em>SoftwareComponent</em> INF. Neither carries driver binaries.</li>
+          <li><strong>~9:52 PM</strong> — The Extension package fabricates a phantom child device under the monitor. Its only purpose is to give the SoftwareComponent package something to bind to.</li>
+          <li><strong>~9:53 PM (about 32 seconds later)</strong> — The SoftwareComponent package's directive fires, and Windows fetches <code>LGElectronics.LGMonitorApp</code> from the Microsoft Store. The app is installed by <strong>SYSTEM</strong>.</li>
+          <li><strong>Next logon</strong> — The app is registered into the user account. No installer window, no consent dialog, no uninstall entry in the classic Programs and Features list ever appears.</li>
+        </ul>
+      </section>
+
+      <section id="packages">
+        <h2>The two packages</h2>
+        <p>Both come from provider <strong>LG Electronics Inc.</strong>, package dated <strong>August 27, 2024</strong>, WHQL-signed and co-signed by Microsoft. In the driver store they appear as:</p>
+        <ul class="ticks">
+          <li><code>lgmonitorappextension.inf</code> — class <em>Extension</em>. Contains no driver code. It fabricates a phantom child device so a companion package has a binding target.</li>
+          <li><code>lgmonitorappsoftwarecomponent.inf</code> — class <em>SoftwareComponent</em>. Contains no driver code. It carries the single directive that delivers the app.</li>
+        </ul>
+        <p>The delivery directive lives in the SoftwareComponent INF: an <code>AddComponent</code> entry with <code>SoftwareType = 2</code>, the INF form that tells Windows to install a specific Microsoft Store app for the device. The target is <code>LGElectronics.LGMonitorApp</code>. That is the whole mechanism: a "driver" whose only job is to make Windows install an app.</p>
+        <p class="note-dim">The full INF text and the complete signing chain are preserved in the evidence set.</p>
+      </section>
+
+      <section id="consent">
+        <h2>Consent surfaces: none</h2>
+        <p>We looked specifically for the points where a user could have seen or approved this. There were none:</p>
+        <ul class="ticks">
+          <li>No installer window or progress UI at install time.</li>
+          <li>No EULA or terms prompt before the app was placed.</li>
+          <li>No entry in the classic <em>Programs and Features</em> uninstall list (the app is only visible under Settings → Apps → Installed apps).</li>
+          <li>The delivery ran under <strong>SYSTEM</strong>, not the user, so nothing was gated on a user click.</li>
+        </ul>
+      </section>
+
+      <section id="persistence">
+        <h2>Persistence is active, and Windows does the maintaining</h2>
+        <p>The panel was unplugged in mid-October 2025. The app was not.</p>
+        <ul class="ticks">
+          <li><strong>App version chain on this machine:</strong> <code>1.2405.3001.0</code> (installed Sep 2025) → <code>1.2602.502.0</code> → <code>1.2606.1601.0</code>.</li>
+          <li><strong>July 9, 2026, 2:11 AM</strong> — the app self-updates to <code>1.2606.1601.0</code>, staged by SYSTEM. Nine months after the monitor left.</li>
+          <li><strong>July 15, 2026</strong> — Device Setup Manager is still re-staging the orphaned monitor's metadata.</li>
+          <li><strong>July 17, 2026</strong> — the Microsoft Store install service touches the app again.</li>
+        </ul>
+        <p>Uninstalling the app alone does not end this. Both LG packages stay in the driver store, and reconnecting any listed LG panel re-arms the chain. Full removal is in <a href="/#fix">the fix</a>.</p>
+      </section>
+
+      <section id="triggers">
+        <h2>The trigger list</h2>
+        <p>The resident LG extension package wires <strong>51 hardware IDs across 19 monitor models</strong> for automatic app delivery. The models:</p>
+        <div class="modelgrid">
+          <span>34WQ73A</span><span>34BQ77QC</span><span>27BQ85U</span><span>27UQ750</span>
+          <span>28MQ750</span><span>27GR83Q</span><span>27GR93U</span><span>32GR93U</span>
+          <span>27UQ850V</span><span>32UQ850V</span><span>32GR75Q</span><span>27GS85Q</span>
+          <span>32GS85Q</span><span>27BA850</span><span>24BR750E</span><span>27UP850</span>
+          <span>24BA850</span><span>24BA750</span><span>27BA750</span>
+        </div>
+        <p class="note-dim">Each model maps to one or more hardware IDs (monitor + hub/companion enumerations), 51 in total; the complete hardware-ID table is preserved in the evidence set. Note what is <strong>absent</strong>: the models driving the news cycle, UltraGear 34GX900A-B, 27GP83B, 27GN800 and UltraFine 32UN880-B, do <em>not</em> appear in this revision of the package. LG ships multiple revisions with different coverage, so the real footprint is larger than any single list, ours included.</p>
+      </section>
+
+      <section id="notaffected">
+        <h2>What is not affected</h2>
+        <ul class="ticks">
+          <li><strong>Every non-LG display on this machine.</strong> Seven other panels from three brands were present across this install. None triggered any software delivery.</li>
+          <li><strong>Dell, as a direct contrast.</strong> The Dell S2716DG's package arrived through the same Windows Update channel, and it is a normal monitor driver with no app payload. Same delivery road, ordinary cargo. This is what a benign monitor package looks like, and it is what LG's is not.</li>
+        </ul>
+      </section>
+
+      <section id="removal" class="callout-fix">
+        <h2>Removal (two layers)</h2>
+        <p><strong>1. Remove the app.</strong> Settings → Apps → Installed apps, uninstall <strong>LG Monitor App</strong>. Or, elevated PowerShell:</p>
+        <pre><code>Get-AppxPackage -AllUsers LGElectronics.LGMonitorApp | Remove-AppxPackage -AllUsers</code></pre>
+        <p><strong>2. Remove LG's two delivery packages</strong> so the machine can't re-arm. List the driver store:</p>
+        <pre><code>pnputil /enum-drivers</code></pre>
+        <p>Find the entries from <strong>LG Electronics Inc.</strong> with original names <code>lgmonitorappextension.inf</code> and <code>lgmonitorappsoftwarecomponent.inf</code>. Read each one's published name off the list (<code>oemXX.inf</code>; the numbers differ on every machine). Then, once per package:</p>
+        <pre><code>pnputil /delete-driver oemXX.inf /uninstall</code></pre>
+        <p class="warn">This is surgical: it removes only LG's app-delivery packages. Other devices keep their drivers and companion software, and real driver updates keep flowing. Windows Update can re-offer LG's packages if a listed LG panel is connected again.</p>
+      </section>
+
+      <section id="verify">
+        <h2>Verify it yourself</h2>
+        <p>This machine was not cleaned; it is held as evidence. If you can reproduce or refute any step, we want to see it. Reports we're collecting, and the PowerShell to read your app version, are on the <a href="/#tips">main page</a>.</p>
+        <a class="backlink" href="/">← Back to the alert</a>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">
+      <p><strong>LGSpyware.com · Forensic report</strong> — published by <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">Critical Error Computing</a>, a custom PC builder in Humble, TX.</p>
+      <p class="disclaimer">Findings are firsthand observations from a single machine we own, redacted for privacy and offered in good faith for consumer awareness and independent verification. Not affiliated with, endorsed by, or associated with LG Electronics, Microsoft Corporation, McAfee, Dell, or Alienware. Product names and trademarks are the property of their respective owners, referenced for identification and commentary. Contact: lgspyware.com@gmail.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>

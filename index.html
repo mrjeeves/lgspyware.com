@@ -4,17 +4,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LGSpyware.com — LG Monitors Are Auto-Installing Adware on Windows PCs | Critical Error Computing</title>
-  <meta name="description" content="DEVELOPING: Plug in an affected LG monitor and Windows silently installs the LG Monitor App Installer, which serves McAfee ads and requests access to your contacts, credentials and transactions — and it sits on your PC long after the monitor is gone. A Critical Error Computing consumer alert.">
+  <meta name="description" content="DEVELOPING: Connect an affected LG monitor and Windows silently installs LG's app within seconds, no consent, installed by SYSTEM. It serves McAfee ads, and on our machine Windows was still updating it nine months after the monitor was unplugged. We published the full forensic chain. Check your PC now.">
   <meta name="robots" content="index,follow">
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="LGSpyware.com · Critical Error Computing">
   <meta property="og:title" content="Ever Connected an LG Monitor? Windows May Have Silently Installed Adware That's Still on Your PC.">
-  <meta property="og:description" content="It installs without consent, serves McAfee ads, demands access to your data, and lingers long after the monitor's gone. Gamers Nexus's verdict: DO NOT BUY. Published by Critical Error Computing.">
+  <meta property="og:description" content="Installed by SYSTEM in seconds, zero consent, still self-updating nine months after the monitor left. We published the forensic chain from LG's own files. Gamers Nexus's verdict: DO NOT BUY.">
   <meta property="og:url" content="https://lgspyware.com/">
+  <meta property="og:image" content="https://lgspyware.com/og-image.png">
+  <meta property="og:image:alt" content="LG Monitor App: installed by SYSTEM on 2025-09-30, still self-updating on 2026-07-09.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ever Connected an LG Monitor? Check Your PC Now.">
-  <meta name="twitter:description" content="Windows silently installs LG's app — serves McAfee ads, demands your data, and it lingers. A Critical Error Computing alert.">
+  <meta name="twitter:description" content="Installed by SYSTEM in seconds, no consent, still self-updating nine months after the monitor left. We published the forensic chain. A Critical Error Computing alert.">
+  <meta name="twitter:image" content="https://lgspyware.com/og-image.png">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%E2%9A%A0%EF%B8%8F</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,9 +41,10 @@
       </div>
       <nav class="topnav">
         <a href="#affected">Am I affected?</a>
+        <a href="#switch">The switch</a>
         <a href="#fix">The fix</a>
+        <a href="/forensics">Forensics</a>
         <a href="#timeline">Developing</a>
-        <a href="#sources">Sources</a>
       </nav>
     </div>
   </header>
@@ -52,7 +56,7 @@
       <div class="wrap lead-in">
         <div class="eyebrow-row"><span class="tag-red">DEVELOPING</span> <span class="eyebrow">Consumer Alert · Windows</span></div>
         <h1>Ever connected an LG monitor to your PC? Check it now — Windows may have silently installed adware that's <span class="gw" data-alt="st1ll there">still there</span>.</h1>
-        <p class="dek">An affected LG display doesn't ask permission. Connect one and Windows auto-installs the <strong>LG Monitor App Installer</strong> through a background feature — no prompt, no consent. It serves <strong>McAfee pop-up ads</strong>, requests access to your <strong>contacts, credentials, location and transactions</strong>, and <strong>sits on your PC long after the monitor is gone</strong>. Gamers Nexus's verdict after testing: <strong>“DO NOT BUY.”</strong></p>
+        <p class="dek">An affected LG display doesn't ask permission. Connect one and Windows installs the <strong>LG Monitor App</strong> within seconds through the update channel. No prompt, no consent, installed by SYSTEM. It serves <strong>McAfee pop-up ads</strong>, operates under LG terms covering collection of your <strong>contacts, credentials, location and transactions</strong>, and it outlives the monitor: on our machine, Windows was <strong>still updating LG's app nine months after the panel was unplugged</strong>. Gamers Nexus's verdict after testing: <strong>“DO NOT BUY.”</strong></p>
         <div class="byline">
           <span>By <strong>Critical Error Computing</strong></span>
           <span class="sep">·</span>
@@ -102,12 +106,12 @@
         <div class="stat-lbl">consent prompts before the app installs</div>
       </div>
       <div class="stat">
-        <div class="stat-num">8</div>
-        <div class="stat-lbl">sensitive permission classes the app requests</div>
+        <div class="stat-num">51</div>
+        <div class="stat-lbl">LG hardware IDs wired for auto-install in one LG delivery package we pulled apart</div>
       </div>
       <div class="stat">
-        <div class="stat-num">$1,200</div>
-        <div class="stat-lbl">LG UltraGear 34GX900A-B — a monitor caught doing it</div>
+        <div class="stat-num">9<span class="stat-den">mo</span></div>
+        <div class="stat-lbl">after the monitor left, Windows was still updating LG's app as SYSTEM</div>
       </div>
     </section>
 
@@ -116,38 +120,49 @@
       <!-- WHAT'S HAPPENING -->
       <section id="story">
         <h2>What's happening</h2>
-        <p>Windows users are discovering that connecting certain <strong>LG monitors</strong> silently installs the <strong>LG Monitor App Installer</strong> (<code>LGElectronics.LGMonitorApp</code>) — with no installation dialog and no consent. The app's first visible act is pushing a <strong>McAfee</strong> pop-up (a “30-day trial” / “Scam Detector” offer). Gamers Nexus said the offer appeared on <strong>31 of 32 consecutive boots</strong>.</p>
-        <p>It rides in on a legitimate Windows feature called <strong>Device Setup Manager</strong>. When hardware connects, Windows reads the device's metadata, matches it to a companion app in the Microsoft Store, and downloads that app automatically under the system account. It's meant for delivering manufacturer utilities. Here it's being used as an <strong>ad-delivery channel</strong>.</p>
+        <p>Connecting certain <strong>LG monitors</strong> to a Windows PC silently installs the <strong>LG Monitor App</strong> (<code>LGElectronics.LGMonitorApp</code>), with no installation dialog and no consent. The app's first visible act is a <strong>McAfee</strong> pop-up (a “30-day trial” / “Scam Detector” offer). Gamers Nexus saw the offer on <strong>31 of 32 consecutive boots</strong>.</p>
+        <p>It arrives through <strong>Windows Update</strong>. Two LG packages, signed as drivers but carrying no driver code, are delivered for the connected monitor; one instructs Windows to fetch the app from the Microsoft Store, which the SYSTEM account then installs. We recovered that chain from one of our own machines, documented to the second. The detail is below, and the full log is in <a href="/forensics">our forensic report</a>.</p>
       </section>
 
-      <!-- IT DOESN'T LEAVE -->
+      <!-- PERSIST (forensic) -->
       <section id="persist">
-        <h2>It doesn't ask — and unplugging won't undo it</h2>
-        <p>This is the part people miss:</p>
+        <h2>It installs the moment you connect. And Windows keeps it alive after the monitor is gone.</h2>
+        <p>We pulled the full install chain off one of our own machines, down to the second:</p>
         <ul class="ticks">
-          <li><strong>You never approved it.</strong> The install is triggered by the hardware connection, not by you — there's no dialog, and no Windows Update entry you'd notice.</li>
-          <li><strong>It can sit there for months.</strong> If it installed when the monitor was connected, it stays — quietly, still pushing its McAfee offer — until you find it and remove it.</li>
-          <li><strong>Unplugging doesn't undo it.</strong> Once installed, it's normal installed software. Disconnecting, returning, or swapping the monitor does not remove it. You have to uninstall it yourself.</li>
+          <li><strong>Silent at connection.</strong> September 30, 2025, 9:52 PM: Windows Update delivers two LG "driver" packages for the connected UltraGear. Neither contains driver code. One exists to fabricate a phantom child device. The other carries a single instruction: fetch <code>LGElectronics.LGMonitorApp</code> from the Microsoft Store. Half a minute later the app is installed by SYSTEM and registered into the user account at next logon. No prompt appears at any step.</li>
+          <li><strong>The monitor left in October 2025. The app never did.</strong> Nine months after the panel was unplugged, the app self-updated at 2:11 AM on July 9, 2026, staged by SYSTEM, and the Store's install service touched it again on the morning of July 17. Windows was still re-staging the dead monitor's metadata as late as July 15.</li>
+          <li><strong>Uninstalling the app alone leaves the machine armed.</strong> Both LG delivery packages stay in the Windows driver store, wired to <strong>51 LG hardware IDs across 19 monitor models</strong>. Connect any of them and the whole chain fires again. The full removal is in <a href="#fix">the fix</a>.</li>
         </ul>
+        <p class="note-dim">The minute-by-minute evidence, including LG's own INF directives, is in <a href="/forensics">our forensic install report</a>.</p>
+      </section>
+
+      <!-- THE SWITCH -->
+      <section id="switch">
+        <h2>Two years quiet. Then the switch flipped.</h2>
+        <p>The install base built silently long before the ads did. On Microsoft's own Tech Community, the complaint thread about this app opens on <strong>November 18, 2024</strong>, and for twenty months every post is about the mystery install: a July 2025 repair tech calling it a force-installed PUP on client machines, a March 2026 user documenting the install landing despite having both the device-metadata policy <em>and</em> the Store-disable policy enabled. Not one post mentions advertising. The community reply marked as the official solution told everyone the app was safe.</p>
+        <p>Then on <strong>July 1, 2026</strong>, the first ad report appears: a McAfee Scam Detector pop-up on a machine that had carried the app quietly. A second user reports the McAfee notifications the same day, and every reply since is about the ads.</p>
+        <p>That date lines up with the app's own version chain. On our machine: build 1.<strong>2405</strong>.3001.0 installed September 2025, then 1.<strong>2602</strong>.502.0, then 1.<strong>2606</strong>.1601.0 arriving by SYSTEM self-update on July 9, 2026. The numbering reads like year-month builds, and a June 2026 build rolling out through staggered Store updates lands exactly on the window where the thread turns into ad complaints, Reddit lights up, and Gamers Nexus's three-year-old UltraFine starts popping during production of their video.</p>
+        <p>What we can't yet prove is whether the advertising ships inside the June build or gets switched on server-side, since the app is internet-connected and its payload can change remotely. Reader data can settle it: see <a href="#tips">what to send us</a>.</p>
       </section>
 
       <!-- ARE YOU AFFECTED -->
       <section id="affected" class="callout-danger">
         <h2>Are you affected?</h2>
-        <p class="big">If an affected LG monitor has <u>ever</u> been connected to your Windows PC — even months ago, even if it's long gone — check your machine. The install needs no consent, and it doesn't leave when the monitor does, so “I unplugged it” is not the same as “it's clean.”</p>
+        <p class="big">If an affected LG monitor has <u>ever</u> been connected to your Windows PC, even months ago, even if it's long gone, check your machine. The install needs no consent, and it doesn't leave when the monitor does, so “I unplugged it” is not the same as “it's clean.”</p>
         <p><strong>The 30-second check (no monitor required):</strong></p>
         <ol class="steps">
           <li>Open <strong>Settings → Apps → Installed apps</strong> (Windows 10: <strong>Apps &amp; features</strong>).</li>
           <li>Search <code>LG Monitor</code> and <code>McAfee</code>.</li>
-          <li>See <strong>LG Monitor App Installer</strong> or a <strong>McAfee</strong> entry you never installed? You were hit.</li>
+          <li>See <strong>LG Monitor App</strong> or <strong>LG Monitor App Installer</strong>, or a <strong>McAfee</strong> entry you never installed? You were hit.</li>
         </ol>
-        <p class="note-dim">We're documenting machines that had an affected LG display connected in the past and still carry the app today. Found it on a PC whose LG monitor has long since been unplugged? <a href="#tips">Send us the app's install date and a screenshot</a> — that evidence is exactly what we're collecting.</p>
+        <p class="note-dim"><strong>The deep check, for techs:</strong> run <code>pnputil /enum-drivers</code> and look for <code>lgmonitorappextension.inf</code> or <code>lgmonitorappsoftwarecomponent.inf</code> from LG Electronics Inc. A machine can be armed with these packages even when the app itself is absent.</p>
+        <p class="note-dim">We're documenting machines that had an affected LG display connected in the past and still carry the app today. Found it on a PC whose LG monitor has long since been unplugged? <a href="#tips">Send us the app's install date and a screenshot</a>, that evidence is exactly what we're collecting.</p>
       </section>
 
       <!-- PERMISSIONS -->
       <section id="permissions">
-        <h2>What it wants access to</h2>
-        <p>Per the investigation, the auto-installed LG Monitor App Installer requests permissions spanning:</p>
+        <h2>What it can touch</h2>
+        <p>The auto-installed app declares a permission footprint, and LG's terms cover collection, spanning:</p>
         <div class="perm-grid">
           <span>System resources</span>
           <span>Internet connectivity</span>
@@ -158,36 +173,35 @@
           <span>Transactions</span>
           <span>Online activity</span>
         </div>
-        <p class="fine">Context, so we're straight with you: Gamers Nexus <strong>did not find evidence</strong> that the monitors capture screen content. What's confirmed is the non-consensual install, the ad-pushing, and this permission footprint — which is far more than a monitor utility should ever ask for, and which no one at LG has explained.</p>
+        <p class="fine">Context, so we're straight with you: Gamers Nexus <strong>did not find evidence</strong> that the monitors capture screen content. What's confirmed is the non-consensual install, the ad-pushing, and this footprint, which is far more than a monitor utility should ever need, and which no one at LG has explained.</p>
       </section>
 
       <!-- TVs -->
       <section id="tvs">
-        <h2>It's not just monitors — the LG TV angle</h2>
+        <h2>It's not just monitors: the LG TV angle</h2>
         <p>The same investigation raised concerns about <strong>LG TVs</strong>, including on-screen notices telling owners to warn guests they <em>may be recorded</em> by AI features to comply with “wiretapping” laws. Coverage describes a broad <strong>user revolt</strong> across LG's monitor and TV lines. We're tracking that thread alongside the monitor story.</p>
       </section>
 
       <!-- FIX -->
       <section id="fix" class="callout-fix">
-        <h2>How to get it off your PC</h2>
-        <p>Good news: the fix is simple, and in our testing it's permanent. <strong>Let it install, then uninstall it.</strong></p>
-        <ol class="steps">
-          <li><strong>Settings → Apps → Installed apps.</strong></li>
-          <li>Uninstall <strong>LG Monitor App Installer</strong> (and any <strong>McAfee</strong> entry you didn't install).</li>
-          <li>Reboot. In our testing, once removed it does <strong>not</strong> come back.</li>
-        </ol>
-        <p class="warn"><strong>What we do <u>not</u> recommend:</strong> the registry / Group Policy “device metadata” edits floating around other guides. They can break how <em>other</em> devices receive drivers and utilities, and cause new problems on shared or managed PCs. Skip them. Uninstalling is enough.</p>
+        <h2>The fix</h2>
+        <p><strong>Two layers: remove the app, then remove LG's delivery packages so the machine can't re-arm.</strong> Uninstalling the app alone leaves both LG packages in the Windows driver store, and connecting any of 51 LG hardware IDs fires the whole chain again.</p>
+        <p><strong>1. Remove the app.</strong> Settings → Apps → Installed apps, uninstall <strong>LG Monitor App</strong> (some versions list it as <strong>LG Monitor App Installer</strong>; the device tree calls it "LG Monitor Support Application"). Or from an elevated PowerShell:</p>
+        <pre><code>Get-AppxPackage -AllUsers LGElectronics.LGMonitorApp | Remove-AppxPackage -AllUsers</code></pre>
+        <p><strong>2. Remove LG's two delivery packages.</strong> From an elevated prompt, list the driver store:</p>
+        <pre><code>pnputil /enum-drivers</code></pre>
+        <p>Find the two entries from provider <strong>LG Electronics Inc.</strong> with original names <code>lgmonitorappextension.inf</code> and <code>lgmonitorappsoftwarecomponent.inf</code>. Note each one's published name (<code>oemXX.inf</code>; the numbers differ on every machine, so read yours off the list). Then, once per package:</p>
+        <pre><code>pnputil /delete-driver oemXX.inf /uninstall</code></pre>
+        <p><strong>This is surgical.</strong> It deletes LG's app-delivery packages and touches nothing else. Printers keep their setup and scanning software, mice and keyboards keep theirs, every other device on the machine is unaffected, and real driver updates keep flowing. Windows Update can re-offer LG's packages if a listed LG panel is connected again; we're monitoring for that on our own machines, and anything that changes gets reported here first.</p>
+        <p class="warn"><strong>About the Group Policy options:</strong> community testing and press coverage verify that enabling "Prevent automatic download of applications associated with device metadata" (gpedit.msc → Computer Configuration → Administrative Templates → System → Device Installation) stops these installs on many machines, and it's a reasonable hardening step for techs, IT, and shops. Know two things before relying on it. First, the cost: companion software for every vendor's hardware stops arriving automatically, printers included, and you install vendor apps manually from then on. Drivers themselves keep flowing. Second, the reports conflict: a March 2026 user on Microsoft's own forums documented the install landing with that policy <em>and</em> the Store-disable policy both enabled, and our forensic chain explains how, since the documented delivery rode the Windows Update driver channel, which those policies don't gate. That conflict is exactly why the package removal above is our primary fix. The one policy that gates the driver channel outright also stops real driver updates, so we don't recommend it on home machines. Windows Home has no Group Policy Editor; our tested registry method for Home is coming.</p>
       </section>
 
       <!-- AFFECTED MODELS -->
       <section id="models">
-        <h2>Models caught so far</h2>
-        <ul class="ticks">
-          <li><strong>LG UltraGear 34GX900A-B</strong> (~$1,200) — Gamers Nexus's test unit</li>
-          <li><strong>LG UltraGear 27GP83B</strong></li>
-          <li><strong>LG UltraGear 27GN800</strong></li>
-        </ul>
-        <p class="note-dim">Other LG monitors shipping the same Store companion-app metadata are likely to behave the same way. <strong>We are not claiming Dell or Alienware are affected</strong> — that isn't confirmed, so we're keeping the confirmed list to LG. Seen another model? <a href="#tips">Tell us.</a></p>
+        <h2>The trigger list, from LG's own delivery package</h2>
+        <p>We pulled apart the LG extension package resident on our machine (dated August 27, 2024, WHQL-signed). It wires <strong>51 hardware IDs across 19 monitor models</strong> for automatic app delivery:</p>
+        <p class="note-dim">34WQ73A · 34BQ77QC · 27BQ85U · 27UQ750 · 28MQ750 · 27GR83Q · 27GR93U · 32GR93U · 27UQ850V · 32UQ850V · 32GR75Q · 27GS85Q · 32GS85Q · 27BA850 · 24BR750E · 27UP850 · 24BA850 · 24BA750 · 27BA750</p>
+        <p>Full hardware-ID table in <a href="/forensics">the forensic report</a>. And note what's missing: the models from the news cycle (UltraGear 34GX900A-B, 27GP83B, 27GN800, UltraFine 32UN880-B) don't appear in this revision. LG ships multiple revisions of this package with different coverage, so the real footprint is larger than any single list, ours included. Seen a model trigger the install that isn't listed anywhere? <a href="#tips">Tell us.</a></p>
       </section>
 
     </div>
@@ -197,20 +211,48 @@
       <h2>Developing — live timeline</h2>
       <ol class="timeline">
         <li>
-          <time>Jul 17, 2026</time>
-          <div><strong>LGSpyware.com goes live.</strong> Critical Error Computing publishes the permission footprint, the “ever-connected → check now” guidance, and begins collecting evidence from PCs that still carry the app long after the monitor is gone.</div>
+          <time datetime="2026-07-17">Jul 17, 2026</time>
+          <div><strong>LGSpyware.com goes live with the forensic chain.</strong> TechRadar, VideoCardz, Level1Techs, and Notebookcheck publish same-day coverage of the GN investigation. The $1,200 UltraGear's listing has dropped to roughly $699. We publish the minute-by-minute install evidence, the 51-ID trigger list from LG's own package, and the surgical removal.</div>
         </li>
         <li>
-          <time>Jul 16, 2026</time>
-          <div><strong>Gamers Nexus drops “DO NOT BUY.”</strong> Testing shows the McAfee offer on 31 of 32 boots on a ~$1,200 LG UltraGear, plus separate LG TV “wiretapping”/AI-recording concerns.</div>
+          <time datetime="2026-07-16">Jul 16, 2026</time>
+          <div><strong>Gamers Nexus publishes "DO NOT BUY."</strong> A $1,200 UltraGear 34GX900A-B reproduces the silent install on camera, the McAfee offer appears on 31 of 32 boots, and the LG TV wiretapping-consent terms get read on air. GN's own 2023 UltraFine begins showing the popup during production.</div>
         </li>
         <li>
-          <time>Jul 13, 2026</time>
-          <div><strong>The story spreads.</strong> Tom's Hardware, TechSpot, PC Gamer and others document the silent install and the Windows device-metadata mechanism behind it.</div>
+          <time datetime="2026-07-13">Jul 13, 2026</time>
+          <div><strong>Coverage widens.</strong> The FPS Review documents the plug-in-and-get-McAfee-ads flow.</div>
+        </li>
+        <li>
+          <time datetime="2026-07-09">Jul 9, 2026</time>
+          <div><strong>On our machine: LG's app self-updates at 2:11 AM,</strong> staged by SYSTEM, nine months after the LG panel was unplugged. We find it in the logs a week later.</div>
+        </li>
+        <li>
+          <time datetime="2026-07-07">Jul 7 to 9, 2026</time>
+          <div><strong>Mainstream press picks it up.</strong> TechSpot runs it first on July 7, naming Alienware reports alongside LG. Tom's Hardware and PC Gamer follow on July 9 with the Windows device-metadata mechanism and steps to block it.</div>
+        </li>
+        <li>
+          <time datetime="2026-07-01">Jul 1, 2026</time>
+          <div><strong>The ads begin.</strong> First advertising complaints appear in Microsoft's own Tech Community thread: a McAfee Scam Detector pop-up on a machine that had carried the app quietly. Every complaint before this date, back to November 2024, was about the silent install alone.</div>
+        </li>
+        <li>
+          <time datetime="2026-06-28">Late Jun to early Jul 2026</time>
+          <div><strong>Reddit surfaces it.</strong> u/Mags_Smash traces the popups through Reliability Monitor across three LG monitors and posts the Group Policy fix. u/t40r gets the McAfee ad as a brand-new monitor's very first popup.</div>
+        </li>
+        <li>
+          <time datetime="2026-03-08">Mar 8, 2026</time>
+          <div><strong>The policies get bypassed.</strong> A user documents the install landing despite both the device-metadata policy and the Store-disable policy being enabled, and finds the app's user-data folder created but empty, an installed-and-never-run state.</div>
+        </li>
+        <li>
+          <time datetime="2025-09-30">Sep 30, 2025</time>
+          <div><strong>On our machine: the silent install, documented to the second.</strong> Windows Update delivers LG's two no-driver "driver" packages at 9:52 PM and the LG Monitor App is installed by SYSTEM half a minute later. The monitor leaves in mid-October. The app stays.</div>
+        </li>
+        <li>
+          <time datetime="2024-11-01">Nov 2024</time>
+          <div><strong>The early reports nobody acted on.</strong> Complaints begin on Microsoft's own Tech Community forums and continue across multiple Windows builds. Twenty months later, still no corrective action from LG or Microsoft.</div>
         </li>
         <li class="pending">
           <time>Next</time>
-          <div><strong>Awaiting response.</strong> No public statement from LG or Microsoft yet. We'll post any official comment, patch, or affected-model list here the moment it lands.</div>
+          <div><strong>Watching for:</strong> any statement from LG or Microsoft, independent analysis of what the app transmits, our Windows Home registry method, reader-submitted models, and any reappearance on our cleaned test machines.</div>
         </li>
       </ol>
     </section>
@@ -220,6 +262,7 @@
       <h2>Sources &amp; further reading</h2>
       <ul class="sources">
         <li><a href="https://www.youtube.com/watch?v=Q9uefFYe6bM" target="_blank" rel="noopener">Gamers Nexus — “DO NOT BUY: LG's Spyware TVs, Monitors, and Wiretapping Concerns” (video)</a></li>
+        <li><a href="https://techcommunity.microsoft.com/discussions/windows11/why-the-lg-monitor-app-installed-without-my-notice/4304003" target="_blank" rel="noopener">Microsoft Tech Community — "Why the LG Monitor App installed without my notice?" (complaints dating to 2024)</a></li>
         <li><a href="https://www.techradar.com/televisions/lgs-gaming-monitors-and-tvs-are-facing-a-user-revolt" target="_blank" rel="noopener">TechRadar — LG's gaming monitors and TVs are facing a user revolt</a></li>
         <li><a href="https://www.tomshardware.com/software/windows/companies-are-now-using-automatic-windows-installers-to-display-adware-through-the-microsoft-store-when-you-install-new-hardware-customer-immediately-gets-mcafee-ads-on-their-pc-after-connecting-new-lg-monitor-heres-how-to-block-the-new-ads" target="_blank" rel="noopener">Tom's Hardware — Automatic Windows installers displaying adware through the Microsoft Store</a></li>
         <li><a href="https://www.techspot.com/news/113031-lg-alienware-monitors-caught-auto-installing-windows-adware.html" target="_blank" rel="noopener">TechSpot — Monitors caught auto-installing Windows adware</a></li>
@@ -227,14 +270,16 @@
         <li><a href="https://www.thefpsreview.com/2026/07/13/plug-in-an-lg-monitor-get-mcafee-ads-windows-is-auto-installing-manufacturer-bloatware/" target="_blank" rel="noopener">The FPS Review — Plug in an LG monitor, get McAfee ads</a></li>
         <li><a href="https://cybersecuritynews.com/windows-update-installs-lg-monitor-app-pushes-mcafee-ads/" target="_blank" rel="noopener">Cyber Security News — Windows silently installs LG Monitor App that pushes McAfee ads</a></li>
       </ul>
-      <p class="note-dim">Coverage originated with Gamers Nexus's testing. Confirmed items above link to third-party reporting; items labeled as our findings are firsthand and updated as we verify.</p>
+      <p class="note-dim">Coverage originated with Gamers Nexus's testing. On Microsoft's role: both LG delivery packages on our machine are signed "Microsoft Windows Hardware Compatibility Publisher," so Microsoft co-signed the distribution, and the machine's policy state was stock defaults, making this the out-of-box Windows experience. Confirmed items above link to third-party reporting; items labeled as our findings are firsthand and detailed in <a href="/forensics">our forensic report</a>.</p>
     </section>
 
     <!-- TIPS -->
     <section id="tips" class="wrap">
       <div class="tip">
         <h2>Got hit? Send us receipts.</h2>
-        <p>Model, Windows version, the app's <strong>install date</strong>, and a screenshot of <strong>Installed apps</strong>. Machines still carrying the app with the LG monitor long gone are exactly what we're documenting.</p>
+        <p>Send us: the LG monitor model, your Windows version and build, the app's <strong>install date</strong> from Reliability Monitor, the app's <strong>current version</strong>, the date you <strong>first saw a popup</strong> (or "never"), the <strong>last date an LG panel was connected</strong> to the machine, and a screenshot. Version in one line of PowerShell:</p>
+        <pre><code>(Get-AppxPackage -AllUsers LGElectronics.LGMonitorApp).Version</code></pre>
+        <p>Why the version matters: if first-popup dates cluster around the 1.2606 build across scattered install dates, the advertising shipped in the June update. Popups on older versions point to a server-side switch. Your reports answer a question nobody has answered yet.</p>
         <a class="mail" href="mailto:lgspyware.com@gmail.com?subject=LG%20monitor%20adware%20tip">lgspyware.com@gmail.com</a>
       </div>
     </section>
@@ -247,7 +292,7 @@
           <span class="pub-mark">Critical <span class="err">Error</span> Computing</span>
           <span class="pub-tag">Custom gaming PCs, built by humans · Humble, TX</span>
         </div>
-        <p class="pub-body"><strong>Why a PC shop is publishing this:</strong> we build and support computers for a living, with a 10-year warranty and lifetime support. When hardware starts installing adware on our customers' machines without asking, that lands on our bench — so we dug in, tested it, and wrote up what we found. This page is our reporting, not a sales pitch: there's nothing to buy here. <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">More about CEC ↗</a></p>
+        <p class="pub-body"><strong>Why a PC shop is publishing this:</strong> we build and support computers for a living, with a 10-year warranty and lifetime support. When hardware starts installing adware on our customers' machines without asking, that lands on our bench, so we dug in, tested it, and published the full forensic chain. This page is our reporting, not a sales pitch: there's nothing to buy here. <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">More about CEC ↗</a></p>
       </div>
     </section>
 
@@ -255,8 +300,8 @@
 
   <footer class="site">
     <div class="wrap">
-      <p><strong>LGSpyware.com</strong> — a consumer alert published by <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">Critical Error Computing</a>, a custom PC builder in Humble, TX. Live coverage; this page updates as the story develops.</p>
-      <p class="disclaimer">Published by Critical Error Computing. <strong>Not independent, and not neutral about consent</strong> — but not affiliated with, endorsed by, or associated with LG Electronics, Microsoft Corporation, McAfee, Dell, or Alienware, and not a competitor in the monitor or TV market. All product names, logos, and trademarks are the property of their respective owners and are referenced here for identification and commentary. Characterizations such as “spyware” reflect reporting and commentary by cited third parties, including Gamers Nexus; where evidence is limited (for example, Gamers Nexus reported no evidence of screen capture), we say so. Items labeled as our own findings are firsthand observations offered in good faith for consumer awareness — verify against the linked primary sources before acting. Contact: lgspyware.com@gmail.com</p>
+      <p><strong>LGSpyware.com</strong> — a consumer alert published by <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">Critical Error Computing</a>, a custom PC builder in Humble, TX. Live coverage; this page updates as the story develops. Read <a href="/forensics">the forensic report</a>.</p>
+      <p class="disclaimer">Published by Critical Error Computing. <strong>Not independent, and not neutral about consent</strong>, but not affiliated with, endorsed by, or associated with LG Electronics, Microsoft Corporation, McAfee, Dell, or Alienware, and not a competitor in the monitor or TV market. All product names, logos, and trademarks are the property of their respective owners and are referenced here for identification and commentary. Characterizations such as “spyware” reflect reporting and commentary by cited third parties, including Gamers Nexus; where evidence is limited (for example, Gamers Nexus reported no evidence of screen capture), we say so. Items labeled as our own findings are firsthand observations offered in good faith for consumer awareness; verify against the linked primary sources before acting. Contact: lgspyware.com@gmail.com</p>
     </div>
   </footer>
 
