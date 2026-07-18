@@ -189,7 +189,10 @@ marquee-fallback { display: inline; }
 .lead { position: relative; padding: 46px 20px 22px; overflow: hidden; }
 .lead .grid-bg { opacity: 0.5; }
 .lead-in { position: relative; z-index: 1; }
-.hero-img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--border); margin: 0 0 24px; background: #0d0e16; box-shadow: 0 24px 60px -30px rgba(0,0,0,0.8); }
+.lead-top { display: grid; grid-template-columns: 1fr 0.85fr; gap: 30px; align-items: center; margin-bottom: 22px; }
+.lead-top h1 { font-size: clamp(1.75rem, 3.4vw, 2.6rem); margin-bottom: 0; }
+.hero-img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--border); background: #0d0e16; box-shadow: 0 24px 60px -30px rgba(0,0,0,0.8); }
+@media (max-width: 860px) { .lead-top { grid-template-columns: 1fr; gap: 18px; } .hero-img { max-height: 240px; object-fit: cover; object-position: center; } }
 .eyebrow-row { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
 .tag-red {
   background: var(--red); color: #fff;
