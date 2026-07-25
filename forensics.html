@@ -51,7 +51,9 @@
         <div class="byline">
           <span>By <strong>Critical Error Computing</strong></span>
           <span class="sep">·</span>
-          <span><time datetime="2026-07-17">July 17, 2026</time></span>
+          <span>Published <time datetime="2026-07-17">July 17, 2026</time></span>
+          <span class="sep">·</span>
+          <span>Updated <time datetime="2026-07-25">July 25, 2026</time></span>
         </div>
       </div>
     </article>
@@ -59,6 +61,11 @@
     <div class="wrap body">
 
       <section id="summary">
+        <div class="updatebox">
+          <span class="upd-stamp">● Update · July 25, 2026</span>
+          <p><strong>Nothing in this report has changed, and that is the point.</strong> On July 22 Microsoft's EVP of Windows and Devices said LG had agreed to disable the McAfee pop-up in its app, and by July 24 the McAfee references were gone from the Store listing. Every finding below concerns the layer underneath that pop-up: the delivery, the absence of consent, and the persistence. Both LG packages are still resident on this machine, still wired to 51 hardware IDs, and neither company has stated that the automatic install will stop.</p>
+          <p>LG also told press that the installer “does not access, collect, or transmit any customer personal data.” This report makes no claim either way on that question — <strong>we captured no network traffic</strong>, and nothing here should be read as evidence of exfiltration. What is documented below is how the software arrived, that no consent surface existed, and that Windows kept maintaining it for nine months after the monitor was gone. <a href="/#response">The claim-by-claim comparison is on the main page.</a></p>
+        </div>
         <div class="evidence-note">
           <strong>Handling note.</strong> This report is redacted for the machine owner's privacy: hostname, OS baseline date, and the LG panel's serial descriptor are withheld. Manufacturer and product IDs and the model mapping are kept, because they prove the identification without fingerprinting the unit. Removal was <strong>not</strong> performed on this machine; it is preserved as evidence and remains available for verification.
         </div>
@@ -146,6 +153,7 @@
           <li><strong>Every non-LG display on this machine.</strong> Seven other panels from three brands were present across this install. None triggered any software delivery.</li>
           <li><strong>Dell, as a direct contrast.</strong> The Dell S2716DG's package arrived through the same Windows Update channel, and it is a normal monitor driver with no app payload. Same delivery road, ordinary cargo. This is what a benign monitor package looks like, and it is what LG's is not.</li>
         </ul>
+        <p class="note-dim">Alienware was named alongside LG in early coverage, so the distinction matters: Dell told TechSpot that current versions of Alienware Command Center require the user to approve installation and display no McAfee or other third-party advertising, and that an opt-in prompt was added in AWCC 6.6 in February 2025. Dell's documentation does confirm Windows can begin the AWCC install after detecting supported hardware — the same road again, with a consent step added. We have not tested Alienware hardware ourselves and are reporting Dell's statement as such.</p>
       </section>
 
       <section id="removal" class="callout-fix">
@@ -157,6 +165,7 @@
         <p>Find the entries from <strong>LG Electronics Inc.</strong> with original names <code>lgmonitorappextension.inf</code> and <code>lgmonitorappsoftwarecomponent.inf</code>. Read each one's published name off the list (<code>oemXX.inf</code>; the numbers differ on every machine). Then, once per package:</p>
         <pre><code>pnputil /delete-driver oemXX.inf /uninstall</code></pre>
         <p class="warn">This is surgical: it removes only LG's app-delivery packages. Other devices keep their drivers and companion software, and real driver updates keep flowing. Windows Update can re-offer LG's packages if a listed LG panel is connected again.</p>
+        <p class="note-dim">On Windows Home, where there is no Group Policy Editor, the device-metadata hardening step and its caveats are on the main page: <a href="/#fix">the fix, including the registry method</a>.</p>
       </section>
 
       <section id="verify">
