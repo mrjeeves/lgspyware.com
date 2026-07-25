@@ -23,14 +23,18 @@ Engadget, Gizmodo, and others. The full minute-by-minute install chain is publis
 
 ## The response (July 19–24, 2026)
 
-- **Jul 19** — Epic CEO Tim Sweeney raises the McAfee pop-ups with Microsoft's Windows
-  chief on X; **Pavan Davuluri** replies within hours that his team is looking into it.
-- **Jul 21** — LG tells press McAfee "is never installed without the user's explicit
-  consent" and that the installer "does not access, collect, or transmit any customer
-  personal data." The same week, the app's Store changelog is reported to list
-  **McAfee as an "Additional App"** shipped in a recent update.
-- **Jul 22** — Davuluri: *"We've connected with the team at LG and as an immediate next
-  step, they have agreed to disable the McAfee pop-up from their app."*
+- **Jul 18–19** — Epic CEO Tim Sweeney replies to an existing user thread at 21:47 UTC on
+  Jul 18, tagging Microsoft's Windows chief; **Pavan Davuluri** answers at 05:04 UTC on
+  Jul 19 ("Thanks, Tim. The team is looking into it").
+- **Jul 21** — **Windows Latest** (sole source) reports the app's Store listing carrying
+  an **"Additional App – McAfee"** changelog entry added in a recent update, and notes
+  that neither Microsoft nor LG had said anything publicly as of that writing.
+- **Jul 22** — LG emails a statement to outlets that had sought comment (Windows Latest,
+  The Register, TechRadar, PCGamesN): McAfee "is never installed without the user's
+  explicit consent," "under no circumstances" automatically, and the installer "does not
+  access, collect, or transmit any customer personal data." The same day, Davuluri:
+  *"We've connected with the team at LG and as an immediate next step, they have agreed
+  to disable the McAfee pop-up from their app."*
 - **Jul 23** — Gamers Nexus says a follow-up is coming, with security researchers,
   network experts, and lawyers reading ~40,000 words of LG agreements.
 - **Jul 24** — The Register reports McAfee references removed from the Store listing.
@@ -80,6 +84,14 @@ limit (it does not gate the driver channel the documented install used).
 - Company statements get a fair reading before a critical one. LG's denial is
   addressed on its own terms: it is accurate about McAfee and silent about the
   auto-install of LG's own app, and the page says exactly that.
+- **Sources are fetched, not summarized.** After a first pass sourced from search
+  results, every quote, date and URL was re-verified against the primary pages. That
+  pass caught: two 404 source links, a false attribution of the Store changelog to The
+  Register (it is a Windows Latest exclusive), LG's statement misdated a day early, an
+  omitted LG denial sentence, a Gamers Nexus quote that lives in a different post than
+  the one cited, and an overstatement of what the device-metadata policy blocks. Search
+  summaries also asserted a "July 13" remediation date that no fetched page supports —
+  documented on the page under "claims we checked and did not publish."
 - Corrections are made on the record: an earlier "installed ten months after the panel
   was disconnected" reading was superseded by full log analysis showing the install
   happened at connection in Sep 2025, with the July 2026 activity being SYSTEM
