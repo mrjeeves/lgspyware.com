@@ -274,6 +274,50 @@ ol.steps > li::before {
 .callout-fix ol.steps > li::before { background: var(--ok); color: #04160c; }
 .warn { background: var(--red-soft); border-left: 3px solid var(--red); padding: 12px 14px; border-radius: 6px; font-size: 0.95rem; }
 
+/* ---------- Latest-update band ---------- */
+.update-band { padding: 24px 20px 6px; }
+.updatebox {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--red);
+  border-radius: var(--r-lg);
+  padding: 22px 24px;
+}
+.upd-stamp {
+  display: block;
+  font-family: var(--mono); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--red-ink); margin-bottom: 10px;
+}
+.updatebox h2 { margin-bottom: 12px; }
+.updatebox p:last-child { margin-bottom: 0; }
+
+/* Claim vs. evidence */
+.claims { display: grid; gap: 14px; margin: 18px 0; }
+.claim {
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--r-md);
+  overflow: hidden;
+}
+.claim > div { padding: 16px 18px; }
+.claim-said { border-right: 1px solid var(--border); }
+@media (max-width: 720px) {
+  .claim { grid-template-columns: 1fr; }
+  .claim-said { border-right: none; border-bottom: 1px solid var(--border); }
+}
+.claim-lbl {
+  display: block;
+  font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.claim-said .claim-lbl { color: var(--ink-faint); }
+.claim-found .claim-lbl { color: var(--accent-ink); }
+.claim p { margin: 0; font-size: 0.95rem; }
+.claim-said p { color: var(--ink-soft); font-style: italic; }
+
 /* Permissions */
 .perm-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0; }
 @media (max-width: 640px) { .perm-grid { grid-template-columns: repeat(2, 1fr); } }

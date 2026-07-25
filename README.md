@@ -17,9 +17,29 @@ monitor is disconnected**: on our own machine the install landed at connection t
 (2026-07-09), long after the panel was unplugged.
 
 Broken by **Gamers Nexus** ("DO NOT BUY: LG's Spyware TVs, Monitors, and Wiretapping
-Concerns") and covered by TechRadar, Tom's Hardware, TechSpot, PC Gamer, and others.
-No official response from LG or Microsoft as of 2026-07-17. The full minute-by-minute
-install chain is published at **`/forensics`**.
+Concerns") and covered by TechRadar, Tom's Hardware, TechSpot, PC Gamer, The Register,
+Engadget, Gizmodo, and others. The full minute-by-minute install chain is published at
+**`/forensics`**.
+
+## The response (July 19–24, 2026)
+
+- **Jul 19** — Epic CEO Tim Sweeney raises the McAfee pop-ups with Microsoft's Windows
+  chief on X; **Pavan Davuluri** replies within hours that his team is looking into it.
+- **Jul 21** — LG tells press McAfee "is never installed without the user's explicit
+  consent" and that the installer "does not access, collect, or transmit any customer
+  personal data." The same week, the app's Store changelog is reported to list
+  **McAfee as an "Additional App"** shipped in a recent update.
+- **Jul 22** — Davuluri: *"We've connected with the team at LG and as an immediate next
+  step, they have agreed to disable the McAfee pop-up from their app."*
+- **Jul 23** — Gamers Nexus says a follow-up is coming, with security researchers,
+  network experts, and lawyers reading ~40,000 words of LG agreements.
+- **Jul 24** — The Register reports McAfee references removed from the Store listing.
+
+**What did not change:** the automatic install. No commitment from either company
+covers it. Both delivery packages remain resident and wired to 51 hardware IDs, the
+consent gap is untouched, and the mechanism is a Windows feature available to any
+vendor. The site's framing follows this distinction — the ad was the symptom, the
+delivery is the story.
 
 ## Recommended fix (two layers)
 
@@ -32,7 +52,19 @@ install chain is published at **`/forensics`**.
 This is surgical and leaves every other device's drivers and companion software
 intact. We do **not** recommend the Group Policy device-metadata edits as a primary
 fix (the documented delivery rode the Windows Update driver channel, which those
-policies don't gate); a tested Windows Home registry method is in progress.
+policies don't gate).
+
+**Windows Home hardening** (published 2026-07-25, explicitly labeled as not yet
+verified on our own hardware) — elevated prompt, then reboot:
+
+```
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Device Metadata" /v PreventDeviceMetadataFromNetwork /t REG_DWORD /d 1 /f
+```
+
+Equivalent UI path on any edition: System → About → Advanced system settings →
+Hardware → Device Installation Settings → No. Same cost as the policy (no vendor
+companion software arrives automatically anywhere; drivers keep flowing) and the same
+limit (it does not gate the driver channel the documented install used).
 
 ## Editorial standard
 
@@ -40,7 +72,14 @@ policies don't gate); a tested Windows Home registry method is in progress.
   affiliated with LG/Microsoft/McAfee, and not a competitor in the monitor/TV market.
 - Firsthand observations are labeled as **our findings**; the forensic report backs them.
 - Contested characterizations (e.g. "spyware") are attributed; limits of evidence
-  (no screen-capture evidence) are stated.
+  (no screen-capture evidence, **no network capture**) are stated. LG's denial that
+  the app collects personal data is reported and left open, because we have no traffic
+  evidence either way — the site says so in both the claim comparison and the
+  permissions section rather than letting the permission list imply observed
+  collection.
+- Company statements get a fair reading before a critical one. LG's denial is
+  addressed on its own terms: it is accurate about McAfee and silent about the
+  auto-install of LG's own app, and the page says exactly that.
 - Corrections are made on the record: an earlier "installed ten months after the panel
   was disconnected" reading was superseded by full log analysis showing the install
   happened at connection in Sep 2025, with the July 2026 activity being SYSTEM
@@ -56,10 +95,12 @@ words. **Red is reserved for the breaking banner and warning callouts.**
 
 Static site served from the repository root via **GitHub Pages**.
 
-- `index.html` — the alert (GN video, by-the-numbers, "am I affected?", "the switch,"
-  two-layer fix, 19-model trigger list, developing timeline, sources, CEC credit)
+- `index.html` — the alert (latest-update band, GN video, by-the-numbers, "am I
+  affected?", LG's claims vs. our evidence, "the switch," two-layer fix + Windows Home
+  registry method, 19-model trigger list, developing timeline, sources, CEC credit)
 - `forensics.html` — the forensic install report, served at `/forensics`
-- `og-image.png` — social share card (branded stopgap; swap for the redacted
+- `hero.jpg` — lead photo
+- `og-image.jpg` — social share card (branded stopgap; swap for the redacted
   two-timestamp screenshot when captured)
 - `styles.css` — CEC-themed responsive dark stylesheet
 - `CNAME` — custom domain (`lgspyware.com`)
