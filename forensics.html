@@ -47,13 +47,13 @@
       <div class="wrap lead-in">
         <div class="eyebrow-row"><span class="tag-red">FORENSIC REPORT</span> <span class="eyebrow">LG Monitor App · Windows</span></div>
         <h1>The silent install, documented to the <span class="gw" data-alt="sec0nd">second</span>.</h1>
-        <p class="dek">We recovered the complete install chain of the <strong>LG Monitor App</strong> from one of our own Windows machines: two LG packages signed as drivers but carrying no driver code, delivered by <strong>Windows Update</strong>, that install LG's app under <strong>SYSTEM</strong> with no consent and keep it maintained for months after the monitor is gone. This is the evidence behind the <a href="/">main alert</a>.</p>
+        <p class="dek">The complete install chain of the <strong>LG Monitor App</strong>, recovered from one of our own Windows machines: two LG packages signed as drivers, carrying no driver code, delivered by <strong>Windows Update</strong>, installing LG's app under <strong>SYSTEM</strong> with no consent — and still maintained months after the monitor left. This is the evidence behind the <a href="/">main alert</a>.</p>
         <div class="byline">
           <span>By <strong>Critical Error Computing</strong></span>
           <span class="sep">·</span>
           <span>Published <time datetime="2026-07-17">July 17, 2026</time></span>
           <span class="sep">·</span>
-          <span>Updated <time datetime="2026-07-25">July 25, 2026</time></span>
+          <span>Updated <time datetime="2026-07-29">July 29, 2026</time></span>
         </div>
       </div>
     </article>
@@ -62,12 +62,12 @@
 
       <section id="summary">
         <div class="updatebox">
-          <span class="upd-stamp">● Update · July 25, 2026</span>
-          <p><strong>Nothing in this report has changed, and that is the point.</strong> On July 22 Microsoft's EVP of Windows and Devices said LG had agreed to disable the McAfee pop-up in its app, and by July 24 the McAfee references were gone from the Store listing. Every finding below concerns the layer underneath that pop-up: the delivery, the absence of consent, and the persistence. Both LG packages are still resident on this machine, still wired to 51 hardware IDs, and neither company has stated that the automatic install will stop.</p>
-          <p>LG also told press that the installer “does not access, collect, or transmit any customer personal data.” This report makes no claim either way on that question — <strong>we captured no network traffic</strong>, and nothing here should be read as evidence of exfiltration. What is documented below is how the software arrived, that no consent surface existed, and that Windows kept maintaining it for nine months after the monitor was gone. <a href="/#response">The claim-by-claim comparison is on the main page.</a></p>
+          <span class="upd-stamp">● Update · July 22–24, 2026</span>
+          <p><strong>Nothing in this report has changed, and that is the point.</strong> LG agreed to disable the McAfee pop-up; by July 24 the McAfee references were off the Store listing. Every finding below sits in the layer underneath that pop-up — the delivery, the missing consent, the persistence. Both LG packages are still resident here, still wired to 51 hardware IDs, and neither company has said the automatic install will stop.</p>
+          <p><strong>One limit, stated plainly:</strong> LG told press the installer “does not access, collect, or transmit any customer personal data.” This report makes no claim either way. <strong>We captured no network traffic</strong>, and nothing here is evidence of exfiltration. What is documented is how the software arrived, that no consent surface existed, and that Windows maintained it for nine months after the monitor was gone. <a href="/#response">Claim-by-claim comparison on the main page.</a></p>
         </div>
         <div class="evidence-note">
-          <strong>Handling note.</strong> This report is redacted for the machine owner's privacy: hostname, OS baseline date, and the LG panel's serial descriptor are withheld. Manufacturer and product IDs and the model mapping are kept, because they prove the identification without fingerprinting the unit. Removal was <strong>not</strong> performed on this machine; it is preserved as evidence and remains available for verification.
+          <strong>Handling note.</strong> Redacted for the machine owner's privacy: hostname, OS baseline date and the panel's serial descriptor are withheld. Manufacturer and product IDs and the model mapping are kept — they prove identification without fingerprinting the unit. Removal was <strong>not</strong> performed here; the machine is preserved as evidence and available for verification.
         </div>
         <h2>Summary of findings</h2>
         <ul class="ticks">
@@ -91,47 +91,51 @@
 
       <section id="chain">
         <h2>The install chain, to the second</h2>
-        <p>Reconstructed from Windows Update, CBS/servicing, Store install-service, and Reliability Monitor logs. A small clock offset between log sources was measured and accounted for; the ordering below is unaffected.</p>
-        <ul class="ticks">
-          <li><strong>9:52 PM</strong> — Windows Update delivers two LG packages for the connected UltraGear: an <em>Extension</em> INF and a <em>SoftwareComponent</em> INF. Neither carries driver binaries.</li>
-          <li><strong>~9:52 PM</strong> — The Extension package fabricates a phantom child device under the monitor. Its only purpose is to give the SoftwareComponent package something to bind to.</li>
-          <li><strong>~9:53 PM (about 32 seconds later)</strong> — The SoftwareComponent package's directive fires, and Windows fetches <code>LGElectronics.LGMonitorApp</code> from the Microsoft Store. The app is installed by <strong>SYSTEM</strong>.</li>
-          <li><strong>Next logon</strong> — The app is registered into the user account. No installer window, no consent dialog, no uninstall entry in the classic Programs and Features list ever appears.</li>
-        </ul>
+        <p>Reconstructed from Windows Update, CBS/servicing, Store install-service and Reliability Monitor logs. A small clock offset between sources was measured and accounted for; the ordering is unaffected.</p>
+        <ol class="chain">
+          <li><span class="chain-t">9:52 PM</span><strong>Delivery.</strong> Windows Update hands over two LG packages for the connected UltraGear: an <em>Extension</em> INF and a <em>SoftwareComponent</em> INF. Neither carries driver binaries.</li>
+          <li><span class="chain-t">~9:52 PM</span><strong>A device that doesn't exist.</strong> The Extension package fabricates a phantom child device under the monitor. Its only purpose is to give the SoftwareComponent package something to bind to.</li>
+          <li><span class="chain-t">+32 sec</span><strong>The directive fires.</strong> Windows fetches <code>LGElectronics.LGMonitorApp</code> from the Microsoft Store. <strong>SYSTEM</strong> installs it.</li>
+          <li><span class="chain-t">Next logon</span><strong>Registered to the user.</strong> No installer window, no consent dialog, no entry in the classic Programs and Features list — at any point.</li>
+        </ol>
       </section>
 
       <section id="packages">
         <h2>The two packages</h2>
-        <p>Both come from provider <strong>LG Electronics Inc.</strong>, package dated <strong>August 27, 2024</strong>, WHQL-signed and co-signed by Microsoft. In the driver store they appear as:</p>
+        <p>Both from provider <strong>LG Electronics Inc.</strong>, dated <strong>August 27, 2024</strong>, WHQL-signed and co-signed by Microsoft. In the driver store:</p>
         <ul class="ticks">
-          <li><code>lgmonitorappextension.inf</code> — class <em>Extension</em>. Contains no driver code. It fabricates a phantom child device so a companion package has a binding target.</li>
-          <li><code>lgmonitorappsoftwarecomponent.inf</code> — class <em>SoftwareComponent</em>. Contains no driver code. It carries the single directive that delivers the app.</li>
+          <li><code>lgmonitorappextension.inf</code> — class <em>Extension</em>. No driver code. Fabricates a phantom child device so a companion package has a binding target.</li>
+          <li><code>lgmonitorappsoftwarecomponent.inf</code> — class <em>SoftwareComponent</em>. No driver code. Carries the single directive that delivers the app.</li>
         </ul>
-        <p>The delivery directive lives in the SoftwareComponent INF: an <code>AddComponent</code> entry with <code>SoftwareType = 2</code>, the INF form that tells Windows to install a specific Microsoft Store app for the device. The target is <code>LGElectronics.LGMonitorApp</code>. That is the whole mechanism: a "driver" whose only job is to make Windows install an app.</p>
+        <p>The delivery directive lives in the SoftwareComponent INF: an <code>AddComponent</code> entry with <code>SoftwareType = 2</code> — the INF form that tells Windows to install a named Microsoft Store app for a device. Target: <code>LGElectronics.LGMonitorApp</code>. That is the entire mechanism. A “driver” whose only job is to make Windows install an app.</p>
         <p class="note-dim">The full INF text and the complete signing chain are preserved in the evidence set.</p>
       </section>
 
       <section id="consent">
         <h2>Consent surfaces: none</h2>
-        <p>We looked specifically for the points where a user could have seen or approved this. There were none:</p>
+        <p>We looked specifically for the points where a user could have seen or approved this:</p>
         <ul class="ticks">
           <li>No installer window or progress UI at install time.</li>
           <li>No EULA or terms prompt before the app was placed.</li>
-          <li>No entry in the classic <em>Programs and Features</em> uninstall list (the app is only visible under Settings → Apps → Installed apps).</li>
-          <li>The delivery ran under <strong>SYSTEM</strong>, not the user, so nothing was gated on a user click.</li>
+          <li>No entry in the classic <em>Programs and Features</em> list — the app appears only under Settings → Apps → Installed apps.</li>
+          <li>Delivery ran under <strong>SYSTEM</strong>, not the user. Nothing was gated on a click.</li>
         </ul>
       </section>
 
       <section id="persistence">
         <h2>Persistence is active, and Windows does the maintaining</h2>
-        <p>The panel was unplugged in mid-October 2025. The app was not.</p>
+        <p>The panel was unplugged in mid-October 2025. The app was not. Version chain on this machine:</p>
+        <div class="vchain">
+          <span>1.<b>2405</b>.3001.0<em>installed Sep 30, 2025</em></span>
+          <span>1.<b>2602</b>.502.0<em>interim build</em></span>
+          <span>1.<b>2606</b>.1601.0<em>SYSTEM self-update, Jul 9, 2026</em></span>
+        </div>
         <ul class="ticks">
-          <li><strong>App version chain on this machine:</strong> <code>1.2405.3001.0</code> (installed Sep 2025) → <code>1.2602.502.0</code> → <code>1.2606.1601.0</code>.</li>
           <li><strong>July 9, 2026, 2:11 AM</strong> — the app self-updates to <code>1.2606.1601.0</code>, staged by SYSTEM. Nine months after the monitor left.</li>
           <li><strong>July 15, 2026</strong> — Device Setup Manager is still re-staging the orphaned monitor's metadata.</li>
           <li><strong>July 17, 2026</strong> — the Microsoft Store install service touches the app again.</li>
         </ul>
-        <p>Uninstalling the app alone does not end this. Both LG packages stay in the driver store, and reconnecting any listed LG panel re-arms the chain. Full removal is in <a href="/#fix">the fix</a>.</p>
+        <p>Uninstalling the app alone does not end this. Both LG packages stay in the driver store, and reconnecting any listed LG panel re-arms the chain. <a href="/#fix">Full removal is in the fix.</a></p>
       </section>
 
       <section id="triggers">
@@ -144,33 +148,39 @@
           <span>32GS85Q</span><span>27BA850</span><span>24BR750E</span><span>27UP850</span>
           <span>24BA850</span><span>24BA750</span><span>27BA750</span>
         </div>
-        <p class="note-dim">Each model maps to one or more hardware IDs (monitor + hub/companion enumerations), 51 in total; the complete hardware-ID table is preserved in the evidence set. Note what is <strong>absent</strong>: the models driving the news cycle, UltraGear 34GX900A-B, 27GP83B, 27GN800 and UltraFine 32UN880-B, do <em>not</em> appear in this revision of the package. LG ships multiple revisions with different coverage, so the real footprint is larger than any single list, ours included.</p>
+        <p class="note-dim">Each model maps to one or more hardware IDs (monitor plus hub/companion enumerations), 51 in total; the complete table is preserved in the evidence set. Note what is <strong>absent</strong>: the models driving the news cycle — UltraGear 34GX900A-B, 27GP83B, 27GN800, UltraFine 32UN880-B — do <em>not</em> appear in this revision. LG ships multiple revisions with different coverage, so the real footprint is larger than any single list, ours included.</p>
       </section>
 
       <section id="notaffected">
         <h2>What is not affected</h2>
         <ul class="ticks">
           <li><strong>Every non-LG display on this machine.</strong> Seven other panels from three brands were present across this install. None triggered any software delivery.</li>
-          <li><strong>Dell, as a direct contrast.</strong> The Dell S2716DG's package arrived through the same Windows Update channel, and it is a normal monitor driver with no app payload. Same delivery road, ordinary cargo. This is what a benign monitor package looks like, and it is what LG's is not.</li>
+          <li><strong>Dell, as a direct contrast.</strong> The Dell S2716DG's package came through the same Windows Update channel — a normal monitor driver, no app payload. Same road, ordinary cargo. That's what a benign monitor package looks like, and it's what LG's is not.</li>
         </ul>
-        <p class="note-dim">Alienware was named alongside LG in early coverage, so the distinction matters: Dell told TechSpot that current versions of Alienware Command Center require the user to approve installation and display no McAfee or other third-party advertising, and that an opt-in prompt was added in AWCC 6.6 in February 2025. Dell's documentation does confirm Windows can begin the AWCC install after detecting supported hardware — the same road again, with a consent step added. We have not tested Alienware hardware ourselves and are reporting Dell's statement as such.</p>
+        <p class="note-dim">Alienware was named alongside LG in early coverage, so the distinction matters. Dell told TechSpot that current Alienware Command Center versions require the user to approve installation and show no third-party advertising, with an opt-in prompt added in AWCC 6.6, February 2025. Dell's documentation confirms Windows can still begin that install after detecting supported hardware — same road, consent step added. We have not tested Alienware hardware ourselves; we report Dell's statement as a statement.</p>
       </section>
 
       <section id="removal" class="callout-fix">
         <h2>Removal (two layers)</h2>
-        <p><strong>1. Remove the app.</strong> Settings → Apps → Installed apps, uninstall <strong>LG Monitor App</strong>. Or, elevated PowerShell:</p>
-        <pre><code>Get-AppxPackage -AllUsers LGElectronics.LGMonitorApp | Remove-AppxPackage -AllUsers</code></pre>
-        <p><strong>2. Remove LG's two delivery packages</strong> so the machine can't re-arm. List the driver store:</p>
-        <pre><code>pnputil /enum-drivers</code></pre>
-        <p>Find the entries from <strong>LG Electronics Inc.</strong> with original names <code>lgmonitorappextension.inf</code> and <code>lgmonitorappsoftwarecomponent.inf</code>. Read each one's published name off the list (<code>oemXX.inf</code>; the numbers differ on every machine). Then, once per package:</p>
-        <pre><code>pnputil /delete-driver oemXX.inf /uninstall</code></pre>
-        <p class="warn">This is surgical: it removes only LG's app-delivery packages. Other devices keep their drivers and companion software, and real driver updates keep flowing. Windows Update can re-offer LG's packages if a listed LG panel is connected again.</p>
+        <ol class="steps">
+          <li>
+            <strong>Remove the app.</strong> Settings → Apps → Installed apps → uninstall <strong>LG Monitor App</strong>. Or from an elevated PowerShell:
+            <pre><code>Get-AppxPackage -AllUsers LGElectronics.LGMonitorApp | Remove-AppxPackage -AllUsers</code></pre>
+          </li>
+          <li>
+            <strong>Remove both delivery packages</strong> so the machine can't re-arm. List the driver store:
+            <pre><code>pnputil /enum-drivers</code></pre>
+            Find the entries from <strong>LG Electronics Inc.</strong> named <code>lgmonitorappextension.inf</code> and <code>lgmonitorappsoftwarecomponent.inf</code>. Read each published name off the list (<code>oemXX.inf</code>; the numbers differ on every machine), then run once per package:
+            <pre><code>pnputil /delete-driver oemXX.inf /uninstall</code></pre>
+          </li>
+        </ol>
+        <p class="warn">Surgical: it removes only LG's app-delivery packages. Other devices keep their drivers and companion software, and real driver updates keep flowing. Windows Update can re-offer LG's packages if a listed LG panel is connected again.</p>
         <p class="note-dim">On Windows Home, where there is no Group Policy Editor, the device-metadata hardening step and its caveats are on the main page: <a href="/#fix">the fix, including the registry method</a>.</p>
       </section>
 
       <section id="verify">
         <h2>Verify it yourself</h2>
-        <p>This machine was not cleaned; it is held as evidence. If you can reproduce or refute any step, we want to see it. Reports we're collecting, and the PowerShell to read your app version, are on the <a href="/#tips">main page</a>.</p>
+        <p>This machine was not cleaned; it is held as evidence. If you can reproduce or refute any step, we want to see it. What we're collecting — and the PowerShell to read your app version — is on the <a href="/#tips">main page</a>.</p>
         <a class="backlink" href="/">← Back to the alert</a>
       </section>
 
