@@ -96,6 +96,25 @@ limit (it does not gate the driver channel the documented install used).
   was disconnected" reading was superseded by full log analysis showing the install
   happened at connection in Sep 2025, with the July 2026 activity being SYSTEM
   self-update and Store servicing. The persistence finding stands and is stronger.
+- Editing passes are logged too. The 2026-07-29 timeline entry says plainly that the
+  update was a rewrite, not new reporting, so a bumped "Updated" date never implies a
+  development that didn't happen.
+
+## Voice and density
+
+The page is a consumer alert, not an essay. **Fewer words, more structure** — where a
+paragraph was doing the work of a table, it became a table. Load-bearing rules:
+
+- Every fact in the long-form version is still on the page. The 2026-07-29 pass cut
+  roughly a third of the word count without dropping a claim, a date, a quote or a
+  caveat.
+- Hedges are stated **once**, in a dedicated `.limits` box, instead of being repeated
+  in every section that touches the same limit (we have no packet capture).
+- The archive (timeline before Jul 13, sourcing notes) sits behind `<details>`. The
+  record stays complete; the reader doesn't pay for it up front.
+- Attention-grabbing is earned by the evidence, not by adjectives. The strongest lines
+  on the page are the ones that are literally true — "0 consent prompts," "the ad going
+  quiet is not the software leaving."
 
 ## Theme
 
@@ -103,13 +122,31 @@ Styled to the Critical Error Computing brand: Saira / Saira Condensed type, mage
 `#ed2398` accent, dark surfaces, a faint grid backdrop, and a subtle glitch on accent
 words. **Red is reserved for the breaking banner and warning callouts.**
 
+Components carrying the structure (all in `styles.css`):
+
+| Class | Use |
+| --- | --- |
+| `.ledger` / `.led-yes` / `.led-no` | "What changed / what didn't" split — the core distinction of the story |
+| `ol.chain` + `.chain-t` | Timestamped install chain, one card per step |
+| `.vchain` | App version chain (year-month build numbering) |
+| `.limits` | Amber box: where our evidence stops. Used once per page |
+| `.pull` | Pull quote with `<cite>` |
+| `details.more` | Progressive disclosure for the timeline archive and sourcing notes |
+| `.sendlist` | Two-column checklist of what to send in a tip |
+| `.lead-actions` | Am I affected? / Remove it / Forensics buttons under the dek |
+
+Code blocks wrap (`white-space: pre-wrap`) rather than scroll horizontally, so commands
+stay copy-pasteable on a phone; soft wraps are not copied.
+
 ## Tech
 
 Static site served from the repository root via **GitHub Pages**.
 
-- `index.html` — the alert (latest-update band, GN video, by-the-numbers, "am I
-  affected?", LG's claims vs. our evidence, "the switch," two-layer fix + Windows Home
-  registry method, 19-model trigger list, developing timeline, sources, CEC credit)
+- `index.html` — the alert: lead + action buttons, changed/didn't-change ledger, GN
+  video, by-the-numbers, the install chain ("how it gets in, why it stays"), LG's claims
+  vs. our evidence, "the switch," "am I affected?", permissions + evidence limits, LG's
+  record, two-layer fix + Windows Home registry method, 19-model trigger list, developing
+  timeline (recent visible, archive collapsed), sources, tips, CEC credit
 - `forensics.html` — the forensic install report, served at `/forensics`
 - `hero.jpg` — lead photo
 - `og-image.jpg` — social share card (branded stopgap; swap for the redacted

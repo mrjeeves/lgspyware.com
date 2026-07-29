@@ -190,7 +190,7 @@ marquee-fallback { display: inline; }
 .lead .grid-bg { opacity: 0.5; }
 .lead-in { position: relative; z-index: 1; }
 .lead-top { display: grid; grid-template-columns: 1fr 0.85fr; gap: 30px; align-items: center; margin-bottom: 22px; }
-.lead-top h1 { font-size: clamp(1.75rem, 3.4vw, 2.6rem); margin-bottom: 0; }
+.lead-top h1 { font-size: clamp(1.9rem, 3.9vw, 3rem); margin-bottom: 0; }
 .hero-img { display: block; width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--border); background: #0d0e16; box-shadow: 0 24px 60px -30px rgba(0,0,0,0.8); }
 @media (max-width: 860px) { .lead-top { grid-template-columns: 1fr; gap: 18px; } .hero-img { max-height: 240px; object-fit: cover; object-position: center; } }
 .eyebrow-row { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
@@ -209,6 +209,13 @@ h1 {
 }
 .dek { font-size: 1.16rem; color: var(--ink-soft); margin: 0 0 22px; max-width: 62ch; }
 .dek strong { color: var(--ink); font-weight: 600; }
+.dek-kick {
+  max-width: 62ch; margin: -6px 0 20px;
+  padding-left: 13px; border-left: 2px solid var(--red);
+  font-size: 0.96rem; color: var(--ink-faint);
+}
+.dek-kick strong { color: var(--ink); }
+.lead-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 20px; }
 .byline { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: var(--ink-faint); font-size: 0.9rem; }
 .byline .sep { opacity: 0.5; }
 .byline .live { color: var(--red-ink); font-weight: 600; }
@@ -244,7 +251,9 @@ h3 { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: 0
 p { margin: 0 0 14px; }
 code { font-family: var(--mono); font-size: 0.85em; background: #0d0e16; border: 1px solid var(--border); border-radius: 5px; padding: 1px 6px; color: var(--accent-ink); }
 pre { background: #0c0d15; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 10px 0 14px; }
-pre code { background: none; border: none; padding: 0; color: #d8dbe6; font-size: 0.84rem; line-height: 1.55; white-space: pre; }
+/* Commands wrap rather than hiding in a horizontal scroll box on phones.
+ * Soft wraps aren't copied, so copy-paste stays intact. */
+pre code { background: none; border: none; padding: 0; color: #d8dbe6; font-size: 0.84rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
 .callout-fix pre { background: #0a1310; border-color: rgba(55,201,127,0.28); }
 .callout-fix pre code { color: #d6efe1; }
 
@@ -263,11 +272,46 @@ ol.steps > li::before {
   display: grid; place-items: center;
 }
 
+/* Install chain — timestamped steps, one card each. */
+ol.chain { list-style: none; padding-left: 0; margin: 16px 0; display: grid; gap: 10px; }
+ol.chain li {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r-md);
+  padding: 13px 16px;
+  color: var(--ink-soft);
+}
+ol.chain strong { color: var(--ink); }
+.chain-t {
+  display: inline-block;
+  font-family: var(--mono); font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent-ink); background: var(--accent-soft);
+  border-radius: 4px; padding: 2px 8px;
+  margin-right: 10px; vertical-align: 1px;
+}
+
+/* Version chain */
+.vchain { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.vchain span {
+  flex: 1 1 190px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-sm); padding: 10px 12px;
+  font-family: var(--mono); font-size: 0.86rem; color: var(--ink-soft);
+}
+.vchain b { color: var(--accent-ink); }
+.vchain em {
+  display: block; margin-top: 4px;
+  font-family: var(--font); font-style: normal;
+  font-size: 0.76rem; color: var(--ink-faint);
+}
+
 /* Callouts */
 .callout-danger, .callout-fix { position: relative; margin: 6px 0; padding: 24px; border-radius: var(--r-lg); }
 .callout-danger { background: var(--red-soft); border: 1px solid rgba(255,48,64,0.34); }
 .callout-danger h2 { color: var(--red-ink); }
-.callout-danger .big { font-size: 1.14rem; color: var(--ink); }
+.big { font-size: 1.14rem; color: var(--ink); }
 .callout-danger u { text-decoration-color: var(--red); text-underline-offset: 3px; }
 .callout-fix { background: rgba(55,201,127,0.08); border: 1px solid rgba(55,201,127,0.3); }
 .callout-fix h2 { color: var(--ok); }
@@ -292,6 +336,43 @@ ol.steps > li::before {
 }
 .updatebox h2 { margin-bottom: 12px; }
 .updatebox p:last-child { margin-bottom: 0; }
+
+/* Changed / didn't-change ledger */
+.ledger { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 18px; }
+@media (max-width: 720px) { .ledger { grid-template-columns: 1fr; } }
+.led-col { background: var(--bg-2); border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 16px; }
+.led-yes { border-color: rgba(55,201,127,0.32); }
+.led-no  { border-color: rgba(255,48,64,0.32); }
+.led-lbl {
+  display: block;
+  font-family: var(--mono); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  margin-bottom: 9px;
+}
+.led-yes .led-lbl { color: var(--ok); }
+.led-no .led-lbl { color: var(--red-ink); }
+.led-col ul { list-style: none; margin: 0; padding: 0; font-size: 0.94rem; }
+.led-col li { position: relative; padding-left: 20px; margin: 8px 0; color: var(--ink-soft); }
+.led-col li::before { position: absolute; left: 0; top: 0; font-weight: 700; }
+.led-yes li::before { content: "✔"; color: var(--ok); }
+.led-no li::before { content: "✘"; color: var(--red-ink); }
+.led-col strong { color: var(--ink); }
+
+/* Pull quote */
+.pull {
+  border-left: 3px solid var(--accent);
+  padding: 2px 0 2px 18px;
+  margin: 18px 0;
+  font-family: var(--font-cond); font-weight: 600;
+  font-size: clamp(1.15rem, 2.6vw, 1.45rem); line-height: 1.24;
+  color: var(--ink);
+}
+.pull cite {
+  display: block; margin-top: 8px;
+  font-family: var(--mono); font-style: normal; font-weight: 400;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-faint);
+}
 
 /* Claim vs. evidence */
 .claims { display: grid; gap: 14px; margin: 18px 0; }
@@ -331,6 +412,26 @@ ol.steps > li::before {
 .fine strong { color: var(--ink); }
 .note-dim { color: var(--ink-faint); font-size: 0.92rem; }
 
+/* "Limits of our evidence" box — amber, used where we stop short of a claim. */
+.limits {
+  background: var(--bg-2);
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--r-md);
+  padding: 16px 18px;
+  margin: 16px 0;
+}
+.limits-lbl {
+  display: block;
+  font-family: var(--mono); font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 9px;
+}
+.limits ul { list-style: none; margin: 0; padding: 0; font-size: 0.93rem; color: var(--ink-soft); }
+.limits li { position: relative; padding-left: 18px; margin: 8px 0; }
+.limits li::before { content: "—"; position: absolute; left: 0; color: var(--ink-faint); }
+.limits strong { color: var(--ink); }
+
 /* Timeline */
 .timeline { list-style: none; padding-left: 0; margin: 10px 0; border-left: 2px solid var(--border); }
 .timeline li { position: relative; padding: 0 0 22px 26px; }
@@ -338,6 +439,25 @@ ol.steps > li::before {
 .timeline li.pending::before { background: var(--ink-faint); }
 .timeline time { display: block; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.05em; color: var(--accent-ink); text-transform: uppercase; margin-bottom: 4px; }
 .timeline li.pending time { color: var(--ink-faint); }
+
+/* Progressive disclosure — keeps the archive without paying for it up front. */
+details.more { margin: 6px 0 0; }
+details.more > summary {
+  cursor: pointer; list-style: none;
+  display: inline-flex; align-items: center; gap: 9px;
+  font-family: var(--mono); font-size: 0.78rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--ink-soft);
+  border: 1px solid var(--border-strong); border-radius: 999px;
+  padding: 8px 16px;
+}
+details.more > summary::-webkit-details-marker { display: none; }
+details.more > summary::after { content: "▾"; color: var(--accent-ink); }
+details.more[open] > summary::after { content: "▴"; }
+details.more > summary:hover { border-color: var(--accent); color: var(--accent-ink); }
+details.more > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+details.more .timeline { margin-top: 18px; }
+details.more > .note-dim { margin-top: 14px; }
 
 /* Sources */
 .sources { font-size: 0.96rem; padding-left: 20px; }
@@ -347,6 +467,18 @@ ol.steps > li::before {
 .tip { position: relative; background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--r-lg); padding: 26px; text-align: center; overflow: hidden; }
 .tip::before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 3px; background: var(--accent); }
 .tip h2 { color: var(--accent-ink); }
+.tip pre, .tip .evidence-note { text-align: left; }
+.sendlist {
+  list-style: none; margin: 14px 0; padding: 0; text-align: left;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
+}
+@media (max-width: 620px) { .sendlist { grid-template-columns: 1fr; } }
+.sendlist li {
+  background: var(--bg-2); border: 1px solid var(--border);
+  border-radius: var(--r-sm); padding: 9px 12px;
+  font-size: 0.89rem; color: var(--ink-faint);
+}
+.sendlist b { color: var(--ink); font-weight: 600; }
 .mail { display: inline-block; margin-top: 6px; font-family: var(--mono); font-size: 1.05rem; font-weight: 700; color: var(--accent-ink); }
 
 #timeline, #sources, #tips { padding-top: 34px; padding-bottom: 10px; }
