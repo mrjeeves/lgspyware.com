@@ -39,11 +39,47 @@ Engadget, Gizmodo, and others. The full minute-by-minute install chain is publis
   network experts, and lawyers reading ~40,000 words of LG agreements.
 - **Jul 24** — The Register reports McAfee references removed from the Store listing.
 
-**What did not change:** the automatic install. No commitment from either company
-covers it. Both delivery packages remain resident and wired to 51 hardware IDs, the
-consent gap is untouched, and the mechanism is a Windows feature available to any
-vendor. The site's framing follows this distinction — the ad was the symptom, the
-delivery is the story.
+## The August turn (Aug 3–16, 2026)
+
+- **Aug 3** — **LG publishes its own notice** ("LG Monitor App Installer") on its South
+  Africa support site. Two commitments that go past the July agreement: LG "does not plan
+  to recommend McAfee or other third-party software through the Installer in future," and
+  **"LG is updating the Installer so customers can decide whether they would like to
+  install it."** That is the first acknowledgement by either company of the consent gap.
+  It carries no ship date, version or mechanism, says nothing about the two resident
+  `.inf` packages, and repeats that applications "are only installed if the customer
+  chooses to proceed" — true of the apps the Installer offers, not of the Installer,
+  which arrived under SYSTEM with nothing to proceed through. The same URL path 404s on
+  LG's US, UK, AU, IN, SG and CA sites, and we found no coverage of it anywhere.
+  Date taken from the page's structured data (`datePublished: 2026-08-03T03:00:00Z`),
+  since the printed `08/03/2026` stamp is regionally ambiguous.
+- **Aug 12** — The app's Microsoft Store product is updated (listing data:
+  `LastUpdateDateUtc 2026-08-12`). No changelog is published; contents unknown. We have
+  not re-run a first-connection test, and the site says so rather than implying otherwise.
+- **Aug 16** — Our re-check: Store permissions unchanged ("uses all system resources",
+  internet), `runFullTrust`, rating **1.0 across 421 ratings**; Microsoft's Tech Community
+  thread quiet since Jul 25; **no press coverage since ~Jul 27**; Gamers Nexus's follow-up
+  still unpublished (eight unrelated videos since the Jul 23 post, per the channel feed).
+
+**What still has not changed:** the install, as of anything anyone can observe. LG has now
+promised a choice; nobody has shown one on screen. Both delivery packages remain resident
+and wired to 51 hardware IDs, Microsoft has said nothing about the device-metadata channel
+(its February 2026 consent initiative covers app behaviour, not hardware-triggered
+installs), and the mechanism is a Windows feature available to any vendor. The site's
+framing follows this distinction — the ad was the symptom, the delivery is the story —
+with the July "nobody has said the install will stop" line explicitly marked as superseded
+rather than silently edited.
+
+## Related LG record (updated Aug 16)
+
+- **May 11, 2026** — LG's US unit **settled** the Texas AG's smart-TV ACR suit (filed Dec
+  2025 against five makers): consent before collecting viewing data, pop-up and website
+  disclosure, clear opt-out, no transfers to the CCP; **no admission of liability**. Cases
+  against Sony, Hisense and TCL continue. The site previously presented this as a live
+  allegation; it now reports the settlement and notes the remedy Texas extracted was, in
+  substance, *ask first*.
+- **Jul 21, 2026** — Krebs on Security: Spur found residential-proxy SDKs in **42%+ of LG
+  webOS store apps**; LG says non-compliant apps will be suspended.
 
 ## Recommended fix (two layers)
 
@@ -99,6 +135,14 @@ limit (it does not gate the driver channel the documented install used).
 - Editing passes are logged too. The 2026-07-29 timeline entry says plainly that the
   update was a rewrite, not new reporting, so a bumped "Updated" date never implies a
   development that didn't happen.
+- When the story moves against our own framing, the old line is marked superseded in
+  place rather than quietly deleted. The July "nobody at either company has said the app
+  will stop installing itself" paragraph now opens **"Updated Aug 16 — this is no longer
+  entirely true,"** because on Aug 3 LG said it. Where LG's statement is stronger than we
+  expected, it runs verbatim and gets credit before it gets scrutiny.
+- Company dates are verified structurally when the printed form is ambiguous: LG's notice
+  shows `08/03/2026`, which is Aug 3 in one convention and Mar 8 in another, so the date
+  was taken from the page's own `datePublished` metadata rather than guessed.
 
 ## Voice and density
 
@@ -144,9 +188,10 @@ Static site served from the repository root via **GitHub Pages**.
 
 - `index.html` — the alert: lead + action buttons, changed/didn't-change ledger, GN
   video, by-the-numbers, the install chain ("how it gets in, why it stays"), LG's claims
-  vs. our evidence, "the switch," "am I affected?", permissions + evidence limits, LG's
-  record, two-layer fix + Windows Home registry method, 19-model trigger list, developing
-  timeline (recent visible, archive collapsed), sources, tips, CEC credit
+  vs. our evidence, **the August notice (`#august`)**, "the switch," "am I affected?",
+  permissions + evidence limits, LG's record, two-layer fix + Windows Home registry
+  method, 19-model trigger list, developing timeline (recent visible, archive collapsed),
+  sources, tips, CEC credit
 - `forensics.html` — the forensic install report, served at `/forensics`
 - `hero.jpg` — lead photo
 - `og-image.jpg` — social share card (branded stopgap; swap for the redacted

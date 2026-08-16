@@ -374,6 +374,29 @@ ol.chain strong { color: var(--ink); }
   color: var(--ink-faint);
 }
 
+/* Verbatim statement block (company statements quoted in full) */
+.quote-lg {
+  background: var(--bg-2);
+  border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--r-md);
+  padding: 16px 18px;
+  margin: 18px 0;
+}
+.quote-lg p {
+  margin: 0 0 10px;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+.quote-lg p:last-of-type { margin-bottom: 0; }
+.quote-lg strong { color: var(--ink); }
+.quote-lg cite {
+  display: block; margin-top: 12px;
+  font-family: var(--mono); font-style: normal;
+  font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
 /* Claim vs. evidence */
 .claims { display: grid; gap: 14px; margin: 18px 0; }
 .claim {
