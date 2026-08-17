@@ -21,9 +21,12 @@
 </head>
 <body>
 
-  <div class="breaking" role="alert">
-    <span class="pulse">● FORENSICS</span>
-    <marquee-fallback>Install chain recovered from one of our own machines. Evidence only; removal was not performed, so the machine remains available for verification.</marquee-fallback>
+  <div class="ribbon">
+    <div class="wrap ribbon-in">
+      <span class="ribbon-tag">Forensics</span>
+      <span class="ribbon-txt">Install chain recovered from one of our own machines. Not cleaned, not reconnected — held for verification.</span>
+      <a class="ribbon-link" href="/">The alert</a>
+    </div>
   </div>
 
   <header class="masthead">
@@ -35,6 +38,7 @@
       </div>
       <nav class="topnav">
         <a href="/">← Back to the alert</a>
+        <a href="/story">The full report</a>
         <a href="/#fix">The fix</a>
         <a href="/#tips">Send a tip</a>
       </nav>
@@ -64,8 +68,8 @@
         <div class="updatebox">
           <span class="upd-stamp">● Update · August 16, 2026</span>
           <p><strong>Nothing in this report has changed, and that is the point.</strong> LG agreed to disable the McAfee pop-up; by July 24 the McAfee references were off the Store listing. Every finding below sits in the layer underneath that pop-up — the delivery, the missing consent, the persistence. Both LG packages are still resident on this machine, still wired to 51 hardware IDs.</p>
-          <p><strong>What is new is a promise, not a change.</strong> An LG support notice dated <strong>August 3, 2026</strong> says LG “is updating the Installer so customers can decide whether they would like to install it” — the first acknowledgement of the consent gap this report documents. It carries no date, version or mechanism, and says nothing about the two driver-store packages below. The app's Store product was updated on <strong>August 12</strong>; no changelog is published, and <strong>we have not re-run a first-connection test</strong>, so we cannot tell you whether the behaviour recorded here still reproduces. This machine has not been cleaned or reconnected — it is held as it was. <a href="/#august">What the notice says, in full.</a></p>
-          <p><strong>One limit, stated plainly:</strong> LG told press the installer “does not access, collect, or transmit any customer personal data.” This report makes no claim either way. <strong>We captured no network traffic</strong>, and nothing here is evidence of exfiltration. What is documented is how the software arrived, that no consent surface existed, and that Windows maintained it for nine months after the monitor was gone. <a href="/#response">Claim-by-claim comparison on the main page.</a></p>
+          <p><strong>What is new is a promise, not a change.</strong> An LG support notice dated <strong>August 3, 2026</strong> says LG “is updating the Installer so customers can decide whether they would like to install it” — the first acknowledgement of the consent gap this report documents. It carries no date, version or mechanism, and says nothing about the two driver-store packages below. The app's Store product was updated on <strong>August 12</strong>; no changelog is published, and <strong>we have not re-run a first-connection test</strong>, so we cannot tell you whether the behaviour recorded here still reproduces. This machine has not been cleaned or reconnected — it is held as it was. <a href="/story#august">What the notice says, in full.</a></p>
+          <p><strong>One limit, stated plainly:</strong> LG told press the installer “does not access, collect, or transmit any customer personal data.” This report makes no claim either way. <strong>We captured no network traffic</strong>, and nothing here is evidence of exfiltration. What is documented is how the software arrived, that no consent surface existed, and that Windows maintained it for nine months after the monitor was gone. <a href="/story#response">Claim-by-claim comparison in the full report.</a></p>
         </div>
         <div class="evidence-note">
           <strong>Handling note.</strong> Redacted for the machine owner's privacy: hostname, OS baseline date and the panel's serial descriptor are withheld. Manufacturer and product IDs and the model mapping are kept — they prove identification without fingerprinting the unit. Removal was <strong>not</strong> performed here; the machine is preserved as evidence and available for verification.

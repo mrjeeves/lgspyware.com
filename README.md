@@ -145,6 +145,29 @@ limit (it does not gate the driver channel the documented install used).
   shows `08/03/2026`, which is Aug 3 in one convention and Mar 8 in another, so the date
   was taken from the page's own `datePublished` metadata rather than guessed.
 
+## Page split (Aug 16, 2026)
+
+The alert had grown into a wall of prose. It is now three pages with distinct jobs:
+
+| Page | Job | Reads like |
+| --- | --- | --- |
+| `/` | What happened, in what order, and what to do | A dated infographic — diagram, tiles, charts, one-line timeline |
+| `/story` | The reporting, the claims, the caveats, the sources | An article |
+| `/forensics` | The evidence off one machine | A lab report |
+
+Rules that keep it that way:
+
+- **Nothing on `/` runs longer than two lines.** If it needs a paragraph, it belongs on
+  `/story` with a one-line pointer from the alert.
+- **Numbers and dates are drawn, not described** — SVG diagram, charts, tiles and the
+  timeline spine carry the load that prose used to.
+- **Image slots are real slots.** `.shot-ph` placeholders mark where redacted captures go;
+  dropping an `<img>` in place of the placeholder div needs no other change.
+- **Volume is turned down.** The old red flashing banner is a quiet `.ribbon`; the lead
+  headline is smaller; red is reserved for the affected/warning callouts.
+- Legacy deep links (`/#response`, `/#august`, `/#switch`, `/#record`, `/#permissions`,
+  `/#sources`) are forwarded to `/story#…` by a small script at the foot of `index.html`.
+
 ## Voice and density
 
 The page is a consumer alert, not an essay. **Fewer words, more structure** — where a
@@ -187,12 +210,15 @@ stay copy-pasteable on a phone; soft wraps are not copied.
 
 Static site served from the repository root via **GitHub Pages**.
 
-- `index.html` — the alert: lead + action buttons, changed/didn't-change ledger, GN
-  video, by-the-numbers, the install chain ("how it gets in, why it stays"), LG's claims
-  vs. our evidence, **the August notice (`#august`)**, "the switch," "am I affected?",
-  permissions + evidence limits, LG's record, two-layer fix + Windows Home registry
-  method, 19-model trigger list, developing timeline (recent visible, archive collapsed),
-  sources, tips, CEC credit
+- `index.html` — **the alert, built as an infographic.** Ribbon + lead, the install chain
+  drawn as an inline-SVG diagram (with a card fallback under 720px), a three-card state
+  board, four number tiles, two small SVG charts (31/32 boots; the nine-month persistence
+  bar), three evidence image slots, the scannable one-line timeline, the affected check,
+  the two-step fix, the 19-model grid, GN video, outlet strip, tips, CEC credit
+- `story.html` — **the words**, served at `/story`: how it gets in, who qualified, LG's
+  claims vs. our evidence, the August 3 notice in full, when the ads switched on,
+  permissions + evidence limits, LG's record, the fix including the Windows Home registry
+  method and all its caveats, sources and sourcing notes
 - `forensics.html` — the forensic install report, served at `/forensics`
 - `hero.jpg` — lead photo
 - `og-image.jpg` — social share card (branded stopgap; swap for the redacted
