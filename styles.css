@@ -318,6 +318,63 @@ ol.chain strong { color: var(--ink); }
 .callout-fix ol.steps > li::before { background: var(--ok); color: #04160c; }
 .warn { background: var(--red-soft); border-left: 3px solid var(--red); padding: 12px 14px; border-radius: 6px; font-size: 0.95rem; }
 
+/* Diagnostic checks — three cards instead of a red panel of numbered prose. */
+.checks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 16px 0 14px; }
+.check {
+  display: flex; flex-direction: column; gap: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--r-md); padding: 14px 16px 16px;
+}
+.check-n {
+  align-self: flex-start;
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.check-h { font-family: var(--font-cond); font-weight: 700; font-size: 1.08rem; color: var(--ink); }
+.check-b { font-size: 0.9rem; color: var(--ink-soft); margin: 0; }
+.check-b code { font-size: 0.78rem; }
+.check-hit {
+  margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border);
+  font-size: 0.84rem; color: var(--red-ink);
+}
+.verdict {
+  display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  background: var(--red-soft); border-left: 3px solid var(--red);
+  border-radius: 6px; padding: 12px 14px; margin: 0 0 12px;
+}
+.verdict b { font-family: var(--font-cond); font-size: 1.06rem; color: var(--red-ink); letter-spacing: 0.02em; }
+.verdict span { font-size: 0.94rem; color: var(--ink-soft); }
+
+/* The fix — two layers as cards, with the re-arm loop drawn underneath. */
+.layers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0 14px; }
+.layer {
+  background: var(--surface); border: 1px solid var(--border);
+  border-top: 3px solid var(--ok); border-radius: var(--r-md); padding: 14px 16px 4px;
+}
+.layer-n {
+  font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ok);
+}
+.layer-h { font-family: var(--font-cond); font-weight: 700; font-size: 1.08rem; color: var(--ink); margin: 4px 0 2px; }
+.layer p { font-size: 0.9rem; color: var(--ink-soft); margin: 0 0 4px; }
+.layer pre { background: #0a1310; border-color: rgba(55,201,127,0.28); }
+.layer pre code { color: #d6efe1; }
+
+.rearm { display: block; width: 100%; height: auto; margin: 4px 0 12px; }
+.re-box { fill: var(--surface-2); stroke: var(--border-strong); }
+.re-box-bad { stroke: var(--red); }
+.re-box-good { stroke: var(--ok); }
+.re-t { fill: var(--ink-soft); font-family: var(--font); font-size: 13px; }
+.re-lbl { fill: var(--ink-faint); font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.re-out-bad { fill: var(--red-ink); font-family: var(--font-cond); font-weight: 700; font-size: 15px; }
+.re-out-good { fill: var(--ok); font-family: var(--font-cond); font-weight: 700; font-size: 15px; }
+.re-arrow { stroke: var(--border-strong); stroke-width: 1.5; fill: none; }
+
+@media (max-width: 860px) {
+  .checks, .layers { grid-template-columns: 1fr; }
+}
+
 /* ---------- Latest-update band ---------- */
 .update-band { padding: 24px 20px 6px; }
 .updatebox {

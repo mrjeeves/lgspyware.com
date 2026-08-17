@@ -300,33 +300,83 @@
     <div class="wrap body">
 
       <!-- ARE YOU AFFECTED -->
-      <section id="affected" class="callout-danger">
-        <h2>Are you affected?</h2>
-        <p class="big">If an affected LG monitor has <u>ever</u> touched your Windows PC, check. “I unplugged it” is not “it's clean.”</p>
-        <ol class="steps">
-          <li><strong>Settings → Apps → Installed apps.</strong> Search <code>LG Monitor</code>, then <code>McAfee</code>. Either one you didn't install means you were hit.</li>
-          <li><strong>Win+R → <code>perfmon /rel</code>.</strong> Look for <code>9PM9N6F47JB8-LGElectronics.LGMonitorApp</code> — filed by Windows not as an app install but as a “Successful Windows Update.”</li>
-          <li><strong>Techs:</strong> <code>pnputil /enum-drivers</code> — <code>lgmonitorappextension.inf</code> or <code>lgmonitorappsoftwarecomponent.inf</code> means the machine is armed even if the app is gone.</li>
-        </ol>
+      <section id="affected">
+        <h2>Am I affected?</h2>
+        <p class="sub">Three checks, no monitor required. If an affected LG panel has <u>ever</u> touched this PC — months ago, long gone — run them.</p>
+        <div class="checks">
+          <div class="check">
+            <span class="check-n">Check 1 · 10 seconds</span>
+            <span class="check-h">Installed apps</span>
+            <p class="check-b">Settings → Apps → Installed apps. Search <code>LG Monitor</code>, then <code>McAfee</code>.</p>
+            <span class="check-hit">Either one you didn't install → hit</span>
+          </div>
+          <div class="check">
+            <span class="check-n">Check 2 · the damning one</span>
+            <span class="check-h">Install history</span>
+            <p class="check-b">Win+R → <code>perfmon /rel</code>. Look for <code>LGElectronics.LGMonitorApp</code>.</p>
+            <span class="check-hit">Logged as “Successful Windows Update,” not an app install</span>
+          </div>
+          <div class="check">
+            <span class="check-n">Check 3 · for techs</span>
+            <span class="check-h">Driver store</span>
+            <p class="check-b"><code>pnputil /enum-drivers</code> → look for LG Electronics <code>.inf</code> entries.</p>
+            <span class="check-hit">Present → armed, even if the app is gone</span>
+          </div>
+        </div>
+        <div class="verdict">
+          <b>Any one of the three = affected.</b>
+          <span>“I unplugged it” is not “it's clean” — the software stays behind, and so does the trigger.</span>
+        </div>
         <p class="note-dim"><a href="/story#affected-more">Why so many machines qualified →</a></p>
       </section>
 
       <!-- FIX -->
-      <section id="fix" class="callout-fix">
+      <section id="fix">
         <h2>The fix</h2>
-        <p class="big">Two layers. Remove the app, then remove LG's delivery packages — or it re-arms the next time a listed panel is plugged in.</p>
-        <ol class="steps">
-          <li>
-            <strong>The app.</strong> Settings → Apps → Installed apps → uninstall <strong>LG Monitor App</strong>. Or elevated PowerShell:
+        <p class="sub">Two layers, both required. Remove the app and the machine still re-arms; remove the packages too and it stops.</p>
+        <div class="layers">
+          <div class="layer">
+            <span class="layer-n">Layer 1</span>
+            <div class="layer-h">The app</div>
+            <p>Settings → Apps → Installed apps → uninstall <strong>LG Monitor App</strong>. Or elevated PowerShell:</p>
             <pre><code>Get-AppxPackage -AllUsers LGElectronics.LGMonitorApp | Remove-AppxPackage -AllUsers</code></pre>
-          </li>
-          <li>
-            <strong>Both delivery packages.</strong> Elevated prompt — find the two LG Electronics entries, then delete each by its <code>oemXX.inf</code> name:
+          </div>
+          <div class="layer">
+            <span class="layer-n">Layer 2</span>
+            <div class="layer-h">Both delivery packages</div>
+            <p>Elevated prompt. Find the two <strong>LG Electronics Inc.</strong> entries, then delete each by its <code>oemXX.inf</code> name:</p>
             <pre><code>pnputil /enum-drivers
 pnputil /delete-driver oemXX.inf /uninstall</code></pre>
-          </li>
-        </ol>
-        <p class="note-dim">Surgical: other devices keep their drivers and companion software, and real driver updates keep flowing. <strong>Windows Home?</strong> There's a registry method — and four caveats worth reading first. <a href="/story#fix">The Home method, with caveats →</a></p>
+          </div>
+        </div>
+
+        <svg class="rearm" viewBox="0 0 960 190" role="img" aria-label="Removing only the app leaves both LG packages in the driver store, so connecting a listed LG monitor installs it again. Removing the app and both packages means connecting a listed monitor installs nothing.">
+          <text class="re-lbl" x="0" y="14">Half the job</text>
+          <rect class="re-box re-box-bad" x="0" y="26" width="200" height="44" rx="8"/>
+          <text class="re-t" x="16" y="53">App removed only</text>
+          <path class="re-arrow" d="M208 48 H 268" marker-end="url(#reArrow)"/>
+          <rect class="re-box" x="276" y="26" width="230" height="44" rx="8"/>
+          <text class="re-t" x="292" y="53">You plug in a listed panel</text>
+          <path class="re-arrow" d="M514 48 H 574" marker-end="url(#reArrow)"/>
+          <text class="re-out-bad" x="582" y="53">It installs again.</text>
+
+          <text class="re-lbl" x="0" y="112">Both layers</text>
+          <rect class="re-box re-box-good" x="0" y="124" width="200" height="44" rx="8"/>
+          <text class="re-t" x="16" y="151">App + packages removed</text>
+          <path class="re-arrow" d="M208 146 H 268" marker-end="url(#reArrow)"/>
+          <rect class="re-box" x="276" y="124" width="230" height="44" rx="8"/>
+          <text class="re-t" x="292" y="151">You plug in a listed panel</text>
+          <path class="re-arrow" d="M514 146 H 574" marker-end="url(#reArrow)"/>
+          <text class="re-out-good" x="582" y="151">Nothing arrives.</text>
+
+          <defs>
+            <marker id="reArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0 0 L10 5 L0 10 z" fill="#333650"/>
+            </marker>
+          </defs>
+        </svg>
+
+        <p class="note-dim">Surgical: every other device keeps its drivers and companion software, and real driver updates keep flowing. <strong>Windows Home, no Group Policy?</strong> There's a registry method — and four caveats worth reading first, including that we have not reproduced a blocked install with it. <a href="/story#fix">The Home method, with caveats →</a></p>
       </section>
 
       <!-- AFFECTED MODELS -->
