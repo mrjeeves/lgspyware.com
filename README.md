@@ -59,7 +59,7 @@ Engadget, Gizmodo, and others. The full minute-by-minute install chain is publis
 - **Aug 16** — Our re-check: Store permissions unchanged ("uses all system resources",
   internet), `runFullTrust`, rating **1.0 across 421 ratings**; Microsoft's Tech Community
   thread quiet since Jul 25; **no press coverage since ~Jul 27**; Gamers Nexus's follow-up
-  still unpublished (eight unrelated videos since the Jul 23 post, per the channel feed).
+  still unpublished (seven unrelated videos since the Jul 23 post, per the channel feed).
 
 **What still has not changed:** the install, as of anything anyone can observe. LG has now
 promised a choice; nobody has shown one on screen. Both delivery packages remain resident
@@ -74,7 +74,8 @@ rather than silently edited.
 
 - **May 11, 2026** — LG's US unit **settled** the Texas AG's smart-TV ACR suit (filed Dec
   2025 against five makers): consent before collecting viewing data, pop-up and website
-  disclosure, clear opt-out, no transfers to the CCP; **no admission of liability**. Cases
+  disclosure, clear opt-out, no transfers to the CCP; **no admission of liability** (Korea
+  Herald; the US outlets covering the settlement don't address the point either way). Cases
   against Sony, Hisense and TCL continue. The site previously presented this as a live
   allegation; it now reports the settlement and notes the remedy Texas extracted was, in
   substance, *ask first*.
