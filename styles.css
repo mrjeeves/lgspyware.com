@@ -236,6 +236,7 @@ h1 {
 
 /* ---------- Stats ---------- */
 .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(148px, 1fr)); gap: 14px; padding: 28px 20px; }
+@media (min-width: 781px) { .stats-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 720px) { .stats { grid-template-columns: repeat(2, 1fr); } }
 .stat { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px; text-align: center; overflow: hidden; }
 .stat::before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 2px; background: var(--accent); opacity: 0.7; }
@@ -786,3 +787,158 @@ footer.site { border-top: 1px solid var(--border); background: var(--bg-2); padd
 footer.site p { margin: 0 0 12px; }
 footer.site a { color: var(--ink-soft); }
 .disclaimer { font-size: 0.8rem; line-height: 1.6; opacity: 0.92; }
+
+/* ============================================================
+   Shared page furniture — used identically on every subpage so
+   the report, the TV page and the forensics read as one system.
+   ============================================================ */
+
+/* Contents chips under the lead of a subpage. */
+.pagenav { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 6px; padding: 0 20px; }
+.pagenav a {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-soft);
+  border: 1px solid var(--border-strong); border-radius: 999px; padding: 7px 13px;
+}
+.pagenav a:hover { border-color: var(--accent); color: var(--accent-ink); text-decoration: none; }
+
+/* Section head: quiet label, title, one-line standfirst. */
+.sec-lbl {
+  display: block; font-family: var(--mono); font-size: 0.7rem;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint);
+  margin-bottom: 6px;
+}
+section > h2 { scroll-margin-top: 18px; }
+
+/* Source line — provenance as metadata, not as a paragraph. */
+.src {
+  display: block; margin: 10px 0 0;
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+.src a { color: var(--ink-soft); }
+.src::before { content: "↳ "; color: var(--accent); }
+
+/* Key/value fact rows. */
+.facts { border-top: 1px solid var(--border); margin: 14px 0; }
+.facts div {
+  display: grid; grid-template-columns: 190px 1fr; gap: 16px;
+  padding: 11px 0; border-bottom: 1px solid var(--border);
+}
+.facts dt, .facts b {
+  font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink-faint); font-weight: 400;
+}
+.facts dd, .facts span { margin: 0; color: var(--ink-soft); }
+.facts strong { color: var(--ink); }
+@media (max-width: 620px) { .facts div { grid-template-columns: 1fr; gap: 4px; } }
+
+/* Finding cards. */
+.findings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+.finding {
+  background: var(--surface); border: 1px solid var(--border);
+  border-top: 3px solid var(--accent); border-radius: var(--r-md); padding: 14px 16px 16px;
+}
+.finding h3 {
+  margin: 0 0 6px; font-family: var(--font-cond); font-size: 1.06rem;
+  letter-spacing: 0.02em; color: var(--ink);
+}
+.finding p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+@media (max-width: 860px) { .findings { grid-template-columns: 1fr; } }
+
+/* Risk callout — used once, for the unpatched disclosure. */
+.risk {
+  background: var(--bg-2); border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--amber); border-radius: var(--r-md);
+  padding: 16px 18px; margin: 16px 0;
+}
+.risk-lbl {
+  display: block; font-family: var(--mono); font-size: 0.7rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 6px;
+}
+.risk p { margin: 0 0 8px; color: var(--ink-soft); }
+.risk p:last-child { margin-bottom: 0; }
+
+/* Cross-page card — sends a reader to the other half of the story. */
+.handoff {
+  display: grid; grid-template-columns: 1fr auto; gap: 18px; align-items: center;
+  background: var(--surface); border: 1px solid var(--border-strong);
+  border-left: 3px solid var(--accent); border-radius: var(--r-md);
+  padding: 18px 20px; margin: 18px 0;
+}
+.handoff h3 { margin: 0 0 6px; font-family: var(--font-cond); font-size: 1.25rem; color: var(--ink); }
+.handoff p { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+@media (max-width: 620px) { .handoff { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   The two fronts — the shape of the story since September.
+   ============================================================ */
+
+/* What leaves the house, and what gets in. The lead graphic. */
+.flowmap {
+  display: block; width: 100%; height: auto; margin: 6px 0 10px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 10px 0;
+}
+.fm-house { fill: none; stroke: var(--border-strong); stroke-width: 2; }
+.fm-lbl {
+  fill: var(--ink-faint); font-family: var(--mono); font-size: 12px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+}
+.fm-dev { fill: var(--surface-2); stroke: var(--border-strong); stroke-width: 1.5; }
+.fm-dev-h { fill: var(--ink); font-family: var(--font-cond); font-weight: 700; font-size: 17px; }
+.fm-b { fill: var(--ink-soft); font-family: var(--font); font-size: 13px; }
+.fm-out { stroke: var(--red); stroke-width: 2.5; fill: none; }
+.fm-in { stroke: var(--accent); stroke-width: 2.5; fill: none; }
+.fm-out-t { fill: var(--red-ink); font-family: var(--font-cond); font-weight: 700; font-size: 15px; }
+.fm-in-t { fill: var(--accent-ink); font-family: var(--font-cond); font-weight: 700; font-size: 15px; }
+.fm-co { fill: var(--bg-2); stroke: var(--accent); stroke-width: 2; }
+.fm-co-t { fill: var(--ink); font-family: var(--font-cond); font-weight: 700; font-size: 16px; }
+.fm-src { fill: var(--ink-faint); font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; }
+
+/* Two-front cards: the living room and the desk. */
+.fronts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 18px 0; }
+.front {
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 18px 20px 20px;
+}
+.front-tv { border-top: 3px solid var(--red); }
+.front-mon { border-top: 3px solid var(--accent); }
+.front-lbl {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.front h3 {
+  margin: 6px 0 4px; font-family: var(--font-cond); font-weight: 700;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.1; color: var(--ink);
+}
+.front-sub { margin: 0 0 12px; font-size: 0.92rem; color: var(--ink-faint); }
+.front ul { list-style: none; padding: 0; margin: 0 0 16px; }
+.front li {
+  position: relative; padding-left: 20px; margin: 9px 0;
+  font-size: 0.95rem; color: var(--ink-soft);
+}
+.front li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+.front-tv li::before { color: var(--red-ink); }
+.front li strong { color: var(--ink); }
+.front .btn { align-self: flex-start; margin-top: auto; }
+@media (max-width: 780px) { .fronts { grid-template-columns: 1fr; } }
+
+/* Verdict strip: what is documented, what is denied, what is unfixed. */
+.status3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 18px 0; }
+.st {
+  background: var(--bg-2); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 14px 16px 16px;
+}
+.st-h {
+  display: block; font-family: var(--font-cond); font-weight: 700;
+  font-size: 1.08rem; letter-spacing: 0.02em; margin-bottom: 8px;
+}
+.st-doc .st-h { color: var(--ink); }
+.st-den .st-h { color: var(--amber); }
+.st-unf .st-h { color: var(--red-ink); }
+.st ul { list-style: none; padding: 0; margin: 0; }
+.st li { font-size: 0.9rem; color: var(--ink-soft); margin: 7px 0; padding-left: 16px; position: relative; }
+.st li::before { content: "–"; position: absolute; left: 0; color: var(--ink-faint); }
+@media (max-width: 780px) { .status3 { grid-template-columns: 1fr; } }
