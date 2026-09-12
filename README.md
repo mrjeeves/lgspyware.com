@@ -1,8 +1,15 @@
 # lgspyware.com
 
-A developing-story consumer alert tracking the LG monitor auto-install adware
-issue on Windows. **Published by [Critical Error Computing](https://www.criticalerrorcomputing.com/)**
-(CEC), a custom PC builder in Humble, TX, and themed to the CEC house style.
+A developing-story consumer alert on **what LG's screens do without asking** — a
+television that maps the house and ships roughly 4GB of viewing data a month, and a
+monitor that installs software on Windows PCs in 32 seconds with no prompt.
+**Published by [Critical Error Computing](https://www.criticalerrorcomputing.com/)** (CEC),
+a custom PC builder in Humble, TX, and themed to the CEC house style.
+
+The site led on the monitor from July until September. Once the television investigation
+landed, the monitor became **one of two fronts** rather than the whole story, and the
+front page was rebuilt around the pair: *one screen lets software in, the other sends the
+room out*.
 
 ## The story
 
@@ -177,10 +184,19 @@ The alert had grown into a wall of prose. It is now three pages with distinct jo
 
 | Page | Job | Reads like |
 | --- | --- | --- |
-| `/` | What happened, in what order, and what to do | A dated infographic — diagram, tiles, charts, one-line timeline |
-| `/story` | The monitor install: mechanism, claims, caveats, sources | A report in numbered sections |
-| `/tvs` | The September TV investigation and LG's answer to it | A report in numbered sections |
+| `/` | The whole story: both fronts, the scale, the order of events, what to do | A dated infographic — flow map, tiles, front cards, one-line timeline |
+| `/monitors` | The desk: chain, check, removal, hardening, LG's answer, the promise | A report in numbered sections |
+| `/tvs` | The living room: the September investigation and LG's answer to it | A report in numbered sections |
 | `/forensics` | The evidence off one machine | A lab report |
+
+`/story` (the monitor report's old URL, live Aug 16 – Sep 12) redirects to `/monitors`,
+carrying the fragment across.
+
+The front page's lead graphic is the argument in one picture: a house with an LG television
+and an LG monitor in it, **one red arrow going out** (device inventory, neighbouring Wi-Fi,
+audio transcripts, ~4GB a month) and **one magenta arrow coming in** (an app installed by
+SYSTEM 32 seconds after the cable). Each arrow carries its own provenance line, because the
+outbound half is Gamers Nexus's work and the inbound half is ours.
 
 Every subpage carries the same furniture, so moving between them costs the reader nothing:
 a ribbon, the same nav, a lead, **contents chips** (`.pagenav`), then numbered sections built from
@@ -248,9 +264,11 @@ Static site served from the repository root via **GitHub Pages**.
   board, four number tiles, two small SVG charts (31/32 boots; the nine-month persistence
   bar), three evidence image slots, the scannable one-line timeline, the affected check,
   the two-step fix, the 19-model grid, GN video, outlet strip, tips, CEC credit
-- `story.html` — **the monitor report**, served at `/story`: the mechanism, who it reached, LG's
-  claims vs. our evidence, the August 3 notice and its status, when the ads switched on,
-  permissions and evidence limits, the Windows Home registry method with its caveats, sources
+- `monitors.html` — **the monitor front**, served at `/monitors`: the install-chain diagram, the
+  two charts, the evidence slots, the three-check panel, the two-layer removal with the re-arm
+  diagram, the Windows Home registry method and caveats, LG's answer, the August promise and its
+  status, when the ads switched on, permissions, the 19-model trigger list, sources
+- `story.html` — a redirect stub to `/monitors`, preserving the fragment
 - `tvs.html` — **the TV investigation**, served at `/tvs`: what the September 6 investigation
   documented, what LG denies and confirms, the unpatched webOS disclosure, the record, and the
   settings worth changing

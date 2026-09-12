@@ -38,7 +38,7 @@
       </div>
       <nav class="topnav">
         <a href="/">The alert</a>
-        <a href="/story">The monitor report</a>
+        <a href="/monitors">The monitors</a>
         <a href="/tvs">The TVs</a>
         <a href="/forensics">Forensics</a>
       </nav>
@@ -79,8 +79,8 @@
         <div class="updatebox">
           <span class="upd-stamp">● Update · September 12, 2026</span>
           <p><strong>Nothing in this report has changed, and that is the point.</strong> LG agreed to disable the McAfee pop-up; by July 24 the McAfee references were off the Store listing. Every finding below sits in the layer underneath that pop-up — the delivery, the missing consent, the persistence. Both LG packages are still resident on this machine, still wired to 51 hardware IDs.</p>
-          <p><strong>What is new is a promise, not a change.</strong> An LG support notice dated <strong>August 3, 2026</strong> says LG “is updating the Installer so customers can decide whether they would like to install it” — the first acknowledgement of the consent gap this report documents. Forty days on, the app's Store product has not been updated since <strong>August 12</strong>, and no build has appeared that asks first. <strong>We have not re-run a first-connection test</strong>, so we cannot tell you whether the behaviour recorded here still reproduces. This machine has not been cleaned or reconnected — it is held as it was. <a href="/story#august">What the notice says, in full.</a></p>
-          <p><strong>One limit, stated plainly:</strong> LG told press the installer “does not access, collect, or transmit any customer personal data.” This report makes no claim either way. <strong>We captured no network traffic</strong>, and nothing here is evidence of exfiltration. What is documented is how the software arrived, that no consent surface existed, and that Windows maintained it for nine months after the monitor was gone. <a href="/story#response">Claim-by-claim comparison in the full report.</a></p>
+          <p><strong>What is new is a promise, not a change.</strong> An LG support notice dated <strong>August 3, 2026</strong> says LG “is updating the Installer so customers can decide whether they would like to install it” — the first acknowledgement of the consent gap this report documents. Forty days on, the app's Store product has not been updated since <strong>August 12</strong>, and no build has appeared that asks first. <strong>We have not re-run a first-connection test</strong>, so we cannot tell you whether the behaviour recorded here still reproduces. This machine has not been cleaned or reconnected — it is held as it was. <a href="/monitors#august">What the notice says, in full.</a></p>
+          <p><strong>One limit, stated plainly:</strong> LG told press the installer “does not access, collect, or transmit any customer personal data.” This report makes no claim either way. <strong>We captured no network traffic</strong>, and nothing here is evidence of exfiltration. What is documented is how the software arrived, that no consent surface existed, and that Windows maintained it for nine months after the monitor was gone. <a href="/monitors#response">Claim-by-claim comparison in the full report.</a></p>
         </div>
         <div class="evidence-note">
           <strong>Handling note.</strong> Redacted for the machine owner's privacy: hostname, OS baseline date and the panel's serial descriptor are withheld. Manufacturer and product IDs and the model mapping are kept — they prove identification without fingerprinting the unit. Removal was <strong>not</strong> performed here; the machine is preserved as evidence and available for verification.
@@ -157,7 +157,7 @@
           <li><strong>July 15, 2026</strong> — Device Setup Manager is still re-staging the orphaned monitor's metadata.</li>
           <li><strong>July 17, 2026</strong> — the Microsoft Store install service touches the app again.</li>
         </ul>
-        <p>Uninstalling the app alone does not end this. Both LG packages stay in the driver store, and reconnecting any listed LG panel re-arms the chain. <a href="/#fix">Full removal is in the fix.</a></p>
+        <p>Uninstalling the app alone does not end this. Both LG packages stay in the driver store, and reconnecting any listed LG panel re-arms the chain. <a href="/monitors#fix">Full removal is in the fix.</a></p>
       </section>
 
       <section id="triggers">
@@ -200,7 +200,7 @@
           </li>
         </ol>
         <p class="warn">Surgical: it removes only LG's app-delivery packages. Other devices keep their drivers and companion software, and real driver updates keep flowing. Windows Update can re-offer LG's packages if a listed LG panel is connected again.</p>
-        <p class="note-dim">On Windows Home, where there is no Group Policy Editor, the device-metadata hardening step and its caveats are on the main page: <a href="/#fix">the fix, including the registry method</a>.</p>
+        <p class="note-dim">On Windows Home, where there is no Group Policy Editor, the device-metadata hardening step and its caveats are on the main page: <a href="/monitors#fix">the fix, including the registry method</a>.</p>
       </section>
 
       <section id="verify">
