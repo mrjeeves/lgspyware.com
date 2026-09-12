@@ -82,6 +82,32 @@ rather than silently edited.
 - **Jul 21, 2026** — Krebs on Security: Spur found residential-proxy SDKs in **42%+ of LG
   webOS store apps**; LG says non-compliant apps will be suspended.
 
+## September: the televisions (Sep 6–12, 2026)
+
+- **Sep 6** — Gamers Nexus publishes the follow-up promised in July: **"216,000,000 Spy TVs"**,
+  135 minutes, made with Level1Techs and independent researchers MrBruh and uturn. Retail LG
+  televisions, packet captures, standby bench tests, webOS teardown. Reported findings: local
+  network enumeration of devices never paired with the set (phones, watches, routers,
+  thermostats, air purifiers, BMCs, PCs); names, signal strengths and channels of neighbouring
+  Wi-Fi networks plus public and internal IPs; **plaintext transcripts from audio captured with
+  the screen off**; capture continuing while disconnected, stored locally and sent once
+  connectivity returns; content recognition sampling across inputs; roughly **4GB of ACR data a
+  month** from one set. Separately, **remote code execution flaws in webOS** — TV browser renders
+  a malicious page, which forges a device-pairing prompt.
+- **Sep 7–11** — Coverage in Malwarebytes, The Register ("egregious invasion of privacy") and
+  Tom's Hardware. **LG denies** the audio findings: voice data is processed "only when the voice
+  button on the remote control is pressed and held, or when a wake word such as 'Hi LG' is
+  recognized," and the TVs "do not collect or record ambient conversations." LG **confirms** the
+  local network scanning as standard functionality. The RCE findings remain under responsible
+  disclosure — **no CVE published, no firmware fix**, and no public response from LG.
+- **Sep 12** — Our re-check of the monitor thread: LG's August 3 promise that the installer would
+  ask first is **40 days old and unshipped**. The app's Store product has not been updated since
+  **Aug 12** (`LastUpdateDateUtc 2026-08-12`), permissions are unchanged, rating 1.0 from **431**
+  ratings. No outlet has covered the August notice, then or since.
+
+**Why the TV material lives on its own page:** it is entirely other people's work, and the site
+says so. Our bench work is the monitor; `/tvs` reports the investigation as theirs.
+
 ## Recommended fix (two layers)
 
 1. **Remove the app.** Settings → Apps → Installed apps → uninstall *LG Monitor App*,
@@ -152,8 +178,15 @@ The alert had grown into a wall of prose. It is now three pages with distinct jo
 | Page | Job | Reads like |
 | --- | --- | --- |
 | `/` | What happened, in what order, and what to do | A dated infographic — diagram, tiles, charts, one-line timeline |
-| `/story` | The reporting, the claims, the caveats, the sources | An article |
+| `/story` | The monitor install: mechanism, claims, caveats, sources | A report in numbered sections |
+| `/tvs` | The September TV investigation and LG's answer to it | A report in numbered sections |
 | `/forensics` | The evidence off one machine | A lab report |
+
+Every subpage carries the same furniture, so moving between them costs the reader nothing:
+a ribbon, the same nav, a lead, **contents chips** (`.pagenav`), then numbered sections built from
+a small shared kit — `.facts` key/value rows, `.findings` cards, `.claims` for statement-versus-
+evidence, `.limits` for what the evidence doesn't cover, and a `.src` line carrying provenance as
+metadata rather than as a paragraph about our process.
 
 Rules that keep it that way:
 
@@ -215,10 +248,12 @@ Static site served from the repository root via **GitHub Pages**.
   board, four number tiles, two small SVG charts (31/32 boots; the nine-month persistence
   bar), three evidence image slots, the scannable one-line timeline, the affected check,
   the two-step fix, the 19-model grid, GN video, outlet strip, tips, CEC credit
-- `story.html` — **the words**, served at `/story`: how it gets in, who qualified, LG's
-  claims vs. our evidence, the August 3 notice in full, when the ads switched on,
-  permissions + evidence limits, LG's record, the fix including the Windows Home registry
-  method and all its caveats, sources and sourcing notes
+- `story.html` — **the monitor report**, served at `/story`: the mechanism, who it reached, LG's
+  claims vs. our evidence, the August 3 notice and its status, when the ads switched on,
+  permissions and evidence limits, the Windows Home registry method with its caveats, sources
+- `tvs.html` — **the TV investigation**, served at `/tvs`: what the September 6 investigation
+  documented, what LG denies and confirms, the unpatched webOS disclosure, the record, and the
+  settings worth changing
 - `forensics.html` — the forensic install report, served at `/forensics`
 - `hero.jpg` — lead photo
 - `og-image.jpg` — social share card (branded stopgap; swap for the redacted

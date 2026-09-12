@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LG Monitors Are Auto-Installing Adware on Windows PCs — LGSpyware.com | Critical Error Computing</title>
-  <meta name="description" content="Plug in an affected LG monitor and Windows installs LG's app in 32 seconds — no prompt, by SYSTEM — and it stays after the monitor is gone. The dated timeline, the numbers, the two-step removal. On August 3 LG said it is updating the installer so customers can decide whether to install it: no date, no version, no press release.">
+  <meta name="description" content="Plug in an affected LG monitor and Windows installs LG's app in 32 seconds — no prompt, by SYSTEM — and it stays after the monitor is gone. The dated timeline, the numbers, the two-step removal. LG promised on August 3 that the installer would start asking first; nothing has shipped. The same company's televisions are now the subject of a 135-minute investigation.">
   <meta name="robots" content="index,follow">
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="LGSpyware.com · Critical Error Computing">
-  <meta property="og:title" content="LG Now Says You'll Get a Choice. In a Notice Nobody Reported.">
-  <meta property="og:description" content="An LG support notice dated August 3 says LG is updating the installer “so customers can decide whether they would like to install it” — the first time anyone has addressed the auto-install. No date, no version, no coverage. Timeline, numbers and removal.">
+  <meta property="og:title" content="LG Promised to Ask First. Forty Days Later, Nothing Has Shipped.">
+  <meta property="og:description" content="LG said on August 3 that its installer would start asking before it installs. The app's Store product hasn't changed since August 12. Meanwhile a 135-minute investigation put numbers on what LG's televisions send home. Timeline, numbers and removal.">
   <meta property="og:url" content="https://lgspyware.com/">
   <meta property="og:image" content="https://lgspyware.com/og-image.jpg">
   <meta property="og:image:alt" content="An LG monitor in a dark room reading YOUR MONITOR IS WATCHING YOU. LG Adware, System Alert.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="LG Now Says You'll Get a Choice. In a Notice Nobody Reported.">
-  <meta name="twitter:description" content="LG's August 3 support notice promises the installer will ask first. It is undated, unversioned and unreported — and until it ships, the silent install is exactly as it was.">
+  <meta name="twitter:title" content="LG Promised to Ask First. Forty Days Later, Nothing Has Shipped.">
+  <meta name="twitter:description" content="The promise is forty days old and unshipped. The install is unchanged. And the televisions turned out to be the bigger story.">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%E2%9A%A0%EF%B8%8F</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,8 +29,8 @@
   <div class="ribbon">
     <div class="wrap ribbon-in">
       <span class="ribbon-tag">Developing</span>
-      <span class="ribbon-txt">Aug 3 — LG says the installer will start asking before it installs. No date, no version, no press release.</span>
-      <a class="ribbon-link" href="/story#august">Read it</a>
+      <span class="ribbon-txt">Sep 6 — a 135-minute investigation puts numbers on what LG's televisions send home. The monitor install is unchanged.</span>
+      <a class="ribbon-link" href="/tvs">The TVs</a>
     </div>
   </div>
 
@@ -45,7 +45,8 @@
         <a href="#affected">Am I affected?</a>
         <a href="#fix">The fix</a>
         <a href="#timeline">Timeline</a>
-        <a href="/story">The full report</a>
+        <a href="/tvs">The TVs</a>
+        <a href="/story">The report</a>
         <a href="/forensics">Forensics</a>
       </nav>
     </div>
@@ -73,7 +74,7 @@
         <div class="byline">
           <span>By <strong>Critical Error Computing</strong></span>
           <span class="sep">·</span>
-          <span>Updated <time datetime="2026-08-16">August 16, 2026</time></span>
+          <span>Updated <time datetime="2026-09-12">September 12, 2026</time></span>
         </div>
       </div>
     </article>
@@ -144,7 +145,7 @@
     <section class="wrap board">
       <div class="board-head">
         <h2>Where it stands</h2>
-        <span class="board-date">as of <time datetime="2026-08-16">Aug 16, 2026</time></span>
+        <span class="board-date">as of <time datetime="2026-09-12">Sep 12, 2026</time></span>
       </div>
       <div class="board-grid">
         <div class="bcard bcard-ok">
@@ -159,11 +160,23 @@
         </div>
         <div class="bcard bcard-wait">
           <span class="bcard-lbl">LG's promise to ask first</span>
-          <span class="bcard-state">Undated</span>
-          <span class="bcard-note">Stated once, on a regional support page.</span>
+          <span class="bcard-state">40 days</span>
+          <span class="bcard-note">Made Aug 3. No build since Aug 12.</span>
         </div>
       </div>
       <p class="board-foot">The ad was the symptom. The delivery is the story — and a promise is not a prompt. <a href="/story#august">What LG actually said →</a></p>
+    </section>
+
+
+    <!-- THE TVs -->
+    <section class="wrap">
+      <div class="handoff">
+        <div>
+          <h3>It turned out not to be about monitors</h3>
+          <p>September 6: 135 minutes of packet captures on retail LG televisions — local network scans, neighbouring Wi-Fi, plaintext transcripts with the screen off, roughly <strong>4GB of viewing data a month</strong>, and unpatched remote code execution in webOS. LG denies the audio findings and confirms the scanning.</p>
+        </div>
+        <a class="btn btn-primary" href="/tvs">The TVs</a>
+      </div>
     </section>
 
     <!-- NUMBERS -->
@@ -271,7 +284,7 @@
     <!-- TIMELINE -->
     <section id="timeline" class="wrap">
       <h2>The story so far</h2>
-      <p class="sub">Twenty months of silent installs, three weeks of noise, then a promise nobody printed.</p>
+      <p class="sub">Twenty months of silent installs, three weeks of noise, a promise nobody printed — and then the televisions.</p>
       <ol class="timeline tl-tight">
         <li class="tl-phase"><span>2024 – Jun 2026 · nobody acts</span></li>
         <li><time datetime="2024-11-18">Nov 18, 2024</time><div>First complaint on Microsoft's forum. Twenty months follow. None mention ads.</div></li>
@@ -290,9 +303,14 @@
         <li class="tl-phase"><span>Aug 2026 · the quiet concession</span></li>
         <li class="tl-key"><time datetime="2026-08-03">Aug 3</time><div>LG: it is “updating the Installer so customers can decide whether they would like to install it.” One regional support page. No coverage. <a href="/story#august">Full text →</a></div></li>
         <li><time datetime="2026-08-12">Aug 12</time><div>The app's Store product is updated. No changelog. Contents unknown.</div></li>
-        <li><time datetime="2026-08-14">Aug 14</time><div>GN's promised follow-up still unpublished, 22 days on.</div></li>
-        <li><time datetime="2026-08-16">Aug 16</time><div>We re-check: permissions unchanged, 1.0 stars from 421 ratings, still no coverage.</div></li>
-        <li class="pending"><time>Next</time><div>A first connection that <em>asks</em> — and which version does it. <a href="#tips">Reader reports settle this.</a></div></li>
+        <li><time datetime="2026-08-14">Aug 14</time><div>GN's promised follow-up still unpublished, 22 days on. It lands three weeks later.</div></li>
+        <li><time datetime="2026-08-16">Aug 16</time><div>We publish LG's notice — still the only place it has addressed the install, and still uncovered anywhere else.</div></li>
+        <li class="tl-phase"><span>Sep 2026 · the bigger half</span></li>
+        <li class="tl-key"><time datetime="2026-09-06">Sep 6</time><div>Gamers Nexus, Level1Techs and two researchers publish <strong>“216,000,000 Spy TVs”</strong> — the follow-up promised in July, at 135 minutes. <a href="/tvs">What it found →</a></div></li>
+        <li><time datetime="2026-09-08">Sep 8–11</time><div>LG denies the audio findings and confirms the network scanning. The webOS bugs stay unpatched, with no CVE published. <a href="/tvs#answer">Its answer, line by line →</a></div></li>
+        <li><time datetime="2026-09-12">Sep 12</time><div>Our re-check: LG's promise to ask first is <strong>40 days old and unshipped</strong>. Store product unchanged since Aug 12, permissions unchanged, rating 1.0 from 431.</div></li>
+
+        <li class="pending"><time>Next</time><div>The build that keeps LG's promise — a first connection that <em>asks</em>, and which version does it. <a href="#tips">Reader reports settle this.</a></div></li>
       </ol>
       <p class="note-dim">Every entry is sourced in <a href="/story#sources">the full report</a>, alongside the claims we checked and chose not to publish.</p>
     </section>
@@ -327,7 +345,7 @@
           <b>Any one of the three = affected.</b>
           <span>“I unplugged it” is not “it's clean” — the software stays behind, and so does the trigger.</span>
         </div>
-        <p class="note-dim"><a href="/story#affected-more">Why so many machines qualified →</a></p>
+        <p class="note-dim"><a href="/story#who">Why so many machines qualified →</a></p>
       </section>
 
       <!-- FIX -->
