@@ -3,20 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LGSpyware.com — What LG's Screens Send Home, and What They Let In | Critical Error Computing</title>
-  <meta name="description" content="Two fronts, one company. LG televisions map the house, log audio with the screen off and send roughly 4GB of viewing data a month. LG monitors install software on Windows PCs in 32 seconds with no prompt. The documented findings, the denials, the removals.">
+  <title>LGSpyware.com — LG Monitors Install Software on Your PC. LG TVs Listen. | Critical Error Computing</title>
+  <meta name="description" content="Plug in an affected LG monitor and Windows installs LG's app in 32 seconds with no prompt. LG's televisions log audio with the screen off and send roughly 4GB of viewing data a month. How to check, and how to get it off.">
   <meta name="robots" content="index,follow">
-
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="LGSpyware.com · Critical Error Computing">
   <meta property="og:title" content="One Screen Lets Software In. The Other Sends the Room Out.">
-  <meta property="og:description" content="The monitor installs an app in 32 seconds with no prompt. The television maps your network, logs audio with the screen off and ships roughly 4GB a month. Same company, same instinct — documented, denied, and still unfixed.">
+  <meta property="og:description" content="32 seconds from cable to installed app, with nothing asked. A television that maps the house and ships 4GB a month. LG says none of it is true.">
   <meta property="og:url" content="https://lgspyware.com/">
   <meta property="og:image" content="https://lgspyware.com/og-image.jpg">
-  <meta property="og:image:alt" content="An LG monitor in a dark room reading YOUR MONITOR IS WATCHING YOU. LG Adware, System Alert.">
+  <meta property="og:image:alt" content="An LG monitor in a dark room reading YOUR MONITOR IS WATCHING YOU.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="One Screen Lets Software In. The Other Sends the Room Out.">
-  <meta name="twitter:description" content="In July it was a pop-up. In September it was 135 minutes of packet captures. The name on this site stopped being shorthand.">
+  <meta name="twitter:description" content="32 seconds from cable to installed app, with nothing asked. LG says none of it is true.">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%E2%9A%A0%EF%B8%8F</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,8 +27,8 @@
 
   <div class="ribbon">
     <div class="wrap ribbon-in">
-      <span class="ribbon-tag">Developing</span>
-      <span class="ribbon-txt">Sep 12 — LG told reporters the investigation is “not true.” Gamers Nexus has answered it point by point.</span>
+      <span class="ribbon-tag">Sep 12</span>
+      <span class="ribbon-txt">LG tells reporters the investigation is “not true.” Gamers Nexus answers with another two hours of evidence.</span>
       <a class="ribbon-link" href="/coverage">Watch</a>
     </div>
   </div>
@@ -42,10 +41,10 @@
         <span class="brand-by">A consumer alert by <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">Critical Error Computing</a></span>
       </div>
       <nav class="topnav">
-        <a href="/tvs">The TVs</a>
-        <a href="/monitors">The monitors</a>
-        <a href="#timeline">Timeline</a>
+        <a href="#check">Am I affected?</a>
         <a href="#remove">Remove it</a>
+        <a href="/monitors">Monitors</a>
+        <a href="/tvs">TVs</a>
         <a href="/coverage">Coverage</a>
         <a href="/forensics">Forensics</a>
       </nav>
@@ -53,7 +52,6 @@
   </header>
 
   <main>
-    <!-- LEAD -->
     <article class="lead">
       <div class="grid-bg"></div>
       <div class="wrap lead-in">
@@ -61,14 +59,14 @@
           <div>
             <span class="eyebrow">Consumer alert · LG</span>
             <h1>One screen lets software in. The other sends the room <span class="gw" data-alt="0ut">out</span>.</h1>
-            <p class="dek">Both are LG, and neither one asked first. This site started in July over a pop-up on a monitor. By September there were 135 minutes of packet captures behind the rest of it, and LG was telling reporters none of it is true.</p>
+            <p class="dek">Connect an affected LG monitor to a Windows PC and LG's app is installed 32 seconds later, by SYSTEM, with nothing asked. Unplug the monitor and it stays. Its televisions are worse.</p>
             <div class="lead-actions">
-              <a class="btn btn-primary" href="#remove">What do I do?</a>
-              <a class="btn btn-ghost" href="#timeline">How it got here</a>
+              <a class="btn btn-primary" href="#check">Am I affected?</a>
+              <a class="btn btn-ghost" href="#remove">Remove it</a>
             </div>
           </div>
           <div class="lead-art">
-            <img class="hero-img" src="hero.jpg" alt="An LG monitor in a dark room showing red pixel text: YOUR MONITOR IS WATCHING YOU. LG Adware, System Alert.">
+            <img class="hero-img" src="hero.jpg" alt="An LG monitor in a dark room showing red pixel text: YOUR MONITOR IS WATCHING YOU.">
           </div>
         </div>
         <div class="byline">
@@ -79,211 +77,24 @@
       </div>
     </article>
 
-    <!-- THE MAP -->
-    <section class="wrap diagram-block">
-      <h2>Two screens, two directions</h2>
-      <p class="sub">We tested the monitor ourselves. The television work belongs to Gamers Nexus and Level1Techs, and the arrows below note which is which.</p>
-
-      <svg class="flowmap" viewBox="0 0 1000 360" role="img" aria-labelledby="fmt fmd">
-        <title id="fmt">What leaves the house, and what gets into the PC</title>
-        <desc id="fmd">Inside a house: an LG television and an LG monitor attached to a PC. An outbound arrow from the television to LG's servers carries a device inventory, neighbouring Wi-Fi details, audio transcripts and roughly four gigabytes of viewing data a month, as documented by Gamers Nexus and Level1Techs on September 6; LG denies the audio findings. An inbound arrow from LG to the PC carries an app installed by the SYSTEM account 32 seconds after the monitor is connected, with no prompt, as recorded on our own machine.</desc>
-
-        <path class="fm-house" d="M40,310 V128 L170,62 L300,128 V310 Z"/>
-        <text class="fm-lbl" x="40" y="334">Your house</text>
-
-        <rect class="fm-dev" x="58" y="142" width="224" height="60" rx="8"/>
-        <text class="fm-dev-h" x="74" y="168">LG television</text>
-        <text class="fm-b" x="74" y="188">screen off, still working</text>
-
-        <rect class="fm-dev" x="58" y="226" width="224" height="60" rx="8"/>
-        <text class="fm-dev-h" x="74" y="252">LG monitor + PC</text>
-        <text class="fm-b" x="74" y="272">one cable, no prompt</text>
-
-        <rect class="fm-co" x="754" y="148" width="212" height="72" rx="10"/>
-        <text class="fm-co-t" x="860" y="180" text-anchor="middle">LG</text>
-        <text class="fm-b" x="860" y="202" text-anchor="middle">servers · ad infrastructure</text>
-
-        <text class="fm-src" x="326" y="36">Documented by Gamers Nexus + Level1Techs, Sep 6 · LG denies the audio findings</text>
-        <text class="fm-out-t" x="326" y="66">Out: the room</text>
-        <text class="fm-b" x="326" y="88">device inventory · neighbouring Wi-Fi · audio transcripts</text>
-        <text class="fm-b" x="326" y="108">with the screen off · roughly 4GB a month</text>
-        <path class="fm-out" d="M292,160 C 480,138 620,138 748,164" marker-end="url(#aOut)"/>
-
-        <path class="fm-in" d="M748,206 C 620,238 480,238 292,252" marker-end="url(#aIn)"/>
-        <text class="fm-in-t" x="326" y="292">In: an app you didn't choose</text>
-        <text class="fm-b" x="326" y="314">installed by SYSTEM, 32 seconds after you plug in</text>
-        <text class="fm-src" x="326" y="338">Recorded on our own machine, held uncleaned as evidence</text>
-
-        <defs>
-          <marker id="aOut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0 0 L10 5 L0 10 z" fill="#ff3040"/>
-          </marker>
-          <marker id="aIn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-            <path d="M0 0 L10 5 L0 10 z" fill="#ed2398"/>
-          </marker>
-        </defs>
-      </svg>
+    <section class="wrap">
+      <ul class="lede">
+        <li><b>32 seconds.</b> Windows Update hands over two LG packages signed as drivers. Neither contains driver code. One of them tells Windows to fetch LG's app from the Store, and SYSTEM installs it. No window, no EULA, nothing in Programs and Features.</li>
+        <li><b>It outlives the monitor.</b> Ours was unplugged in October 2025. Windows was still updating the app nine months later.</li>
+        <li><b>Removing the app isn't enough.</b> Both packages stay in the driver store, wired to 51 hardware IDs. Plug in any of those and it comes back.</li>
+        <li><b>The televisions map the house.</b> Devices never paired with the set, neighbouring Wi-Fi names, transcripts from audio with the screen off, and roughly 4GB of viewing data a month. On HDMI alone one set sent 20 packets a minute to LG's ad arm, carrying a location good to the nearest major road.</li>
+        <li><b>LG's answer:</b> “The claims made in the recently published video are not true.”</li>
+      </ul>
     </section>
 
-    <!-- SCALE -->
-    <section class="wrap stats stats-6">
-      <div class="stat">
-        <div class="stat-num">216<span class="stat-den">M</span></div>
-        <div class="stat-lbl">LG smart TVs sold worldwide</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">4<span class="stat-den">GB</span></div>
-        <div class="stat-lbl">of viewing data a month, from one test set</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">0</div>
-        <div class="stat-lbl">consent prompts, on either device</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">32<span class="stat-den">s</span></div>
-        <div class="stat-lbl">from cable to installed app on a PC</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">51</div>
-        <div class="stat-lbl">monitor hardware IDs armed to trigger it</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">40<span class="stat-den">d</span></div>
-        <div class="stat-lbl">since LG promised its installer would ask first</div>
-      </div>
+    <section class="wrap quoteband">
+      <blockquote>
+        <p>Advert gets the chop, but the silent app installation mechanism remains untouched.</p>
+        <cite>The Register, July 24</cite>
+      </blockquote>
+      <p class="qb-note">LG agreed to kill the McAfee pop-up in July. On <strong>August 3</strong> it went further, saying it would update the installer “so customers can decide whether they would like to install it.” Forty days later no such build has shipped. <a href="/monitors#august">The notice, and what it leaves out →</a></p>
     </section>
 
-    <!-- THE TWO FRONTS -->
-    <section id="fronts" class="wrap">
-      <h2>Where it's happening</h2>
-      <p class="sub">Two devices, two sets of evidence, gathered by different people.</p>
-      <div class="fronts">
-        <div class="front front-tv">
-          <span class="front-lbl">The living room · their work</span>
-          <h3>The television</h3>
-          <p class="front-sub">Gamers Nexus, Level1Techs and two researchers · Sep 6 · 135 minutes</p>
-          <ul>
-            <li>Maps the house: devices <strong>never paired</strong> with the set — phones, watches, thermostats, PCs</li>
-            <li>Maps the street: <strong>neighbouring Wi-Fi</strong> names, signal strengths, channels</li>
-            <li><strong>Plaintext transcripts</strong> from audio captured with the screen off — the finding LG denies</li>
-            <li>Pulling it off the internet doesn't stop the capture; it stores what it gets and uploads on reconnect</li>
-            <li><strong>Unpatched remote code execution</strong> in webOS, no CVE published</li>
-          </ul>
-          <a class="btn btn-ghost" href="/tvs">What they found →</a>
-        </div>
-        <div class="front front-mon">
-          <span class="front-lbl">The desk · our bench</span>
-          <h3>The monitor</h3>
-          <p class="front-sub">Critical Error Computing · one machine, held uncleaned</p>
-          <ul>
-            <li>Windows Update delivers two LG packages <strong>signed as drivers with no driver code</strong></li>
-            <li>SYSTEM installs LG's app <strong>32 seconds</strong> later — no window, no EULA</li>
-            <li>It <strong>outlives the monitor</strong>: still self-updating nine months after the panel was unplugged</li>
-            <li>Uninstalling the app leaves both packages resident and <strong>re-arming</strong></li>
-            <li>LG promised a consent prompt on Aug 3. <strong>Nothing has shipped.</strong></li>
-          </ul>
-          <a class="btn btn-ghost" href="/monitors">The whole chain →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHERE IT STANDS -->
-    <section class="wrap board">
-      <div class="board-head">
-        <h2>Where it stands</h2>
-        <span class="board-date">as of <time datetime="2026-09-12">Sep 12, 2026</time></span>
-      </div>
-      <div class="status3">
-        <div class="st st-doc">
-          <span class="st-h">Documented</span>
-          <ul>
-            <li>The install chain, to the second, on our machine</li>
-            <li>Packet captures off retail televisions</li>
-            <li>LG's own notice conceding the install needs a choice</li>
-            <li>Network scanning — LG confirms this one</li>
-          </ul>
-        </div>
-        <div class="st st-den">
-          <span class="st-h">Denied</span>
-          <ul>
-            <li>All of it. LG's word to reporters: “not true”</li>
-            <li>That the TVs record ambient conversation</li>
-            <li>That McAfee was ever installed without consent</li>
-            <li>No second lab has tested the audio finding either way</li>
-          </ul>
-        </div>
-        <div class="st st-unf">
-          <span class="st-h">Unfixed</span>
-          <ul>
-            <li>The silent install, 40 days after the promise</li>
-            <li>The webOS bugs — no CVE, no firmware</li>
-            <li>The Windows channel any vendor can still use</li>
-            <li>Anything already resident on your machine</li>
-          </ul>
-        </div>
-      </div>
-      <p class="board-foot">LG has answered the advertisement, the pop-up and the voice question. It still hasn't shipped the consent prompt it promised in August, and its denial this week didn't address most of what the captures show. <a href="/monitors#august">What it has actually committed to →</a></p>
-    </section>
-
-    <!-- TIMELINE -->
-    <section id="timeline" class="wrap">
-      <h2>How it got here</h2>
-      <p class="sub">Forum posts nobody acted on in 2024, a pop-up that made people look in July, and a 135-minute investigation this month.</p>
-      <ol class="timeline tl-tight">
-        <li class="tl-phase"><span>2024 – Jun 2026 · nobody acts</span></li>
-        <li><time datetime="2024-11-18">Nov 18, 2024</time><div>First complaint on Microsoft's forum about a monitor app installing itself. Twenty months follow. None mention ads.</div></li>
-        <li><time datetime="2025-09-30">Sep 30, 2025</time><div>On our machine: two packages at 9:52 PM, app installed 32 seconds later. <a href="/forensics">Forensics →</a></div></li>
-        <li><time datetime="2026-03-08">Mar 8, 2026</time><div>A user documents it installing with the blocking policies already enabled.</div></li>
-        <li><time datetime="2026-05-11">May 11, 2026</time><div>LG settles with Texas over TV viewing data: consent before collection, a real opt-out. No admission of liability.</div></li>
-
-        <li class="tl-phase"><span>Jul 2026 · the blowup</span></li>
-        <li class="tl-key"><time datetime="2026-07-01">Jul 1</time><div>The ads begin — a McAfee pop-up, twenty months into the install base. <a href="/monitors#switch">Why that date →</a></div></li>
-        <li class="tl-key"><time datetime="2026-07-16">Jul 16</time><div>Gamers Nexus publishes “DO NOT BUY.” The ad appears on 31 of 32 boots.</div></li>
-        <li><time datetime="2026-07-17">Jul 17</time><div>This site goes live with the chain, the trigger list and the removal.</div></li>
-        <li><time datetime="2026-07-21">Jul 21</time><div>Krebs: proxy code found in 42%+ of apps on LG's TV store. Windows Latest finds “Additional App – McAfee” in the Store changelog.</div></li>
-        <li class="tl-key"><time datetime="2026-07-22">Jul 22</time><div>LG denies. Microsoft announces the ad is going. Neither mentions the install. <a href="/monitors#response">Claim by claim →</a></div></li>
-
-        <li class="tl-phase"><span>Aug 2026 · the quiet concession</span></li>
-        <li class="tl-key"><time datetime="2026-08-03">Aug 3</time><div>LG: it is “updating the Installer so customers can decide whether they would like to install it.” One regional support page. No coverage. <a href="/monitors#august">Full text →</a></div></li>
-        <li><time datetime="2026-08-12">Aug 12</time><div>The app's Store product is updated. No changelog. Contents unknown.</div></li>
-
-        <li class="tl-phase"><span>Sep 2026 · the bigger half</span></li>
-        <li class="tl-key"><time datetime="2026-09-06">Sep 6</time><div>Gamers Nexus, Level1Techs and two researchers publish <strong>“216,000,000 Spy TVs”</strong> — 135 minutes of packet captures, standby bench tests and a webOS teardown. <a href="/tvs">What it found →</a></div></li>
-        <li><time datetime="2026-09-08">Sep 8–11</time><div>LG denies the audio findings and confirms the network scanning. The webOS bugs stay unpatched, with no CVE published. <a href="/tvs#answer">Its answer, line by line →</a></div></li>
-        <li><time datetime="2026-09-12">Sep 12</time><div>A capture published by PPC Land shows a set on HDMI input sending <strong>20 packets a minute</strong> to LG's ad arm — audio fingerprints, a device ID and a location good to the nearest major road. <a href="/tvs#found">The findings →</a></div></li>
-        <li class="tl-key"><time datetime="2026-09-12">Sep 12</time><div>Gamers Nexus answers the denial with <strong>“LG Says We're Fake News”</strong>, going through it point by point with more capture data and a lawyer on LG's agreements. <a href="/coverage">All four videos →</a></div></li>
-        <li><time datetime="2026-09-12">Sep 12</time><div>Meanwhile, on the desk: LG's promise to ask before installing is <strong>40 days old</strong>, and the app's Store product hasn't changed since Aug 12.</div></li>
-        <li class="pending"><time>Next</time><div>A monitor build that <em>asks</em>; a second lab on the standby audio; a CVE. <a href="#tips">Reader reports settle the first.</a></div></li>
-      </ol>
-    </section>
-
-    <!-- WHAT TO DO -->
-    <section id="remove" class="wrap">
-      <h2>What to do about it</h2>
-      <p class="sub">Two different jobs, both quick.</p>
-      <div class="fronts">
-        <div class="front front-mon">
-          <span class="front-lbl">On the PC</span>
-          <h3>Check, then remove</h3>
-          <ul>
-            <li>Search installed apps for <code>LG Monitor</code> and <code>McAfee</code> — either one you didn't install means you were hit</li>
-            <li>Remove the app <strong>and</strong> both driver-store packages, or it re-arms on the next listed panel</li>
-          </ul>
-          <a class="btn btn-primary" href="/monitors#fix">The two-step removal →</a>
-        </div>
-        <div class="front front-tv">
-          <span class="front-lbl">On the TV</span>
-          <h3>Turn it down</h3>
-          <ul>
-            <li>Kill <strong>Live Plus</strong> — that's the content-recognition switch — and limit ad tracking</li>
-            <li>Turn off far-field voice if you don't use it; the network scanning stays either way</li>
-          </ul>
-          <a class="btn btn-primary" href="/tvs#settings">The settings →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIDEO -->
     <section class="wrap video-block">
       <div class="video">
         <iframe
@@ -294,36 +105,69 @@
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen></iframe>
       </div>
-      <p class="caption">▶ <strong>Gamers Nexus</strong> — “216,000,000 Spy TVs,” made with Level1Techs and researchers MrBruh and uturn. <a href="/coverage">All four videos, in order, with the press log →</a></p>
+      <p class="caption">Gamers Nexus, Level1Techs and researchers MrBruh and uturn spent 135 minutes on retail LG televisions. <a href="/coverage">Every video and report, in order →</a></p>
     </section>
 
-    <!-- OUTLET STRIP -->
-    <section class="wrap outlets">
-      <span class="outlets-label">As reported by</span>
-      <ul>
-        <li><a href="https://www.youtube.com/watch?v=6IFVTcM28KA" target="_blank" rel="noopener">Gamers Nexus</a></li>
-        <li><a href="https://www.theregister.com/security/2026/09/08/lg-accused-of-egregious-invasion-of-privacy-over-tv-data-collection/5294956" target="_blank" rel="noopener">The Register</a></li>
-        <li><a href="https://www.malwarebytes.com/blog/privacy/2026/09/lg-tv-flaws-could-let-attackers-listen-in-even-in-standby-mode" target="_blank" rel="noopener">Malwarebytes</a></li>
-        <li><a href="https://www.tomshardware.com/tech-industry/big-tech/lg-strongly-denies-tv-security-claims-says-tracking-and-snooping-concerns-not-true-online-investigation-claims-216-000-000-spy-tvs-record-audio" target="_blank" rel="noopener">Tom's Hardware</a></li>
-        <li><a href="https://krebsonsecurity.com/2026/07/lg-to-ban-residential-proxies-from-smart-tv-apps/" target="_blank" rel="noopener">Krebs on Security</a></li>
-        <li><a href="https://www.techradar.com/televisions/lgs-gaming-monitors-and-tvs-are-facing-a-user-revolt" target="_blank" rel="noopener">TechRadar</a></li>
-        <li><a href="https://www.techspot.com/news/113031-lg-alienware-monitors-caught-auto-installing-windows-adware.html" target="_blank" rel="noopener">TechSpot</a></li>
-        <li><a href="https://gizmodo.com/microsoft-forces-lg-to-quit-shoving-mcafee-ads-into-your-pc-2000790353" target="_blank" rel="noopener">Gizmodo</a></li>
-      </ul>
+    <section id="check" class="wrap">
+      <h2>Am I affected?</h2>
+      <p>If an affected LG monitor has ever touched this PC, check. Unplugging it doesn't undo anything.</p>
+      <ol class="steps">
+        <li><strong>Settings → Apps → Installed apps.</strong> Search <code>LG Monitor</code>, then <code>McAfee</code>. Either one you didn't install yourself means you were hit.</li>
+        <li><strong>Win+R → <code>perfmon /rel</code>.</strong> Look for <code>LGElectronics.LGMonitorApp</code>. Windows logs it as a successful update rather than an app install.</li>
+        <li><strong>For techs:</strong> <code>pnputil /enum-drivers</code>. LG Electronics entries mean the machine is still armed even if the app is gone.</li>
+      </ol>
     </section>
 
-    <!-- TIPS -->
+    <section id="remove" class="wrap">
+      <h2>Get it off</h2>
+      <p>Two steps. Do only the first and the next LG panel you plug in brings it straight back.</p>
+      <p class="step-h">1. The app</p>
+      <pre><code>Get-AppxPackage -AllUsers LGElectronics.LGMonitorApp | Remove-AppxPackage -AllUsers</code></pre>
+      <p class="step-h">2. Both delivery packages</p>
+      <pre><code>pnputil /enum-drivers
+pnputil /delete-driver oemXX.inf /uninstall</code></pre>
+      <p class="note-dim">Find the two entries from LG Electronics Inc. in that list — <code>lgmonitorappextension.inf</code> and <code>lgmonitorappsoftwarecomponent.inf</code> — and delete each by the <code>oemXX.inf</code> name Windows gave it. Everything else on the machine keeps its drivers. <a href="/monitors#hardening">Windows Home, and the caveats →</a></p>
+      <p class="note-dim"><strong>On a TV:</strong> Settings → General → System → Additional Settings, then turn off <strong>Live Plus</strong> and limit ad tracking. <a href="/tvs#settings">The rest →</a></p>
+    </section>
+
+    <section class="wrap">
+      <h2>19 models trigger it</h2>
+      <p class="note-dim">Read out of the LG package sitting on our machine — 51 hardware IDs, WHQL-signed, dated August 27, 2024.</p>
+      <div class="modelgrid">
+        <span>34WQ73A</span><span>34BQ77QC</span><span>27BQ85U</span><span>27UQ750</span>
+        <span>28MQ750</span><span>27GR83Q</span><span>27GR93U</span><span>32GR93U</span>
+        <span>27UQ850V</span><span>32UQ850V</span><span>32GR75Q</span><span>27GS85Q</span>
+        <span>32GS85Q</span><span>27BA850</span><span>24BR750E</span><span>27UP850</span>
+        <span>24BA850</span><span>24BA750</span><span>27BA750</span>
+      </div>
+      <p class="note-dim">The models in the headlines — 34GX900A-B, 27GP83B, 27GN800, 32UN880-B — aren't in this revision. LG ships several, so the real list is longer than any one of them. <a href="#tips">Seen one that isn't listed anywhere? Tell us.</a></p>
+    </section>
+
+    <section id="log" class="wrap">
+      <h2>What's happened</h2>
+      <ol class="log">
+        <li><time datetime="2026-09-12">Sep 12</time><span>LG: the claims “are not true.” Gamers Nexus answers the same day with a point-by-point rebuttal. A capture published by PPC Land shows a set on HDMI sending 20 packets a minute to LG's ad arm, location included.</span></li>
+        <li><time datetime="2026-09-06">Sep 6</time><span>“216,000,000 Spy TVs.” Network scans, neighbouring Wi-Fi, transcripts with the screen off, 4GB a month, and unpatched code execution in webOS.</span></li>
+        <li><time datetime="2026-08-12">Aug 12</time><span>The app's Store listing is updated. No changelog, and no sign of the consent prompt.</span></li>
+        <li><time datetime="2026-08-03">Aug 3</time><span>LG says it will update the installer so customers can decide whether to install it. One regional support page, no press release, no date. <a href="/monitors#august">Full text →</a></span></li>
+        <li><time datetime="2026-07-22">Jul 22</time><span>LG denies everything about McAfee. Microsoft says the pop-up is going. Neither mentions the install. <a href="/monitors#response">Claim by claim →</a></span></li>
+        <li><time datetime="2026-07-16">Jul 16</time><span>Gamers Nexus publishes “DO NOT BUY.” The McAfee offer shows up on 31 of 32 boots.</span></li>
+        <li><time datetime="2026-07-01">Jul 1</time><span>The ads start — twenty months after people began reporting the install itself. <a href="/monitors#switch">Why that date →</a></span></li>
+        <li><time datetime="2024-11-18">Nov 18, 2024</time><span>First complaint on Microsoft's forum. Nobody acts for twenty months.</span></li>
+      </ol>
+      <p class="note-dim"><a href="/coverage">The full log, with every video and article →</a></p>
+    </section>
+
     <section id="tips" class="wrap">
       <div class="tip">
         <h2>Got hit? Send receipts.</h2>
-        <p>Monitor model · Windows build · install date from Reliability Monitor · app version · first pop-up date, or “never” · last date an LG panel was connected.</p>
+        <p>Monitor model, Windows build, install date from Reliability Monitor, app version, the date of your first pop-up, and when an LG panel was last connected.</p>
         <pre><code>(Get-AppxPackage -AllUsers LGElectronics.LGMonitorApp).Version</code></pre>
-        <div class="evidence-note"><strong>Most useful right now:</strong> connect an affected LG panel to a Windows machine and tell us whether anything asked you first. LG promised that prompt on August 3; nobody has shown one on screen. Also wanted: a packet capture of the monitor app's traffic, and whether it reinstalls after removal.</div>
+        <p>Most useful right now: plug an affected panel into a Windows machine and tell us whether anything asked you first. LG promised that prompt on August 3 and nobody has seen one yet.</p>
         <a class="mail" href="mailto:lgspyware.com@gmail.com?subject=LG%20tip">lgspyware.com@gmail.com</a>
       </div>
     </section>
 
-    <!-- PUBLISHER (CEC) -->
     <section class="publisher">
       <div class="grid-bg"></div>
       <div class="wrap publisher-in">
@@ -331,7 +175,7 @@
           <span class="pub-mark">Critical <span class="err">Error</span> Computing</span>
           <span class="pub-tag">Custom gaming PCs, built by humans · Humble, TX</span>
         </div>
-        <p class="pub-body"><strong>Why a PC shop is publishing this:</strong> we build and support computers for a living. When hardware starts installing adware on our customers' machines without asking, it lands on our bench — so we tested it and published the whole chain. The television half is other people's work, and we label it as theirs. Reporting, not a pitch: there's nothing to buy here. <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">More about CEC ↗</a></p>
+        <p class="pub-body">We build and support computers for a living. When hardware starts installing adware on our customers' machines without asking, it lands on our bench — so we pulled it apart and published what we found. The television work is Gamers Nexus's and we credit it as theirs. Nothing here is for sale. <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">More about CEC ↗</a></p>
       </div>
     </section>
 
@@ -339,19 +183,15 @@
 
   <footer class="site">
     <div class="wrap">
-      <p><strong>LGSpyware.com</strong> — a consumer alert published by <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">Critical Error Computing</a>, a custom PC builder in Humble, TX. The fronts: <a href="/tvs">the televisions</a>, <a href="/monitors">the monitors</a>, <a href="/forensics">the forensic report</a>.</p>
-      <p class="disclaimer">Not affiliated with LG Electronics, Microsoft, McAfee, Dell, or Alienware. Product names and trademarks belong to their owners; “spyware” reflects cited reporting and LG's own documented conduct. Contact: lgspyware.com@gmail.com</p>
+      <p><strong>LGSpyware.com</strong> — published by <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">Critical Error Computing</a> in Humble, TX. <a href="/monitors">The monitors</a> · <a href="/tvs">the TVs</a> · <a href="/coverage">the coverage</a> · <a href="/forensics">the forensic report</a>.</p>
+      <p class="disclaimer">Not affiliated with LG Electronics, Microsoft, McAfee, Dell or Alienware. Product names belong to their owners; “spyware” reflects cited reporting and LG's own documented conduct. Contact: lgspyware.com@gmail.com</p>
     </div>
   </footer>
 
   <script>
-    // Deep links published before the September restructure pointed at
-    // monitor sections that now live on /monitors.
     (function () {
-      var moved = {
-        chain: 1, affected: 1, fix: 1, models: 1, response: 1,
-        august: 1, switch: 1, permissions: 1, who: 1, sources: 1, story: 1
-      };
+      var moved = { chain:1, affected:1, fix:1, models:1, response:1, august:1,
+                    switch:1, permissions:1, who:1, sources:1, story:1 };
       var h = location.hash.slice(1);
       if (h && moved[h] && !document.getElementById(h)) {
         location.replace('/monitors#' + (h === 'story' ? 'chain' : h));

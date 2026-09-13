@@ -63,17 +63,6 @@
       </div>
     </article>
 
-    <nav class="wrap pagenav">
-      <a href="#summary">Findings</a>
-      <a href="#machine">The machine</a>
-      <a href="#chain">The chain</a>
-      <a href="#packages">The packages</a>
-      <a href="#consent">Consent surfaces</a>
-      <a href="#persistence">Persistence</a>
-      <a href="#triggers">Trigger list</a>
-      <a href="#removal">Removal</a>
-    </nav>
-
     <div class="wrap body">
 
       <section id="summary">
@@ -86,7 +75,6 @@
         <div class="evidence-note">
           <strong>Handling note.</strong> Redacted for the machine owner's privacy: hostname, OS baseline date and the panel's serial descriptor are withheld. Manufacturer and product IDs and the model mapping are kept — they prove identification without fingerprinting the unit. Removal was <strong>not</strong> performed here; the machine is preserved as evidence and available for verification.
         </div>
-        <span class="sec-lbl">01 · Findings</span>
         <h2>Summary of findings</h2>
         <ul class="ticks">
           <li>On <strong>September 30, 2025</strong>, with an <strong>LG UltraGear 27GR83Q</strong> connected, Windows Update delivered two LG packages of class <em>Extension</em> and <em>SoftwareComponent</em>. Neither contains driver code.</li>
@@ -98,7 +86,6 @@
       </section>
 
       <section id="machine">
-        <span class="sec-lbl">02 · Environment</span>
         <h2>The machine</h2>
         <ul class="ticks">
           <li><strong>Host:</strong> <span class="redact">REDACTED</span> (Windows 11, stock default device-installation policy)</li>
@@ -109,7 +96,6 @@
       </section>
 
       <section id="chain">
-        <span class="sec-lbl">03 · Timeline</span>
         <h2>The install chain, to the second</h2>
         <p>Reconstructed from Windows Update, CBS/servicing, Store install-service and Reliability Monitor logs. A small clock offset between sources was measured and accounted for; the ordering is unaffected.</p>
         <ol class="chain">
@@ -121,7 +107,6 @@
       </section>
 
       <section id="packages">
-        <span class="sec-lbl">04 · Payload</span>
         <h2>The two packages</h2>
         <p>Both from provider <strong>LG Electronics Inc.</strong>, dated <strong>August 27, 2024</strong>, WHQL-signed and co-signed by Microsoft. In the driver store:</p>
         <ul class="ticks">
@@ -133,7 +118,6 @@
       </section>
 
       <section id="consent">
-        <span class="sec-lbl">05 · Consent</span>
         <h2>Consent surfaces: none</h2>
         <p>We looked specifically for the points where a user could have seen or approved this:</p>
         <ul class="ticks">
@@ -145,7 +129,6 @@
       </section>
 
       <section id="persistence">
-        <span class="sec-lbl">06 · Persistence</span>
         <h2>Persistence is active, and Windows does the maintaining</h2>
         <p>The panel was unplugged in mid-October 2025. The app was not. Version chain on this machine:</p>
         <div class="vchain">
@@ -158,11 +141,10 @@
           <li><strong>July 15, 2026</strong> — Device Setup Manager is still re-staging the orphaned monitor's metadata.</li>
           <li><strong>July 17, 2026</strong> — the Microsoft Store install service touches the app again.</li>
         </ul>
-        <p>Uninstalling the app alone does not end this. Both LG packages stay in the driver store, and reconnecting any listed LG panel re-arms the chain. <a href="/monitors#fix">Full removal is in the fix.</a></p>
+        <p>Uninstalling the app alone does not end this. Both LG packages stay in the driver store, and reconnecting any listed LG panel re-arms the chain. <a href="/#remove">Full removal is in the fix.</a></p>
       </section>
 
       <section id="triggers">
-        <span class="sec-lbl">07 · Scope</span>
         <h2>The trigger list</h2>
         <p>The resident LG extension package wires <strong>51 hardware IDs across 19 monitor models</strong> for automatic app delivery. The models:</p>
         <div class="modelgrid">
@@ -176,7 +158,6 @@
       </section>
 
       <section id="notaffected">
-        <span class="sec-lbl">08 · Controls</span>
         <h2>What is not affected</h2>
         <ul class="ticks">
           <li><strong>Every non-LG display on this machine.</strong> Seven other panels from three brands were present across this install. None triggered any software delivery.</li>
@@ -186,7 +167,6 @@
       </section>
 
       <section id="removal" class="callout-fix">
-        <span class="sec-lbl">09 · Removal</span>
         <h2>Removal (two layers)</h2>
         <ol class="steps">
           <li>
@@ -201,11 +181,10 @@
           </li>
         </ol>
         <p class="warn">Surgical: it removes only LG's app-delivery packages. Other devices keep their drivers and companion software, and real driver updates keep flowing. Windows Update can re-offer LG's packages if a listed LG panel is connected again.</p>
-        <p class="note-dim">On Windows Home, where there is no Group Policy Editor, the device-metadata hardening step and its caveats are on the main page: <a href="/monitors#fix">the fix, including the registry method</a>.</p>
+        <p class="note-dim">On Windows Home, where there is no Group Policy Editor, the device-metadata hardening step and its caveats are on the main page: <a href="/#remove">the fix, including the registry method</a>.</p>
       </section>
 
       <section id="verify">
-        <span class="sec-lbl">10 · Verification</span>
         <h2>Verify it yourself</h2>
         <p>This machine was not cleaned; it is held as evidence. If you can reproduce or refute any step, we want to see it. What we're collecting — and the PowerShell to read your app version — is on the <a href="/#tips">main page</a>.</p>
         <a class="backlink" href="/">← Back to the alert</a>

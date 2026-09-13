@@ -206,6 +206,27 @@ limit (it does not gate the driver channel the documented install used).
   shows `08/03/2026`, which is Aug 3 in one convention and Mar 8 in another, so the date
   was taken from the page's own `datePublished` metadata rather than guessed.
 
+## Design rules (Sep 12, 2026)
+
+The site had drifted into looking machine-made: hand-drawn SVG diagrams standing in for
+photographs, and every section on every page built from the same skeleton — mono label,
+headline, one-line standfirst, card grid. Five pages of that reads as one template repeated
+forty times, however good the facts are. The rules now:
+
+- **No hand-drawn diagrams.** No flow maps, no dot grids, no timeline bars, no boxes-and-arrows
+  SVG. If a picture is worth having it is a screenshot, a photograph, or a video still. The
+  evidence slots on `/monitors` are where real captures go.
+- **Real assets carry the page:** the hero photograph, the Gamers Nexus embeds, the YouTube
+  thumbnails on `/coverage`, and quotes from named outlets set at size.
+- **Vary the rhythm.** Not every block is a card grid. A page can be a lead, a list of bolded
+  facts, a large pull quote, a command block and a dated log — which is what the front page is now.
+- **No section furniture.** No numbered `01 ·` labels, no standfirst under every heading, no
+  contents chips on short pages. Headings carry it.
+- **Cut.** The front page went from ~1,600 words to under 1,000; `/monitors` from 37KB to 17KB;
+  the stylesheet from 47KB to 26KB after 211 dead rules were pruned.
+- **Voice:** plain sentences of varying length. One antithesis in the headline is a headline;
+  four in a row is a tell.
+
 ## Page split (Aug 16, 2026)
 
 The alert had grown into a wall of prose. It is now three pages with distinct jobs:
