@@ -108,14 +108,14 @@ rather than silently edited.
   local network scanning as standard functionality. The RCE findings remain under responsible
   disclosure — **no CVE published, no firmware fix**, and no public response from LG.
 - **Sep 12** — Our re-check of the monitor thread: LG's August 3 promise that the installer would
-  ask first is **40 days old and unshipped** (41 as of Sep 13). The app's Store product has not been updated since
+  ask first is **40 days old and unshipped**. The app's Store product has not been updated since
   **Aug 12** (`LastUpdateDateUtc 2026-08-12`), permissions are unchanged, rating 1.0 from **431**
   ratings. No outlet has covered the August notice, then or since.
 
 **Why the TV material lives on its own page:** it is entirely other people's work, and the site
 says so. Our bench work is the monitor; `/tvs` reports the investigation as theirs.
 
-## September 13: LG says it's all untrue, and the rebuttal
+## September 12: LG says it's all untrue, and the rebuttal
 
 - **Sep 9–12** — LG hardens its position, telling Tom's Hardware and Engadget that **"the claims
   made in the recently published video are not true."** Its TVs "do not continuously record or
@@ -127,10 +127,10 @@ says so. Our bench work is the monitor; `/tvs` reports the investigation as thei
   broadcast, a set sent **20 packets a minute** to LG's ad arm carrying audio fingerprints, a
   device ID, timestamps and a location payload (city, state, lat/long, nearest major street,
   timezone, zip) accurate to a nearby road.
-- **Sep 13** — Gamers Nexus answers with **"LG Says We're Fake News"** (772K views within hours),
+- **Sep 12** — Gamers Nexus answers with **"LG Says We're Fake News"** (772K views within hours),
   taking the denial apart point by point with further capture data and a lawyer's reading of LG's
   agreements. Video IDs, titles, dates and view counts were read from the channel listing.
-- **Sep 13** — Monitor side unchanged: the August 3 promise is **41 days old**, Store product
+- **Sep 12** — Monitor side unchanged: the August 3 promise is **40 days old**, Store product
   still stamped Aug 12, permissions unchanged, rating 1.0 from **431**.
 
 **New page:** `/coverage` — a video gallery (four Gamers Nexus investigations, newest first, with
@@ -139,7 +139,7 @@ carry `alt=""` because the card heading names the video, so a failed image leave
 rather than sprawling alt text.
 
 **Voice note:** the copy had drifted into one rhetorical shape — a short declarative followed by a
-contrast, on nearly every heading and caption. That reads as machine-written. The September 13 pass
+contrast, on nearly every heading and caption. That reads as machine-written. The September 12 pass
 rewrote the worst of it on the front page into plainer sentences with ordinary connective tissue.
 Keep one antithesis for the headline if it earns it; don't land every line on an epigram.
 
