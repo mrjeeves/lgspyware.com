@@ -176,7 +176,6 @@ h1 {
 }
 .dek { font-size: 1.16rem; color: var(--ink-soft); margin: 0 0 22px; max-width: 62ch; }
 .dek strong { color: var(--ink); font-weight: 600; }
-.lead-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 20px; }
 .byline { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; color: var(--ink-faint); font-size: 0.9rem; }
 .byline .sep { opacity: 0.5; }
 
@@ -252,14 +251,13 @@ ol.chain strong { color: var(--ink); }
 }
 
 /* Callouts */
-.callout-danger, .callout-fix { position: relative; margin: 6px 0; padding: 24px; border-radius: var(--r-lg); }
+.callout-fix { position: relative; margin: 6px 0; padding: 24px; border-radius: var(--r-lg); }
 .callout-fix { background: rgba(55,201,127,0.08); border: 1px solid rgba(55,201,127,0.3); }
 .callout-fix h2 { color: var(--ok); }
 .callout-fix ol.steps > li::before { background: var(--ok); color: #04160c; }
 .warn { background: var(--red-soft); border-left: 3px solid var(--red); padding: 12px 14px; border-radius: 6px; font-size: 0.95rem; }
 
-/* The fix — two layers as cards, with the re-arm loop drawn underneath. */
-.layers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0 14px; }
+/* The fix — two layers as cards. */
 
 .updatebox {
   position: relative;
@@ -371,32 +369,19 @@ ol.chain strong { color: var(--ink); }
 }
 
 /* The mechanism, drawn. Inline SVG so it inherits the palette and stays crisp. */
-.diagram-block { padding-top: 8px; }
 
 /* Evidence images. Placeholders until the redacted captures are dropped in;
    swapping in a real <img> needs no other change. */
-.shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 16px 0; }
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 18px 0; align-items: start; }
 .shot { margin: 0; }
-.shot img { display: block; width: 100%; height: auto; border-radius: var(--r-md); border: 1px solid var(--border); }
-.shot-ph {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 8px; aspect-ratio: 16 / 10; text-align: center; padding: 16px;
-  background: var(--bg-2); border: 1px dashed var(--border-strong);
-  border-radius: var(--r-md); color: var(--ink-faint);
-}
-.shot-ph b {
-  font-family: var(--font-cond); font-size: 1rem; letter-spacing: 0.02em; color: var(--ink-soft);
-}
-.shot-ph span { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.shot img { display: block; width: 100%; height: auto; border-radius: var(--r-md); border: 1px solid var(--border-strong); background: #fff; }
 .shot figcaption { margin-top: 8px; font-size: 0.84rem; color: var(--ink-faint); }
 @media (max-width: 860px) { .shots { grid-template-columns: 1fr; }}
 
 /* Timeline: phase dividers and load-bearing entries.
    The alert page is read as a graphic, so the spine carries its own structure. */
-.tl-intro { color: var(--ink-soft); margin: 0 0 18px; max-width: 62ch; }
 
 /* Tight variant: the alert page timeline is scanned, not read. */
-.tl-tight li { padding-bottom: 14px; display: grid; grid-template-columns: 92px 1fr; gap: 14px; align-items: baseline; }
 
 /* Sources */
 .sources { font-size: 0.96rem; padding-left: 20px; }
@@ -445,22 +430,11 @@ footer.site a { color: var(--ink-soft); }
    ============================================================ */
 
 /* Contents chips under the lead of a subpage. */
-.pagenav { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 auto 6px; padding: 0 20px; }
 
 /* Section head: quiet label, title, one-line standfirst. */
-.sec-lbl {
-  display: block; font-family: var(--mono); font-size: 0.7rem;
-  letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-faint);
-  margin-bottom: 6px;
-}
 section > h2 { scroll-margin-top: 18px; }
 
 /* Source line — provenance as metadata, not as a paragraph. */
-.src {
-  display: block; margin: 10px 0 0;
-  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em;
-  color: var(--ink-faint);
-}
 
 /* Risk callout — used once, for the unpatched disclosure. */
 .risk {
@@ -491,14 +465,8 @@ section > h2 { scroll-margin-top: 18px; }
    ============================================================ */
 
 /* What leaves the house, and what gets in. The lead graphic. */
-.flowmap {
-  display: block; width: 100%; height: auto; margin: 6px 0 10px;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--r-md); padding: 10px 0;
-}
 
 /* Verdict strip: what is documented, what is denied, what is unfixed. */
-.status3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 18px 0; }
 
 /* ============================================================
    Coverage: the video gallery and the press log.
@@ -577,22 +545,6 @@ section > h2 { scroll-margin-top: 18px; }
 .lede strong { color: var(--ink); }
 
 /* Pulled quote band — a real quote, at size, with the line under it. */
-.quoteband { padding-top: 8px; padding-bottom: 8px; }
-.quoteband blockquote {
-  margin: 0; padding: 0 0 0 22px;
-  border-left: 3px solid var(--accent);
-}
-.quoteband blockquote p {
-  margin: 0; color: var(--ink);
-  font-family: var(--font-cond); font-weight: 600;
-  font-size: clamp(1.4rem, 3.4vw, 2.05rem); line-height: 1.16;
-}
-.quoteband cite {
-  display: block; margin-top: 10px; font-style: normal;
-  font-family: var(--mono); font-size: 0.74rem;
-  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint);
-}
-.qb-note { margin: 16px 0 0 25px; color: var(--ink-soft); max-width: 70ch; }
 
 /* Command headings */
 .step-h {
@@ -619,50 +571,86 @@ section > h2 { scroll-margin-top: 18px; }
 .wrap > h2 { margin-top: 40px; }
 
 /* ============================================================
-   Full-bleed panels. One idea each, set big enough to read at a
-   glance. Typography is the graphic here — no drawn diagrams.
+   Fact bar — four numbers, at reading size, once.
    ============================================================ */
-.panel {
-  position: relative; overflow: hidden;
-  border-top: 1px solid var(--border);
-  padding: clamp(38px, 7vw, 86px) 20px;
-}
-.panel-alt { background: var(--bg-2); }
-.panel-in { max-width: 920px; margin: 0 auto; }
-.panel-num {
+.factbar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg-2); }
+.factbar-in { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
+.fact { padding: 20px 22px 20px 0; }
+.fact + .fact { padding-left: 22px; border-left: 1px solid var(--border); }
+.fact b {
   display: block; font-family: var(--font-cond); font-weight: 700;
-  font-size: clamp(4.2rem, 15vw, 11rem); line-height: 0.84;
-  letter-spacing: -0.015em; color: var(--ink);
-  text-transform: uppercase;
+  font-size: clamp(1.6rem, 3.4vw, 2.35rem); line-height: 1;
+  letter-spacing: -0.01em; color: var(--accent-ink);
 }
-.panel-num .u {
-  font-size: 0.34em; letter-spacing: 0.02em; color: var(--accent-ink);
-  margin-left: 0.12em; vertical-align: baseline;
-}
-.panel-hot .panel-num { color: var(--accent-ink); }
-.panel-red .panel-num { color: var(--red-ink); }
-.panel-txt {
-  margin: 22px 0 0; max-width: 30ch;
-  font-family: var(--font-cond); font-weight: 600;
-  font-size: clamp(1.25rem, 2.7vw, 1.85rem); line-height: 1.2;
-  color: var(--ink);
-}
-.panel-sub {
-  margin: 12px 0 0; max-width: 56ch;
-  font-size: 0.98rem; color: var(--ink-faint);
-}
-.panel-sub a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
-.panel-wide .panel-txt { max-width: 46ch; }
-
-/* Two panels side by side where the contrast is the point. */
-.split { display: grid; grid-template-columns: 1fr 1fr; max-width: 960px; margin: 0 auto; }
-.split > .panel { border-top: 0; padding-left: 20px; padding-right: 20px; }
-.split .panel-in { max-width: none; }
-.split > .panel + .panel { border-left: 1px solid var(--border); }
+.fact span { display: block; margin-top: 7px; font-size: 0.88rem; line-height: 1.35; color: var(--ink-faint); }
 @media (max-width: 760px) {
-  .split { grid-template-columns: 1fr; }
-  .split > .panel + .panel { border-left: 0; border-top: 1px solid var(--border); }
+  .factbar-in { grid-template-columns: 1fr 1fr; }
+  .fact:nth-child(3) { border-left: 0; padding-left: 0; }
+  .fact:nth-child(n+3) { border-top: 1px solid var(--border); }
 }
+
+/* ============================================================
+   Exhibits — real pictures, carrying the story. The caption does
+   the talking; nothing here is drawn by us.
+   ============================================================ */
+.exhibits { padding: 34px 0 10px; }
+.exhibits .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.ex { position: relative; margin: 0; grid-column: span 1; }
+.ex-wide { grid-column: 1 / -1; }
+.ex > img, .ex > a > img {
+  display: block; width: 100%; height: auto;
+  border-radius: var(--r-md); border: 1px solid var(--border-strong);
+  background: #fff;
+}
+.ex .still img { background: var(--bg-2); border-color: var(--border); }
+.ex-tag {
+  display: inline-block; margin-bottom: 10px;
+  font-family: var(--font-cond); font-weight: 700;
+  font-size: 0.82rem; letter-spacing: 0.13em; text-transform: uppercase;
+  color: var(--accent-ink);
+}
+.ex figcaption {
+  margin-top: 13px; font-size: 0.95rem; line-height: 1.55; color: var(--ink-soft);
+  max-width: 68ch;
+}
+.ex figcaption strong { color: var(--ink); }
+.ex figcaption em { font-style: italic; color: var(--ink); }
+.ex figcaption a { color: var(--accent-ink); }
+.ex .credit {
+  display: block; margin-top: 9px;
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.ex .credit a { color: var(--ink-faint); text-decoration: underline; text-underline-offset: 3px; }
+.ex-video .still img { border-color: var(--border); }
+@media (max-width: 760px) {
+  .exhibits .wrap { grid-template-columns: 1fr; gap: 30px; }
+  .ex { grid-column: 1 / -1; }
+}
+
+/* The store listing, rebuilt from Microsoft's own numbers. */
+.listing {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 20px 22px; background: var(--surface); border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+}
+.listing-icon { width: 62px; height: 62px; flex: 0 0 auto; border-radius: 10px; background: #fff; }
+.listing-body { min-width: 0; }
+.listing h3 { margin: 0; font-size: 1.15rem; color: var(--ink); }
+.listing-pub { margin: 4px 0 0; font-size: 0.86rem; color: var(--ink-faint); }
+.stars { margin: 11px 0 0; font-size: 1.25rem; letter-spacing: 0.06em; color: var(--border-strong); }
+.stars .on { color: var(--amber); }
+.stars b { font-family: var(--font-cond); font-size: 1.35rem; color: var(--ink); margin-left: 6px; }
+.stars-n { font-family: var(--font); font-size: 0.86rem; letter-spacing: 0; color: var(--ink-faint); }
+.listing-perm { margin: 11px 0 0; font-size: 0.9rem; color: var(--ink-soft); }
+.listing-perm strong { color: var(--red-ink); }
+@media (max-width: 560px) { .listing { flex-direction: column; gap: 12px; } }
+
+/* "This is what you're looking for" — icon beside the instructions. */
+.looklike { display: flex; align-items: center; gap: 14px; margin: 0 0 18px; }
+.looklike img { flex: 0 0 auto; border-radius: 10px; background: #fff; padding: 4px; }
+.looklike span { font-size: 0.94rem; color: var(--ink-soft); }
+
 
 /* A video still, used at size, as the image it is. */
 .still { display: block; position: relative; margin: 0; }
@@ -682,9 +670,7 @@ section > h2 { scroll-margin-top: 18px; }
 .still figcaption {
   margin-top: 12px; font-size: 0.94rem; color: var(--ink-soft);
 }
-.stills { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-@media (max-width: 760px) { .stills { grid-template-columns: 1fr; } }
-
+@media (max-width: 760px) { 
 /* Big action row */
 .actions-big { display: flex; gap: 12px; flex-wrap: wrap; margin: 26px 0 0; }
 .actions-big .btn { font-size: 1.05rem; padding: 15px 26px; }
