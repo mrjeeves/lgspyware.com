@@ -108,12 +108,40 @@ rather than silently edited.
   local network scanning as standard functionality. The RCE findings remain under responsible
   disclosure — **no CVE published, no firmware fix**, and no public response from LG.
 - **Sep 12** — Our re-check of the monitor thread: LG's August 3 promise that the installer would
-  ask first is **40 days old and unshipped**. The app's Store product has not been updated since
+  ask first is **40 days old and unshipped** (41 as of Sep 13). The app's Store product has not been updated since
   **Aug 12** (`LastUpdateDateUtc 2026-08-12`), permissions are unchanged, rating 1.0 from **431**
   ratings. No outlet has covered the August notice, then or since.
 
 **Why the TV material lives on its own page:** it is entirely other people's work, and the site
 says so. Our bench work is the monitor; `/tvs` reports the investigation as theirs.
+
+## September 13: LG says it's all untrue, and the rebuttal
+
+- **Sep 9–12** — LG hardens its position, telling Tom's Hardware and Engadget that **"the claims
+  made in the recently published video are not true."** Its TVs "do not continuously record or
+  transmit user's conversations," and speech-to-text "begins only if a user activates a voice
+  interaction through a supported wake-word feature or by pressing the voice button." Security
+  researchers quoted by TechRadar note the denial covers voice and leaves the rest of the capture
+  data unaddressed.
+- **Sep 12** — PPC Land publishes researcher **uturn's** capture: on HDMI input, with nothing
+  broadcast, a set sent **20 packets a minute** to LG's ad arm carrying audio fingerprints, a
+  device ID, timestamps and a location payload (city, state, lat/long, nearest major street,
+  timezone, zip) accurate to a nearby road.
+- **Sep 13** — Gamers Nexus answers with **"LG Says We're Fake News"** (772K views within hours),
+  taking the denial apart point by point with further capture data and a lawyer's reading of LG's
+  agreements. Video IDs, titles, dates and view counts were read from the channel listing.
+- **Sep 13** — Monitor side unchanged: the August 3 promise is **41 days old**, Store product
+  still stamped Aug 12, permissions unchanged, rating 1.0 from **431**.
+
+**New page:** `/coverage` — a video gallery (four Gamers Nexus investigations, newest first, with
+YouTube thumbnails linking out) over a dated press log of every article the site cites. Thumbnails
+carry `alt=""` because the card heading names the video, so a failed image leaves a clean plate
+rather than sprawling alt text.
+
+**Voice note:** the copy had drifted into one rhetorical shape — a short declarative followed by a
+contrast, on nearly every heading and caption. That reads as machine-written. The September 13 pass
+rewrote the worst of it on the front page into plainer sentences with ordinary connective tissue.
+Keep one antithesis for the headline if it earns it; don't land every line on an epigram.
 
 ## Recommended fix (two layers)
 
@@ -187,6 +215,7 @@ The alert had grown into a wall of prose. It is now three pages with distinct jo
 | `/` | The whole story: both fronts, the scale, the order of events, what to do | A dated infographic — flow map, tiles, front cards, one-line timeline |
 | `/monitors` | The desk: chain, check, removal, hardening, LG's answer, the promise | A report in numbered sections |
 | `/tvs` | The living room: the September investigation and LG's answer to it | A report in numbered sections |
+| `/coverage` | Every video and article, in order | A gallery over a dated log |
 | `/forensics` | The evidence off one machine | A lab report |
 
 `/story` (the monitor report's old URL, live Aug 16 – Sep 12) redirects to `/monitors`,

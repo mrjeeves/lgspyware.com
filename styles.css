@@ -942,3 +942,63 @@ section > h2 { scroll-margin-top: 18px; }
 .st li { font-size: 0.9rem; color: var(--ink-soft); margin: 7px 0; padding-left: 16px; position: relative; }
 .st li::before { content: "–"; position: absolute; left: 0; color: var(--ink-faint); }
 @media (max-width: 780px) { .status3 { grid-template-columns: 1fr; } }
+
+/* ============================================================
+   Coverage: the video gallery and the press log.
+   ============================================================ */
+
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 18px 0 8px; }
+.vcard {
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r-md); overflow: hidden;
+}
+.vcard:hover { border-color: var(--accent); text-decoration: none; }
+.vcard-thumb { position: relative; display: block; aspect-ratio: 16 / 9; background: var(--bg-2); }
+.vcard-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vcard-thumb::after {
+  content: "▶"; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px; height: 54px; border-radius: 50%;
+  background: rgba(10, 10, 15, 0.72); border: 1px solid rgba(255,255,255,0.22);
+  color: #fff; font-size: 17px; line-height: 52px; text-align: center; text-indent: 3px;
+}
+.vcard:hover .vcard-thumb::after { background: var(--accent); border-color: var(--accent); }
+.vcard-run {
+  position: absolute; right: 8px; bottom: 8px;
+  background: rgba(10,10,15,0.86); color: var(--ink);
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em;
+  padding: 2px 7px; border-radius: 4px;
+}
+.vcard-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 6px; }
+.vcard-meta {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.vcard-new { color: var(--accent-ink); }
+.vcard h3 {
+  margin: 0; font-family: var(--font-cond); font-weight: 700;
+  font-size: 1.14rem; line-height: 1.2; color: var(--ink);
+}
+.vcard p { margin: 0; font-size: 0.9rem; color: var(--ink-soft); }
+@media (max-width: 760px) { .gallery { grid-template-columns: 1fr; } }
+
+/* Press log — one line per piece of coverage. */
+.presslog { border-top: 1px solid var(--border); margin: 16px 0; }
+.presslog div {
+  display: grid; grid-template-columns: 86px 150px 1fr; gap: 14px;
+  padding: 10px 0; border-bottom: 1px solid var(--border); align-items: baseline;
+}
+.presslog time {
+  font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.06em;
+  color: var(--ink-faint); text-transform: uppercase;
+}
+.presslog b {
+  font-family: var(--font-cond); font-size: 0.98rem; color: var(--ink-soft); font-weight: 600;
+}
+.presslog span { font-size: 0.93rem; color: var(--ink-soft); }
+.presslog em { color: var(--ink-faint); font-style: normal; }
+@media (max-width: 700px) {
+  .presslog div { grid-template-columns: 1fr; gap: 2px; }
+  .presslog b { color: var(--accent-ink); }
+}
