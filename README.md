@@ -206,6 +206,61 @@ limit (it does not gate the driver channel the documented install used).
   shows `08/03/2026`, which is Aug 3 in one convention and Mar 8 in another, so the date
   was taken from the page's own `datePublished` metadata rather than guessed.
 
+## Design rules (Sep 12, 2026)
+
+The site had drifted into looking machine-made: hand-drawn SVG diagrams standing in for
+photographs, and every section on every page built from the same skeleton — mono label,
+headline, one-line standfirst, card grid. Five pages of that reads as one template repeated
+forty times, however good the facts are. The rules now:
+
+- **No hand-drawn diagrams.** No flow maps, no dot grids, no timeline bars, no boxes-and-arrows
+  SVG. If a picture is worth having it is a screenshot, a photograph, or a video still. The
+  evidence slots on `/monitors` are where real captures go.
+- **Real assets carry the page:** the hero photograph, the Gamers Nexus embeds, the YouTube
+  thumbnails on `/coverage`, and quotes from named outlets set at size.
+- **Vary the rhythm.** Not every block is a card grid. A page can be a lead, a list of bolded
+  facts, a large pull quote, a command block and a dated log — which is what the front page is now.
+- **No section furniture.** No numbered `01 ·` labels, no standfirst under every heading, no
+  contents chips on short pages. Headings carry it.
+- **Cut.** The front page went from ~1,600 words to under 1,000; `/monitors` from 37KB to 17KB;
+  the stylesheet from 47KB to 26KB after 211 dead rules were pruned.
+- **Voice:** plain sentences of varying length. One antithesis in the headline is a headline;
+  four in a row is a tell.
+
+### Pictures (Sep 13, 2026)
+
+The front page was briefly rebuilt around poster-size numbers — 176px digits, one per screen —
+and it read like a pitch deck, not a consumer alert. The fault was upstream of the layout: every
+"graphic" on this site had been a substitute for a photograph we did not have, and substitutes
+look like substitutes. We were not short of pictures, only short of looking for them.
+
+What we found, all of it public and first-party:
+
+- **LG's own screenshots of the app**, published by LG Electronics on its Microsoft Store listing
+  (product `9PM9N6F47JB8`). They show the installer offering four more LG programs, an *Install
+  All* button, and a toggle reading *PC önyüklemesinde Otomatik Başlatma* — start automatically
+  when the PC boots — shipped switched on. LG serves the same Turkish-language captures to every
+  English-language market. Saved as `lg-installer.jpg`, with two detail crops (`lg-autostart.jpg`,
+  `lg-apps.jpg`) cut from that same file, and the listing icon as `lg-app-icon.png`.
+- **The listing's own numbers**, read from Microsoft's product API and cross-checked against the
+  JSON-LD on `apps.microsoft.com` (`bestRating 5, ratingValue 1, ratingCount 431`): rated **1.0
+  out of 5 from 431 ratings**, 23.6 MB, on the Store since June 16, 2023, publisher LG
+  Electronics Inc. Permissions Microsoft prints on the page: *"Uses all system resources"* and
+  *"Access your Internet connection"*; the package ships `runFullTrust`. The listing's package
+  family name is `LGElectronics.LGMonitorApp_cfnzzhwkr8z5w` — the same package the removal
+  commands target, which ties the Store product to the thing on affected PCs.
+- **Gamers Nexus stills**, hotlinked from `i.ytimg.com` and wrapped in a link to the video, as on
+  `/coverage`.
+
+Rule added: **do not ask the reader for evidence we can go and fetch.** The three dashed
+"screenshot slot" placeholders on `/monitors` are gone, replaced by the LG captures above.
+Reader-supplied captures are still wanted for the moments no public source shows — Reliability
+Monitor filing the install as a Windows update, the McAfee pop-up in the wild, `pnputil` output —
+and the tip box asks for those specifically.
+
+The front page is now lead → four facts at reading size → exhibits (picture, tag, caption that
+carries the fact) → check → remove → models → log. No poster numbers, no drawn graphics.
+
 ## Page split (Aug 16, 2026)
 
 The alert had grown into a wall of prose. It is now three pages with distinct jobs:

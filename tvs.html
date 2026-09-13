@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The TVs — What LG's Smart TVs Send Home | LGSpyware.com · Critical Error Computing</title>
-  <meta name="description" content="A 135-minute investigation by Gamers Nexus, Level1Techs and two security researchers documents what LG smart TVs collect: local network scans, neighbouring Wi-Fi, plaintext audio transcripts in standby, roughly 4GB of viewing data a month, and unpatched remote code execution in webOS. LG denies the audio claims.">
+  <title>The TVs — What LG's Televisions Send Home | LGSpyware.com</title>
+  <meta name="description" content="Network scans, neighbouring Wi-Fi, transcripts from audio with the screen off, roughly 4GB of viewing data a month, and unpatched code execution in webOS. LG says it isn't true.">
   <meta name="robots" content="index,follow">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="LGSpyware.com · Critical Error Computing">
-  <meta property="og:title" content="The TVs: What LG's Smart TVs Send Home">
-  <meta property="og:description" content="Local network scans, neighbouring Wi-Fi, plaintext audio transcripts in standby, ~4GB of viewing data a month, and unpatched RCE in webOS — across an estimated 216 million sets. LG denies the audio claims and confirms the network scanning.">
+  <meta property="og:title" content="The TVs: What LG's Televisions Send Home">
+  <meta property="og:description" content="What the September investigation documented, what LG denies, and what to switch off tonight.">
   <meta property="og:url" content="https://lgspyware.com/tvs">
   <meta property="og:image" content="https://lgspyware.com/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The TVs: What LG's Smart TVs Send Home">
-  <meta name="twitter:description" content="What the September 6 investigation documented, what LG denies, and what you can turn off tonight.">
+  <meta name="twitter:title" content="The TVs: What LG's Televisions Send Home">
+  <meta name="twitter:description" content="What the September investigation documented, what LG denies, and what to switch off tonight.">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>%E2%9A%A0%EF%B8%8F</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,8 +27,8 @@
   <div class="ribbon">
     <div class="wrap ribbon-in">
       <span class="ribbon-tag">The TVs</span>
-      <span class="ribbon-txt">Sep 12 — LG told reporters the investigation "is not true." Gamers Nexus has answered with a point-by-point rebuttal.</span>
-      <a class="ribbon-link" href="/">The alert</a>
+      <span class="ribbon-txt">LG told reporters the investigation is “not true.” Gamers Nexus answered the same day.</span>
+      <a class="ribbon-link" href="/coverage">Watch</a>
     </div>
   </div>
 
@@ -41,8 +41,8 @@
       </div>
       <nav class="topnav">
         <a href="/">The alert</a>
-        <a href="/monitors">The monitors</a>
-        <a href="/tvs">The TVs</a>
+        <a href="/monitors">Monitors</a>
+        <a href="/tvs">TVs</a>
         <a href="/coverage">Coverage</a>
         <a href="/forensics">Forensics</a>
       </nav>
@@ -53,9 +53,9 @@
     <article class="lead">
       <div class="grid-bg"></div>
       <div class="wrap lead-in">
-        <span class="eyebrow">Investigation · Smart TVs</span>
+        <span class="eyebrow">The living room</span>
         <h1>The monitor was the <span class="gw" data-alt="sm4ll">small</span> one.</h1>
-        <p class="dek">On September 6, Gamers Nexus, Level1Techs and two independent researchers published 135 minutes of packet captures, bench tests and teardowns of retail LG televisions. LG told reporters the claims are not true. A week later the researchers came back with a rebuttal and more capture data.</p>
+        <p class="dek">None of this is our work. Gamers Nexus, Level1Techs and two researchers — MrBruh and uturn — put 135 minutes of packet captures and bench tests on retail LG televisions. We're reporting it as theirs.</p>
         <div class="byline">
           <span>By <strong>Critical Error Computing</strong></span>
           <span class="sep">·</span>
@@ -64,170 +64,103 @@
       </div>
     </article>
 
-    <nav class="wrap pagenav">
-      <a href="#found">What they found</a>
-      <a href="#answer">LG's answer</a>
-      <a href="#bug">The unpatched bug</a>
-      <a href="#pattern">The pattern</a>
-      <a href="#settings">What to turn off</a>
-      <a href="#sources">Sources</a>
-    </nav>
-
     <div class="wrap body">
 
       <section id="found">
-        <span class="sec-lbl">01 · The findings</span>
-        <h2>What a television did on a bench</h2>
-        <p class="sub">Two researchers, MrBruh and uturn, worked with Steve Burke of Gamers Nexus and Wendell Wilson of Level1Techs. Retail sets, packet captures, standby measured rather than assumed.</p>
+        <h2>What they found</h2>
+        <ul class="lede">
+          <li><b>It maps the house.</b> Devices that were never paired with the set — phones, watches, routers, thermostats, air purifiers, server management controllers, PCs.</li>
+          <li><b>It maps the street.</b> Names, signal strengths and channels of neighbouring Wi-Fi networks, plus the household's public and internal addresses.</li>
+          <li><b>It listens with the screen off.</b> Plaintext transcripts generated from captured audio. This is the finding LG denies most directly, and the one nobody outside the original team has tested.</li>
+          <li><b>Pulling the plug only delays it.</b> Off the internet, a set kept capturing and stored it locally, then sent once it reconnected.</li>
+          <li><b>It watches every input.</b> Content recognition samples audio and video across inputs, including whatever is on HDMI — about <strong>4GB a month</strong> from one test set.</li>
+          <li><b>It knows your street.</b> On HDMI alone, with nothing broadcast, one set sent <strong>20 packets a minute</strong> to LG's ad arm carrying audio fingerprints, a device ID, timestamps and a location fixed to the nearest major road.</li>
+        </ul>
+        <p class="note-dim">Sources: <a href="https://www.theregister.com/security/2026/09/08/lg-accused-of-egregious-invasion-of-privacy-over-tv-data-collection/5294956" target="_blank" rel="noopener">The Register</a> (Sep 8) · <a href="https://www.malwarebytes.com/blog/privacy/2026/09/lg-tv-flaws-could-let-attackers-listen-in-even-in-standby-mode" target="_blank" rel="noopener">Malwarebytes</a> (Sep 7) · <a href="https://ppc.land/lg-tv-sent-street-level-location-to-its-ad-arm-20-times-a-minute-over-hdmi/" target="_blank" rel="noopener">PPC Land</a> (Sep 12) · <a href="https://www.youtube.com/watch?v=6IFVTcM28KA" target="_blank" rel="noopener">the investigation itself</a></p>
+      </section>
 
-        <div class="findings">
-          <div class="finding">
-            <h3>It maps your home</h3>
-            <p>Devices on the local network that were never paired with the TV: phones, watches, routers, thermostats, air purifiers, server management controllers, PCs.</p>
-          </div>
-          <div class="finding">
-            <h3>It maps your street</h3>
-            <p>Names, signal strengths and channels of neighbouring Wi-Fi networks, alongside the household's public IP and internal addresses.</p>
-          </div>
-          <div class="finding">
-            <h3>It listens in standby</h3>
-            <p>Plaintext transcripts generated from audio captured while the screen is off — the finding LG disputes most directly.</p>
-          </div>
-          <div class="finding">
-            <h3>Offline is a delay, not a stop</h3>
-            <p>Disconnected from the internet, a set kept capturing and stored locally, then transmitted once connectivity returned.</p>
-          </div>
-          <div class="finding">
-            <h3>It watches every input</h3>
-            <p>Content recognition samples audio and video across inputs — including whatever you have plugged into HDMI.</p>
-          </div>
-          <div class="finding">
-            <h3>It knows your street</h3>
-            <p>On HDMI input alone, with nothing broadcast, one set sent <strong>20 packets a minute</strong> to LG's ad arm carrying audio fingerprints, a device ID, timestamps and a location fixed to the nearest major road.</p>
-          </div>
-          <div class="finding">
-            <h3>Roughly 4GB a month</h3>
-            <p>Viewing-recognition data from a single test set, routed to LG's advertising infrastructure.</p>
-          </div>
+      <section class="wrap video-block" style="padding:0">
+        <div class="video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/ToP9xfLDSME"
+            title="Gamers Nexus: LG Says We're Fake News"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
         </div>
-
-        <div class="facts">
-          <div><b>Published</b><span>September 6, 2026 · 135 minutes</span></div>
-          <div><b>Who</b><span>Gamers Nexus with Level1Techs; researchers MrBruh and uturn</span></div>
-          <div><b>Method</b><span>Retail sets, packet capture, standby microphone bench tests, webOS teardown</span></div>
-          <div><b>Scale</b><span><strong>~216 million</strong> LG smart TVs sold worldwide — the figure in the title</span></div>
-        </div>
-        <span class="src"><a href="https://www.theregister.com/security/2026/09/08/lg-accused-of-egregious-invasion-of-privacy-over-tv-data-collection/5294956" target="_blank" rel="noopener">The Register, Sep 8</a> · <a href="https://www.malwarebytes.com/blog/privacy/2026/09/lg-tv-flaws-could-let-attackers-listen-in-even-in-standby-mode" target="_blank" rel="noopener">Malwarebytes, Sep 7</a> · <a href="https://www.youtube.com/watch?v=6IFVTcM28KA" target="_blank" rel="noopener">the investigation itself</a> · location capture reported by <a href="https://ppc.land/lg-tv-sent-street-level-location-to-its-ad-arm-20-times-a-minute-over-hdmi/" target="_blank" rel="noopener">PPC Land, Sep 12</a></span>
+        <p class="caption">The answer to LG's denial, published the same week. <a href="/coverage">All four videos →</a></p>
       </section>
 
       <section id="answer">
-        <span class="sec-lbl">02 · The response</span>
-        <h2>What LG denies, and what it confirms</h2>
-        <p class="sub">LG answered reporters rather than the researchers, and its wording hardened as the week went on. Read it against what was actually alleged.</p>
-
+        <h2>What LG says</h2>
         <blockquote class="quote-lg">
           <p>“The claims made in the recently published video <strong>are not true</strong>.”</p>
-          <p>LG's smart TVs “do not continuously record or transmit user's conversations,” and speech-to-text “begins only if a user activates a voice interaction through a supported wake-word feature or by pressing the voice button on the remote control.”</p>
+          <p>LG's televisions “do not continuously record or transmit user's conversations,” and speech-to-text “begins only if a user activates a voice interaction through a supported wake-word feature or by pressing the voice button on the remote control.”</p>
           <cite>LG, to Tom's Hardware and Engadget, September 9–12</cite>
         </blockquote>
-
-        <p>Gamers Nexus published its answer on <strong>September 12</strong>, going through the denial point by point with further capture data and a lawyer's reading of LG's own agreements. Security researchers quoted by TechRadar made a narrower criticism: the denial answers what LG does with voice, and says nothing about the rest of what the captures show.</p>
-
+        <p>Three things are worth separating out of that.</p>
         <div class="claims">
           <div class="claim">
             <div class="claim-said">
-              <span class="claim-lbl">LG says</span>
-              <p>“LG TVs process voice data only when the voice button on the remote control is pressed and held, or when a wake word such as ‘Hi LG’ is recognized after the user has activated the Far-Field voice recognition feature.” Other than these instances, “the TVs do not collect or record ambient conversations.”</p>
+              <span class="claim-lbl">Denied</span>
+              <p>That the sets record ambient conversation.</p>
             </div>
             <div class="claim-found">
-              <span class="claim-lbl">The allegation it meets</span>
-              <p>A direct contradiction on the central point, and the one a second lab settles rather than a statement. What the researchers describe is not ambient conversation but <strong>transcripts produced with the screen off</strong>. Nobody outside LG has reproduced or refuted it yet.</p>
+              <span class="claim-lbl">But</span>
+              <p>The researchers describe transcripts produced with the screen off, which is a narrower claim than ambient recording. A second lab settles this, not a statement — and nobody has run one.</p>
             </div>
           </div>
           <div class="claim">
             <div class="claim-said">
-              <span class="claim-lbl">LG says</span>
-              <p>Local network scanning is standard functionality for device connectivity, common to smart TVs and media players.</p>
+              <span class="claim-lbl">Confirmed</span>
+              <p>That the televisions scan the local network, which LG calls standard smart TV behaviour.</p>
             </div>
             <div class="claim-found">
-              <span class="claim-lbl">The allegation it meets</span>
-              <p><strong>Confirmed, not denied.</strong> The dispute is not whether the TV enumerates your thermostat and your neighbour's Wi-Fi, but whether a television needs to.</p>
+              <span class="claim-lbl">But</span>
+              <p>Nobody disputed that it happens. The question is why a television needs an inventory of your thermostat and your neighbour's Wi-Fi.</p>
             </div>
           </div>
           <div class="claim">
             <div class="claim-said">
-              <span class="claim-lbl">LG says</span>
-              <p>Content recognition runs on user consent, and unrecognised audio is processed locally and deleted immediately.</p>
+              <span class="claim-lbl">Unanswered</span>
+              <p>Content recognition runs on consent, LG says, and unrecognised audio is processed locally and deleted.</p>
             </div>
             <div class="claim-found">
-              <span class="claim-lbl">The allegation it meets</span>
-              <p>Consent is exactly what Texas made LG rewrite in May. The claim is about the <em>setup screen</em>; the finding is about <strong>volume</strong> — roughly 4GB a month from one set.</p>
+              <span class="claim-lbl">But</span>
+              <p>Consent is what Texas made LG rewrite in May. The finding here is volume — roughly 4GB a month, and a location payload leaving over HDMI.</p>
             </div>
           </div>
         </div>
-        <span class="src">Statements as given to <a href="https://www.theregister.com/security/2026/09/08/lg-accused-of-egregious-invasion-of-privacy-over-tv-data-collection/5294956" target="_blank" rel="noopener">The Register</a> and <a href="https://www.tomshardware.com/tech-industry/big-tech/lg-strongly-denies-tv-security-claims-says-tracking-and-snooping-concerns-not-true-online-investigation-claims-216-000-000-spy-tvs-record-audio" target="_blank" rel="noopener">Tom's Hardware</a>, Sep 8–11</span>
+        <p class="note-dim">Security researchers quoted by <a href="https://www.techradar.com/televisions/lgs-denial-over-tv-spying-claims-does-not-address-the-full-privacy-picture-experts-say-after-report-accuses-it-of-making-216-000-000-spy-tvs" target="_blank" rel="noopener">TechRadar</a> made the same point: the denial answers the voice question and leaves the rest alone.</p>
       </section>
 
       <section id="bug">
-        <span class="sec-lbl">03 · The security half</span>
         <h2>The part that isn't about advertising</h2>
-        <p>Alongside the data collection, the researchers reported <strong>remote code execution flaws in webOS</strong>: a chain that starts with the television's own browser rendering a malicious page and ends with a forged “a mobile device would like to pair with your TV” prompt. A compromised set sits inside the home network with a microphone attached.</p>
+        <p>The researchers also reported <strong>remote code execution in webOS</strong>: the television's own browser renders a malicious page, which then forges a “a mobile device would like to pair with your TV” prompt. A compromised set sits inside the home network with a microphone attached.</p>
         <div class="risk">
-          <span class="risk-lbl">Unresolved as of September 12, 2026</span>
-          <p>Technical details are withheld while responsible disclosure runs. <strong>No CVE has been published and no firmware fix has shipped</strong>, and LG has not addressed the vulnerabilities publicly.</p>
-          <p>This is the one finding where waiting is the correct behaviour from everyone involved — including us. It is listed here so it isn't lost in the advertising story, not because there is anything to act on yet.</p>
+          <span class="risk-lbl">Still open as of September 12</span>
+          <p>Details are being withheld while responsible disclosure runs. No CVE has been published, no firmware fix has shipped, and LG hasn't addressed the vulnerabilities publicly. Waiting is the correct behaviour from everyone here, ourselves included. It's listed so it doesn't get lost behind the advertising story.</p>
         </div>
-        <span class="src"><a href="https://www.malwarebytes.com/blog/privacy/2026/09/lg-tv-flaws-could-let-attackers-listen-in-even-in-standby-mode" target="_blank" rel="noopener">Malwarebytes, Sep 7</a></span>
       </section>
 
-      <section id="pattern">
-        <span class="sec-lbl">04 · The record</span>
-        <h2>Three years, three findings, one answer</h2>
-        <div class="facts">
-          <div><b>2013</b><span>An LG TV sent the <strong>filenames on a user's USB drive</strong> back to LG, and kept transmitting after he opted out. LG admitted it.</span></div>
-          <div><b>Dec 2025</b><span>Texas sues five TV makers over content recognition. LG's US unit <strong>settles on May 11, 2026</strong> — consent before collection, a disclosure screen, a real opt-out, no transfers to the CCP. No admission of liability.</span></div>
-          <div><b>Jul 21, 2026</b><span>Spur finds residential-proxy code in <strong>more than 42%</strong> of apps on LG's webOS store. LG says non-compliant apps will be suspended.</span></div>
-          <div><b>Sep 6, 2026</b><span>The investigation above — four months after the Texas settlement rewrote LG's consent flow.</span></div>
-        </div>
-        <p>The throughline is not a single product. It is that the decision to collect is made once, centrally, and the consent screen is edited afterwards.</p>
-        <div class="handoff">
-          <div>
-            <h3>The same company, on your desk</h3>
-            <p>Plug in an affected LG monitor and Windows installs LG's app in 32 seconds, with no prompt. That is what this site started on, and it is still unfixed.</p>
-          </div>
-          <a class="btn btn-primary" href="/">The alert</a>
-        </div>
+      <section id="record">
+        <h2>This keeps happening</h2>
+        <p>In <strong>2013</strong> an LG television was caught sending the filenames on a user's USB drive back to LG, and kept transmitting after the owner opted out. LG admitted it.</p>
+        <p>In <strong>December 2025</strong> Texas sued five TV makers over content recognition. LG's US unit settled on <strong>May 11, 2026</strong> with no admission of liability, agreeing to get consent before collecting viewing data, show a real disclosure and offer a working opt-out. Four months later came the captures above.</p>
+        <p>In <strong>July 2026</strong>, Spur found residential-proxy code in more than 42% of the apps on LG's own webOS store, quietly renting out the bandwidth of people's televisions. Krebs on Security reported it; LG said non-compliant apps would be suspended.</p>
       </section>
 
       <section id="settings">
-        <span class="sec-lbl">05 · Tonight</span>
-        <h2>What you can turn off</h2>
-        <p class="sub">None of this removes the network scanning, and none of it touches the unpatched bug. It does cut what leaves the set.</p>
+        <h2>What to switch off</h2>
+        <p>None of this stops the network scanning, and none of it touches the unpatched bug. It does cut what leaves the set.</p>
         <ol class="steps">
-          <li><strong>Content recognition.</strong> Settings → All Settings → General → System → Additional Settings → turn off <strong>Live Plus</strong>. This is the ACR switch.</li>
-          <li><strong>Ad personalisation.</strong> Same menu → Advertisement → <strong>Limit Ad Tracking</strong>. Reset the advertising ID while you're there.</li>
-          <li><strong>Voice.</strong> Turn off <strong>Far-Field voice recognition</strong> if you don't use it — by LG's own account, that is the feature that opens the microphone without the remote.</li>
-          <li><strong>The blunt instrument.</strong> Take the TV off Wi-Fi and feed it from a streaming stick or a PC. The set keeps capturing; it loses the route home.</li>
+          <li><strong>Content recognition.</strong> Settings → All Settings → General → System → Additional Settings → turn off <strong>Live Plus</strong>.</li>
+          <li><strong>Ad tracking.</strong> Same menu → Advertisement → <strong>Limit Ad Tracking</strong>, and reset the advertising ID while you're in there.</li>
+          <li><strong>Voice.</strong> Turn off far-field voice recognition if you don't use it. By LG's own account that's the feature that opens the microphone without the remote.</li>
+          <li><strong>The blunt one.</strong> Take the television off Wi-Fi and feed it from a streaming stick. The set keeps capturing; it loses the route home.</li>
         </ol>
-        <p class="note-dim">Menu names move between webOS versions and regions. If yours differ, the wording to look for is <em>Live Plus</em>, <em>Additional Settings</em> and <em>Advertisement</em>.</p>
-      </section>
-
-      <section id="sources">
-        <span class="sec-lbl">06 · Sources</span>
-        <h2>Everything above, in order</h2>
-        <ul class="sources">
-          <li><a href="https://www.youtube.com/watch?v=6IFVTcM28KA" target="_blank" rel="noopener">Gamers Nexus — “216,000,000 Spy TVs: The LG Smart TV Problem”</a> (Sep 6; with Level1Techs, MrBruh and uturn)</li>
-          <li><a href="https://www.theregister.com/security/2026/09/08/lg-accused-of-egregious-invasion-of-privacy-over-tv-data-collection/5294956" target="_blank" rel="noopener">The Register — LG accused of “egregious invasion of privacy”</a> (Sep 8; the device list, the standby transcripts, LG's voice-data statement)</li>
-          <li><a href="https://www.malwarebytes.com/blog/privacy/2026/09/lg-tv-flaws-could-let-attackers-listen-in-even-in-standby-mode" target="_blank" rel="noopener">Malwarebytes — LG TV flaws could let attackers listen in, even in standby</a> (Sep 7; the webOS RCE and disclosure status)</li>
-          <li><a href="https://www.tomshardware.com/tech-industry/big-tech/lg-strongly-denies-tv-security-claims-says-tracking-and-snooping-concerns-not-true-online-investigation-claims-216-000-000-spy-tvs-record-audio" target="_blank" rel="noopener">Tom's Hardware — LG strongly denies TV spying claims</a> (Sep 11; the denial in full, and the note that neither side has been independently verified)</li>
-          <li><a href="https://www.youtube.com/watch?v=ToP9xfLDSME" target="_blank" rel="noopener">Gamers Nexus — “LG Says We're Fake News”</a> (Sep 12; the rebuttal to LG's denial)</li>
-          <li><a href="https://ppc.land/lg-tv-sent-street-level-location-to-its-ad-arm-20-times-a-minute-over-hdmi/" target="_blank" rel="noopener">PPC Land — LG TV sent street-level location to its ad arm 20 times a minute over HDMI</a> (Sep 12; uturn's capture, with the payload fields listed)</li>
-          <li><a href="https://www.engadget.com/2256728/lg-denies-accusations-of-smart-tvs-continuously-recording-its-users/" target="_blank" rel="noopener">Engadget — LG denies accusations of smart TVs continuously recording its users</a> (Sep 12)</li>
-          <li><a href="https://www.techradar.com/televisions/lgs-denial-over-tv-spying-claims-does-not-address-the-full-privacy-picture-experts-say-after-report-accuses-it-of-making-216-000-000-spy-tvs" target="_blank" rel="noopener">TechRadar — experts say the denial “does not address the full privacy picture”</a> (Sep 11)</li>
-          <li><a href="https://krebsonsecurity.com/2026/07/lg-to-ban-residential-proxies-from-smart-tv-apps/" target="_blank" rel="noopener">Krebs on Security — LG to ban residential proxies from smart TV apps</a> (Jul 21)</li>
-          <li><a href="https://natlawreview.com/article/texas-obtains-smart-tv-privacy-settlement-lg-heres-what-changes" target="_blank" rel="noopener">The National Law Review — Texas obtains smart TV privacy settlement with LG</a> (May 11)</li>
-        </ul>
-        <p class="note-dim">We have not tested a television. Everything on this page is other people's work, labelled as theirs — our own bench work is <a href="/forensics">the monitor</a>.</p>
+        <p class="note-dim">Menu names move between webOS versions and regions. Look for <em>Live Plus</em>, <em>Additional Settings</em> and <em>Advertisement</em>.</p>
       </section>
 
     </div>
@@ -239,7 +172,7 @@
           <span class="pub-mark">Critical <span class="err">Error</span> Computing</span>
           <span class="pub-tag">Custom gaming PCs, built by humans · Humble, TX</span>
         </div>
-        <p class="pub-body"><strong>Why a PC shop is publishing this:</strong> we build and support computers for a living. When hardware starts installing adware on our customers' machines without asking, it lands on our bench — so we tested it and published the whole chain. Reporting, not a pitch: there's nothing to buy here. <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">More about CEC ↗</a></p>
+        <p class="pub-body">We have not tested a television. Everything on this page is other people's work, labelled as theirs — our own bench work is <a href="/monitors">the monitor</a>. <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">More about CEC ↗</a></p>
       </div>
     </section>
 
@@ -247,8 +180,8 @@
 
   <footer class="site">
     <div class="wrap">
-      <p><strong>LGSpyware.com · The TVs</strong> — published by <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">Critical Error Computing</a>, a custom PC builder in Humble, TX. The monitor story is <a href="/">the alert</a> and <a href="/monitors">the report</a>.</p>
-      <p class="disclaimer">Not affiliated with LG Electronics, Microsoft, McAfee, Dell, or Alienware. Product names and trademarks belong to their owners; “spyware” reflects cited reporting and LG's own documented conduct. Contact: lgspyware.com@gmail.com</p>
+      <p><strong>LGSpyware.com · The TVs</strong> — published by <a href="https://www.criticalerrorcomputing.com/" target="_blank" rel="noopener">Critical Error Computing</a> in Humble, TX. <a href="/">The alert</a> · <a href="/monitors">the monitors</a> · <a href="/coverage">the coverage</a>.</p>
+      <p class="disclaimer">Not affiliated with LG Electronics, Microsoft, McAfee, Dell or Alienware. Contact: lgspyware.com@gmail.com</p>
     </div>
   </footer>
 
