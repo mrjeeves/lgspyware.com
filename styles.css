@@ -617,3 +617,74 @@ section > h2 { scroll-margin-top: 18px; }
 
 /* Sections breathe on their own now that the labels are gone. */
 .wrap > h2 { margin-top: 40px; }
+
+/* ============================================================
+   Full-bleed panels. One idea each, set big enough to read at a
+   glance. Typography is the graphic here — no drawn diagrams.
+   ============================================================ */
+.panel {
+  position: relative; overflow: hidden;
+  border-top: 1px solid var(--border);
+  padding: clamp(38px, 7vw, 86px) 20px;
+}
+.panel-alt { background: var(--bg-2); }
+.panel-in { max-width: 920px; margin: 0 auto; }
+.panel-num {
+  display: block; font-family: var(--font-cond); font-weight: 700;
+  font-size: clamp(4.2rem, 15vw, 11rem); line-height: 0.84;
+  letter-spacing: -0.015em; color: var(--ink);
+  text-transform: uppercase;
+}
+.panel-num .u {
+  font-size: 0.34em; letter-spacing: 0.02em; color: var(--accent-ink);
+  margin-left: 0.12em; vertical-align: baseline;
+}
+.panel-hot .panel-num { color: var(--accent-ink); }
+.panel-red .panel-num { color: var(--red-ink); }
+.panel-txt {
+  margin: 22px 0 0; max-width: 30ch;
+  font-family: var(--font-cond); font-weight: 600;
+  font-size: clamp(1.25rem, 2.7vw, 1.85rem); line-height: 1.2;
+  color: var(--ink);
+}
+.panel-sub {
+  margin: 12px 0 0; max-width: 56ch;
+  font-size: 0.98rem; color: var(--ink-faint);
+}
+.panel-sub a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
+.panel-wide .panel-txt { max-width: 46ch; }
+
+/* Two panels side by side where the contrast is the point. */
+.split { display: grid; grid-template-columns: 1fr 1fr; max-width: 960px; margin: 0 auto; }
+.split > .panel { border-top: 0; padding-left: 20px; padding-right: 20px; }
+.split .panel-in { max-width: none; }
+.split > .panel + .panel { border-left: 1px solid var(--border); }
+@media (max-width: 760px) {
+  .split { grid-template-columns: 1fr; }
+  .split > .panel + .panel { border-left: 0; border-top: 1px solid var(--border); }
+}
+
+/* A video still, used at size, as the image it is. */
+.still { display: block; position: relative; margin: 0; }
+.still img {
+  display: block; width: 100%; height: auto;
+  border-radius: var(--r-md); border: 1px solid var(--border);
+  background: var(--bg-2); aspect-ratio: 16/9; object-fit: cover;
+}
+.still::after {
+  content: "▶"; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%,-50%);
+  width: 76px; height: 76px; line-height: 74px; text-indent: 5px;
+  border-radius: 50%; text-align: center; font-size: 24px; color: #fff;
+  background: rgba(10,10,15,0.7); border: 1px solid rgba(255,255,255,0.25);
+}
+.still:hover::after { background: var(--accent); border-color: var(--accent); }
+.still figcaption {
+  margin-top: 12px; font-size: 0.94rem; color: var(--ink-soft);
+}
+.stills { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 760px) { .stills { grid-template-columns: 1fr; } }
+
+/* Big action row */
+.actions-big { display: flex; gap: 12px; flex-wrap: wrap; margin: 26px 0 0; }
+.actions-big .btn { font-size: 1.05rem; padding: 15px 26px; }
