@@ -29,8 +29,8 @@
   <div class="ribbon">
     <div class="wrap ribbon-in">
       <span class="ribbon-tag">Developing</span>
-      <span class="ribbon-txt">Sep 6 — 135 minutes of packet captures on retail LG televisions. LG denies the audio findings and confirms the network scanning.</span>
-      <a class="ribbon-link" href="/tvs">The TVs</a>
+      <span class="ribbon-txt">Sep 12 — LG told reporters the investigation is “not true.” Gamers Nexus has answered it point by point.</span>
+      <a class="ribbon-link" href="/coverage">Watch</a>
     </div>
   </div>
 
@@ -46,6 +46,7 @@
         <a href="/monitors">The monitors</a>
         <a href="#timeline">Timeline</a>
         <a href="#remove">Remove it</a>
+        <a href="/coverage">Coverage</a>
         <a href="/forensics">Forensics</a>
       </nav>
     </div>
@@ -60,7 +61,7 @@
           <div>
             <span class="eyebrow">Consumer alert · LG</span>
             <h1>One screen lets software in. The other sends the room <span class="gw" data-alt="0ut">out</span>.</h1>
-            <p class="dek">Same company. Neither asked. In July this site was about a pop-up; in September a 135-minute investigation put numbers on the rest of it.</p>
+            <p class="dek">Both are LG, and neither one asked first. This site started in July over a pop-up on a monitor. By September there were 135 minutes of packet captures behind the rest of it, and LG was telling reporters none of it is true.</p>
             <div class="lead-actions">
               <a class="btn btn-primary" href="#remove">What do I do?</a>
               <a class="btn btn-ghost" href="#timeline">How it got here</a>
@@ -81,7 +82,7 @@
     <!-- THE MAP -->
     <section class="wrap diagram-block">
       <h2>Two screens, two directions</h2>
-      <p class="sub">One device is the exit. The other is the entrance.</p>
+      <p class="sub">We tested the monitor ourselves. The television work belongs to Gamers Nexus and Level1Techs, and the arrows below note which is which.</p>
 
       <svg class="flowmap" viewBox="0 0 1000 360" role="img" aria-labelledby="fmt fmd">
         <title id="fmt">What leaves the house, and what gets into the PC</title>
@@ -155,7 +156,7 @@
     <!-- THE TWO FRONTS -->
     <section id="fronts" class="wrap">
       <h2>Where it's happening</h2>
-      <p class="sub">The two halves came from different people. Both are on this site, sourced separately.</p>
+      <p class="sub">Two devices, two sets of evidence, gathered by different people.</p>
       <div class="fronts">
         <div class="front front-tv">
           <span class="front-lbl">The living room · their work</span>
@@ -165,7 +166,7 @@
             <li>Maps the house: devices <strong>never paired</strong> with the set — phones, watches, thermostats, PCs</li>
             <li>Maps the street: <strong>neighbouring Wi-Fi</strong> names, signal strengths, channels</li>
             <li><strong>Plaintext transcripts</strong> from audio captured with the screen off — the finding LG denies</li>
-            <li>Offline is a delay, not a stop: it stores and sends on reconnect</li>
+            <li>Pulling it off the internet doesn't stop the capture; it stores what it gets and uploads on reconnect</li>
             <li><strong>Unpatched remote code execution</strong> in webOS, no CVE published</li>
           </ul>
           <a class="btn btn-ghost" href="/tvs">What they found →</a>
@@ -205,29 +206,29 @@
         <div class="st st-den">
           <span class="st-h">Denied</span>
           <ul>
+            <li>All of it. LG's word to reporters: “not true”</li>
             <li>That the TVs record ambient conversation</li>
             <li>That McAfee was ever installed without consent</li>
-            <li>That the installer collects personal data</li>
             <li>No second lab has tested the audio finding either way</li>
           </ul>
         </div>
         <div class="st st-unf">
           <span class="st-h">Unfixed</span>
           <ul>
-            <li>The silent install — 40 days after the promise</li>
+            <li>The silent install, 40 days after the promise</li>
             <li>The webOS bugs — no CVE, no firmware</li>
             <li>The Windows channel any vendor can still use</li>
             <li>Anything already resident on your machine</li>
           </ul>
         </div>
       </div>
-      <p class="board-foot">The pop-up was the part you could see. Everything since has been about what you couldn't. <a href="/monitors#august">What LG has actually committed to →</a></p>
+      <p class="board-foot">LG has answered the advertisement, the pop-up and the voice question. It still hasn't shipped the consent prompt it promised in August, and its denial this week didn't address most of what the captures show. <a href="/monitors#august">What it has actually committed to →</a></p>
     </section>
 
     <!-- TIMELINE -->
     <section id="timeline" class="wrap">
       <h2>How it got here</h2>
-      <p class="sub">Twenty months of silent installs, three weeks of noise, a promise nobody printed — and then the televisions.</p>
+      <p class="sub">Forum posts nobody acted on in 2024, a pop-up that made people look in July, and a 135-minute investigation this month.</p>
       <ol class="timeline tl-tight">
         <li class="tl-phase"><span>2024 – Jun 2026 · nobody acts</span></li>
         <li><time datetime="2024-11-18">Nov 18, 2024</time><div>First complaint on Microsoft's forum about a monitor app installing itself. Twenty months follow. None mention ads.</div></li>
@@ -249,7 +250,9 @@
         <li class="tl-phase"><span>Sep 2026 · the bigger half</span></li>
         <li class="tl-key"><time datetime="2026-09-06">Sep 6</time><div>Gamers Nexus, Level1Techs and two researchers publish <strong>“216,000,000 Spy TVs”</strong> — 135 minutes of packet captures, standby bench tests and a webOS teardown. <a href="/tvs">What it found →</a></div></li>
         <li><time datetime="2026-09-08">Sep 8–11</time><div>LG denies the audio findings and confirms the network scanning. The webOS bugs stay unpatched, with no CVE published. <a href="/tvs#answer">Its answer, line by line →</a></div></li>
-        <li><time datetime="2026-09-12">Sep 12</time><div>Our re-check: LG's promise to ask first is <strong>40 days old and unshipped</strong>. Store product unchanged since Aug 12, permissions unchanged, rating 1.0 from 431.</div></li>
+        <li><time datetime="2026-09-12">Sep 12</time><div>A capture published by PPC Land shows a set on HDMI input sending <strong>20 packets a minute</strong> to LG's ad arm — audio fingerprints, a device ID and a location good to the nearest major road. <a href="/tvs#found">The findings →</a></div></li>
+        <li class="tl-key"><time datetime="2026-09-12">Sep 12</time><div>Gamers Nexus answers the denial with <strong>“LG Says We're Fake News”</strong>, going through it point by point with more capture data and a lawyer on LG's agreements. <a href="/coverage">All four videos →</a></div></li>
+        <li><time datetime="2026-09-12">Sep 12</time><div>Meanwhile, on the desk: LG's promise to ask before installing is <strong>40 days old</strong>, and the app's Store product hasn't changed since Aug 12.</div></li>
         <li class="pending"><time>Next</time><div>A monitor build that <em>asks</em>; a second lab on the standby audio; a CVE. <a href="#tips">Reader reports settle the first.</a></div></li>
       </ol>
     </section>
@@ -257,7 +260,7 @@
     <!-- WHAT TO DO -->
     <section id="remove" class="wrap">
       <h2>What to do about it</h2>
-      <p class="sub">Different device, different job. Neither takes long.</p>
+      <p class="sub">Two different jobs, both quick.</p>
       <div class="fronts">
         <div class="front front-mon">
           <span class="front-lbl">On the PC</span>
@@ -291,7 +294,7 @@
           referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen></iframe>
       </div>
-      <p class="caption">▶ <strong>Gamers Nexus</strong> — “216,000,000 Spy TVs,” with Level1Techs and researchers MrBruh and uturn. The July investigation that started this is <a href="https://www.youtube.com/watch?v=Q9uefFYe6bM" target="_blank" rel="noopener">here</a>.</p>
+      <p class="caption">▶ <strong>Gamers Nexus</strong> — “216,000,000 Spy TVs,” made with Level1Techs and researchers MrBruh and uturn. <a href="/coverage">All four videos, in order, with the press log →</a></p>
     </section>
 
     <!-- OUTLET STRIP -->
